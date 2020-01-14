@@ -1,0 +1,50 @@
+
+\section{Degree zero}
+\label{sec:dzero}
+
+
+We make use of the following result. Let $Cat$ denote the category of small categories.
+\begin{lemma}\label{lem:degree_zero_colimit_category_nerve}
+Let $F:J\to Cat$ be a functor whose source is a small category. Let $\mathscr{L}$ be the colimit of $F$. If $X$ is the colimit of the composite diagram
+\[J\xrightarrow{F} Cat\xrightarrow{N} sSet,\]
+then the canonical map $X\to N\mathscr{L}$ is a bijection in degree $0$.
+\end{lemma}
+\begin{proof}
+Let $O$ denote the functor $Cat\to Set$ that takes a small category to the set of its objects. Recall that $O$ has a right adjoint, namely the functor that takes a set $S$ to the indiscrete category $IS$. This is the category whose set of objects is precisely $S$ and that is such that each hom set is a singleton.
+
+We also use the functor
+\[sSet=Fun(\Delta ^{op},Set)\xrightarrow{(-)_0} Set\]
+that sends a simplicial set to the set of its $0$-simplices. There is a natural bijection
+\[O\mathscr{C} \xrightarrow{\cong} (N\mathscr{C} )_0,\]
+that takes an element $c$ of the set $O\mathscr{C}$ of objects of a small category $\mathscr{C}$ to the simplex $[0]\to \mathscr{C}$ with $0\mapsto c$.
+
+Because $O$ is cocontinous, we get a canonical function $O\mathscr{L} \to X_0$. As colimits in $sSet$ are formed degreewise it follows that this function is a bijection. There is also a canonical function $O\mathscr{L} \to (N\mathscr{L} )_0$, which by naturality must be the mentioned bijection. The induced map $X_0\to (N\mathscr{L} )_0$ fits into a triangle
+\begin{displaymath}
+\xymatrix{
+O\mathscr{L} \ar[dr]_\cong \ar[rr]^\cong && (N\mathscr{L} )_0 \\
+& X_0 \ar[ur] \\
+}
+\end{displaymath}
+that commutes by the universal property of the colimit $O\mathscr{L}$. Hence, our claim that $X\to N\mathscr{L}$ is a bijection in degree $0$ is true.
+\end{proof}
+\noindent An application of the previous lemma is the following example.
+\begin{example}\label{ex:pushout_poset_along_dwyer}
+Let $F':J\to PoSet$ be a diagram
+\begin{displaymath}
+\xymatrix{
+P \ar[d]_k \ar[r]^\varphi & R \\
+Q
+}
+\end{displaymath}
+where $k$ is a Dwyer map. As $PoSet$ is a reflective subcategory of $Cat$, it follows that $U:PoSet\to Cat$ preserves the pushout of $F'$ \cite[Lem.~5.6.4]{Th80}. If $Q\sqcup _PR$ is the colimit of $F=U\circ F'$, then \cref{lem:degree_zero_colimit_category_nerve} says that
+the canonical map
+\[NQ\sqcup _{NP}NR\to N(Q\sqcup _PR)\]
+is a bijection in degree $0$.
+
+In particular, if $k$ is the special Dwyer map
+\[k=i_0:P\to P\times [1]=Q,\]
+then the reduction map
+\[cr:T(N\varphi )\to M(N\varphi )\]
+is in general a bijection in degree $0$.
+\end{example}
+

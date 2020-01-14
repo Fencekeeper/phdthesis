@@ -1,0 +1,52 @@
+\section{Introduction}
+\label{sec:intro_itdesing}
+
+Desingularization is defined thus.
+\begin{definition}\label{def:desingularization}
+Let $X$ be a simplicial set. The \textbf{desingularization} of $X$ \cite[Rem.~2.2.12]{WJR13}, denoted $DX$, is the image of the map
+\[X\to \prod _{f:X\rightarrow Y}Y\]
+given by $x\mapsto (f(x))_f$, where the product is indexed over the quotient maps $f:X\rightarrow Y$ whose targets $Y$ are non-singular.
+\end{definition}
+\noindent A product of non-singular simplicial sets is again non-singular\\ \cite[Rem.~2.2.12]{WJR13}, and a simplicial subset of a non-singular simplicial set is again non-singular \cite[Rem.~2.2.12]{WJR13}. Therefore, the simplicial set $DX$ is non-singular. In this paper, we will give a systematic, but minimal introduction to the functor $D$.
+
+If we corestrict the map $X\to \prod _{f:X\rightarrow Y}Y$ to its image $DX$, then we get a map $\eta _X:X\to DX$. By this we simply mean the following. If $h:Z\to W$ is a simplicial map whose image is contained in some simplicial subset $W'$ of $W$, then we say that the induced map $Z\to W'$ is a \textbf{corestriction} of $h$ to $W'$.
+
+Thus far, the description given in \cref{def:desingularization} is the only description available in the literature. In this paper, we provide the viewpoint of \cref{thm:main_result_itdesing} to desingularization. To obtain this viewpoint, we introduce the notion of enforcer in \cref{def:enforcer}.
+
+When we say that a simplex is \textbf{embedded} if its representing map is degreewise injective, we get a more convenient definition of the term \emph{non-singular simplicial set}. Given a simplicial set $X$ and a non-degenerate simplex $x$ in $X$, the enforcer $\rho _x$ is the degeneracy operator that in the least drastic way makes the cobase change of the representing map of $x$ into the representing map of a degenerate simplex, in the case when $x$ is not embedded, or that makes the trivial cobase change, in the case when $x$ is embedded. In other words, the enforcer is the degeneracy operator that is as close as possible to the identity meanwhile honouring any pairwise equalities between the vertices of $x$.
+
+Simultaneously pushing out along all the enforcers associated with a simplicial set $X$ yields a simplicial set $Cen(X)$ that we refer to as the enforced collapse of $X$. The notion is properly introduced in \cref{def:enforced_collapse}. One should think of the enforced collapse as a preferred first step towards making $X$ non-singular. If some non-degenerate simplex of $X$ is not embedded, then we say that $X$ is \textbf{singular}. Note that $Cen(X)$ may be singular. By \cref{lem:pushout_along_enforcers_intermediate_desingularization}, which is formulated in a slightly generalized context compared with the enforced collapse, we get that pushing out along enforcers is never too drastic. Moreover, if the result is non-singular, then it is canonically the desingularization.
+
+We are ready to explain the iterative description of desingularization, which is formulated using the following piece of language.
+\begin{definition}\label{def:sequence_composition}
+Let $\mathscr{C}$ be some cocomplete category and suppose $\lambda$ some ordinal. A \textbf{$\lambda$-sequence in $\mathscr{C}$} is a cocontinous functor $X:\lambda \to \mathscr{C}$, that we will denote
+\begin{displaymath}
+\xymatrix{
+X^{[0]} \ar[r]^{f^{0,1}} & X^{[1]} \ar[r]^{f^{1,2}} & \cdots \ar[r] & X^{[\beta ]}\ar[r]^{f^{\beta ,\beta +1}} & \cdots \, .
+}
+\end{displaymath}
+The canonical map $X^{[0]}\to colim_{\beta <\lambda }X^{[\beta ]}$ is the \textbf{composition} of the $\lambda$-sequence. A \textbf{sequence} in $\mathscr{C}$ is a $\lambda$-sequence for some $\lambda$.
+\end{definition}
+\noindent If $\lambda$ is finite, then the composition is a composite in the usual sense.
+\begin{theorem}\label{thm:main_result_itdesing}
+Let $X$ be a simplicial set. There is an ordinal $\lambda$ such that the map $\eta _X:X\to UDX$ is the composition of the $\lambda$-sequence
+\begin{displaymath}
+\xymatrix{
+Cen^0(X) \ar[r] & Cen^1(X) \ar[r] & \cdots \ar[r] & Cen^\beta (X) \ar[r] & \cdots \, .
+}
+\end{displaymath}
+of iterations of the enforced collapse.
+\end{theorem}
+\noindent \cref{thm:main_result_itdesing} provides an alternative description of the desingularization functor. Note that the ordinal $\lambda$ depends on the simplicial set $X$.
+
+Let $sSet$ denote the category of simplicial sets. Furthermore, let $nsSet$ denote the category of non-singular simplicial sets. It is by definition the full subcategory of $sSet$ whose objects are the non-singular simplicial sets.
+
+As we explain \cref{def:desingularization} and as we explain how desingularization is functorial in \cref{sec:prelim}, we fix some notation and terminology to be used throughout the paper. Furthermore, we point out the implications for limits and colimits in $nsSet$ of the fact that $D$ is left adjoint to the (full) inclusion $U:nsSet\to sSet$. \cref{sec:prelim} is merely an elaboration of \cite[Rem.~2.2.12]{WJR13}, where desingularization is introduced.
+
+In \cref{sec:calculations}, we introduce the enforcer to serve as the most basic technology for doing calculations as well as for theory. Building on this notion, we provide the two results \cref{prop:role_of_enforcers} and \cref{lem:pushout_along_enforcers_intermediate_desingularization} as tools.
+
+We illustrate how desingularization behaves in \cref{sec:examples}. Our examples include applying $D$ to highly singular, somewhat subdivided and very subdivided simplicial sets, most of which are models of low-dimensional spheres.
+
+Finally, in \cref{sec:description}, we explain how \cref{prop:role_of_enforcers} and \cref{lem:pushout_along_enforcers_intermediate_desingularization} can be used to construct the sequence that \cref{thm:main_result_itdesing} refers to and we conclude the section as well as the paper by deducing \cref{thm:main_result_itdesing} from the construction.
+
+

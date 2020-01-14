@@ -1,0 +1,171 @@
+
+
+\section{Preliminaries}
+\label{sec:prelim}
+
+In this section, we establish the functorality of desingularization. To do this, we first fix some basic notation and terminology, which is anyhow useful throughout this paper. Additionally, we properly explain \cref{def:desingularization} to avoid any confusion.
+
+\subsection{Notation and terminology}
+
+Fritsch and Piccinini \cite{FP90} is a source of the style we use, when it comes to notation and terminology.
+
+The category
+\[sSet=Fun(\Delta ^{op},Set)\]
+is the category of functors (and natural transformations) with source $\Delta ^{op}$ and target the category $Set$ of sets (and functions). When we write $\Delta$, we mean the skeleton of finite ordinals whose objects are totally ordered sets
+\[[n]=\{ 0<1<\dots <n\}\]
+and whose morphisms are order-preserving functions $\alpha :[m]\to [n]$, meaning $\alpha (i)\leq \alpha (j)$ if $i\leq j$. An object in the category $sSet$ is a \textbf{simplicial set}.
+
+Morphisms of $\Delta$ are referred to as \textbf{operators}. We sometimes think of a simplicial set $X$ as an $\mathbb{N} _0$-graded set $\bigsqcup _{n\geq 0}X_n$ with operators acting from the right. Here, we mean $X_n=X([n])$, $n\geq 0$. Elements of $X_n$ are referred to as \textbf{$n$-simplices}, $n\geq 0$. We also say that $n$ is the \textbf{degree} of $x$ if $x$ is an $n$-simplex. If $x$ is an $n$-simplex of $X$ and if $\alpha :[m]\to [n]$ is an operator, then $\alpha$ acts on $x$ from the right. The result will be denoted $x\alpha$. The induced function $\alpha ^*:X_n\to X_m$ thus takes $x$ to $\alpha ^*(x)=x\alpha$.
+
+When we think of simplicial sets as graded sets under right action of operators, we also think of a simplicial map $f:X\to Y$, meaning a natural transformation $X\Rightarrow Y$, as a function that respect the degree, meaning $f(x)\in Y_n$ if $x\in X_n$, and that is compatible with the right action of operators, meaning $f(x\alpha )=f(x)\alpha$.
+
+An operator $\alpha :[m]\to [n]$ is referred to as a \textbf{face operator} if $\alpha (i)\neq \alpha (j)$ whenever $i,j\in \{0,\dots ,m\}$ and $i\neq j$. It is referred to as a \textbf{degeneracy operator} if $k=\alpha (j)$ for some $j\in \{0,\dots ,m\}$ for all $k\in \{0,\dots ,n\}$. These classes of morphisms are precisely the monomorphisms and epimorphisms of $\Delta$, respectively.
+
+For each $n>0$ and each $j$ with $0\leq j\leq n$, we can define the face operator $\delta ^n_j:[n-1]\to [n]$ such that $j$ is not in its image, referred to as an \textbf{elementary face operator}. Similarly, for each $n\geq 0$, we can define the degeneracy operator $\sigma ^n_j:[n+1]\to [n]$ with $j\mapsto j$ and $j+1\mapsto j$. Also useful is the \textbf{vertex operator} $\varepsilon ^n_j:[0]\to [n]$ with $0\mapsto j$, defined whenever $0\leq j\leq n$. We often omit the upper index when referring to these three special types of operators.
+
+A degeneracy operator or face operator is \textbf{proper} if it is not an identity morphism. We say that a simplex $y$ is a \textbf{(proper) face} of a simplex $x$ if $y=x\mu$ for some (proper) face operator $\mu$ and that $y$ is a \textbf{(proper) degeneracy} of $x$ if $y=x\rho$ for some (proper) degeneracy operator $\rho$. A simplex is \textbf{non-degenerate} if it is not a proper degeneracy. 
+
+The Eilenberg-Zilber lemma \cite[Thm.~4.2.3]{FP90} says that any simplex $x$ of a simplicial set can be written uniquely as a degeneration of a non-degenerate simplex. This means that there is a unique pair $(x^\sharp ,x^\flat )$ consisting of a non-degenerate simplex $x^\sharp$ and a degeneracy operator $x^\flat$ that satisfies
+\[x=x^\sharp x^\flat.\]
+The non-degenerate simplex $x^\sharp$ will be referred to as the \textbf{non-degenerate part} of $x$ and $x^\flat$ will be referred to as the \textbf{degenerate part} of $x$. We let $X^\sharp$ denote the set of non-degenerate simplices of a simplicial set $X$ and $X^\sharp _n$ the set of non-degenerate simplices of degree $n$, for each $n\geq 0$.
+
+By the Yoneda lemma, there is a natural bijective correspondence $x\mapsto \bar{x}$ between the set $X_n$ of $n$-simplices and the set of simplicial maps $\Delta [n]\to X$. We say that
+\[\bar{x}:\Delta [n]\to X\]
+is the \textbf{representing map} of the simplex $x$.
+
+
+\subsection{Quotients}
+
+Desingularization has the following property \cite[Rem.~2.2.12]{WJR13}.
+\begin{lemma}\label{lem:desing_unique_factorization_through_unit}
+Let $X$ be a simplicial set. Every simplicial map whose source is $X$ and whose target is non-singular factors uniquely through $\eta _X$.
+\end{lemma}
+\noindent Before we prove the property, we explain \cref{def:desingularization} properly.
+
+Let $X$ be some simplicial set. Consider the event that we for each $n\geq 0$ have an equivalence relation $R_n$ on $X_n$ such that whenever we have an operator $\alpha :[m]\to [n]$, then the composite
+\[R_n\to X_n\times X_n\xrightarrow{\alpha ^*\times \alpha ^*} X_m\times X_m\]
+corestricts to $R_m\subseteq X_m\times X_m$. This means that we have a commutative square
+\begin{equation}
+\label{eq:first_diagram_proof_lem_desing_unique_factorization_through_unit}
+\begin{gathered}
+\xymatrix{
+R_n \ar[d]_{\bar{\alpha } } \ar[r] & X_n\times X_n \ar[d]^{\alpha ^*\times \alpha ^*} \\
+R_m \ar[r] & X_m\times X_m
+}
+\end{gathered}
+\end{equation}
+which in turn gives rise to a dashed map in the square
+\begin{equation}
+\label{eq:second_diagram_proof_lem_desing_unique_factorization_through_unit}
+\begin{gathered}
+\xymatrix{
+X_n \ar[d]_{\alpha ^*} \ar[r] & X_n/R_n \ar@{-->}[d] \\
+X_m \ar[r] & X_m/R_m
+}
+\end{gathered}
+\end{equation}
+such that it commutes.
+
+Thus we obtain a simplicial set $X/R$ given by defining the set
+\[(X/R)_n=X_n/R_n\]
+as the set of $n$-simplices. It is readily checked that the right hand vertical map in (\ref{eq:second_diagram_proof_lem_desing_unique_factorization_through_unit}) is a right action of the operator $\alpha$ on the set $X_n/R_n$ so that $X/R$ is indeed a simplicial set. From the commutativity of (\ref{eq:second_diagram_proof_lem_desing_unique_factorization_through_unit}), it is automatic that the canonical map $X\to X/R$ is a simplicial map. We say that it is a \textbf{quotient map}. If we fix a simplicial set $X$, then the quotient maps $X\to Y$ form a set. This explains \cref{def:desingularization}.
+
+If $f:X\to Y$ is a degreewise surjective simplicial map, then we may define $R_n$, $n\geq 0$, by letting $x\sim x'$ if $f(x)=f(x')$. Because $f$ respects operators, as a simplicial map, it follows that the equivalence relations $R_n$, $n\geq 0$, form a set of equivalence relations of the type described above. By making a choice of a representative one can define a map $X/R\to Y$ such that the triangle
+\begin{equation}
+\label{eq:third_diagram_proof_lem_desing_unique_factorization_through_unit}
+\begin{gathered}
+\xymatrix{
+X \ar[dr] \ar[rr]^f && Y \\
+& X/R \ar@{-->}[ur]_\cong
+}
+\end{gathered}
+\end{equation}
+commutes. The dashed map is an isomorphism by design. This makes \cref{def:desingularization} meaningful in the sense that we can obtain \cref{lem:desing_unique_factorization_through_unit}. 
+
+We are ready to prove the lemma.
+\begin{proof}[Proof of \cref{lem:desing_unique_factorization_through_unit}.]
+Let $k:X\to A$ be a map whose target $A$ is non-singular. First, note that there is at most one map $\bar{k}$ such that $k=\bar{k} \circ \eta _X$. This is because $\eta _X$ is degreewise surjective and because the degreewise surjective maps are precisely the epimorphisms of $sSet$ \cite[p.~142]{FP90}. It remains to argue that there is a map $\bar{k}$ such that $k=\bar{k} \circ \eta _X$.
+
+Corestrict $k$ to its image $A'$ so that we get a factorization
+\begin{displaymath}
+ \xymatrix{
+ X \ar[d]_{k''} \ar[dr]^{k'} \ar[r]^k & A \\
+ X/R \ar[r]_(.35)\cong & A'=\textrm{Im } k \ar[u]_h
+ }
+\end{displaymath}
+of $k$. Then the map $k'$ is a degreewise surjective map whose target is non-singular. We get the diagram
+\begin{equation}
+\label{eq:fourth_diagram_proof_lem_desing_unique_factorization_through_unit}
+\begin{gathered}
+\xymatrix{
+& \prod _{f:X\rightarrow Y}Y \ar[dr]^{pr_{k''}} \\
+X \ar[ur]^{x\mapsto (f(x))_f} \ar[dr]_{\eta _X} \ar[rr]^(.35){k''} & \ar[u] & X/R \\
+& DX \ar@{-}[u] \ar[ur]_g
+}
+\end{gathered}
+\end{equation}
+in which we have restricted the projection map
+\[\textrm{pr} _{k''}:\prod _{f:X\rightarrow Y}Y\to X/R\]
+to $DX$ --- a restriction we denote $g$.
+
+From (\ref{eq:fourth_diagram_proof_lem_desing_unique_factorization_through_unit}) we can conclude that $k''=g\circ \eta _X$ as the outer square and the upper triangle commute. Hence, by the design of $DX$, the map $k'$ factors through the restriction $g$ up to identification with a quotient of $X$ that is isomorphic to $A'$. This yields a factorization of $k$ through $\eta _X$ as the composite
+\[X\xrightarrow{\eta _X} DX\xrightarrow{g} X/R\xrightarrow{\cong } A'\xrightarrow{h} A\]
+is equal to $k$.
+\end{proof}
+\noindent If we fix a simplicial set $X$, then we can consider degreewise surjective maps $k:X\to A$ whose targets are non-singular. When factored through $\eta _X$, the resulting unique maps $\bar{k} :DX\to A$ are degreewise surjective. In this sense, desingularization is the least drastic way of forming a non-singular quotient from a (possibly singular) simplicial set.
+
+
+\subsection{Functorality of $D$ and (co)limits in $nsSet$}
+
+It is possible to define $D$ on morphisms in a straightforward way. Then one realizes that the construction is functorial and that $\eta _X$ is natural as a map $X\to UDX$. If $A$ is non-singular, then $\eta _{UA}$ is an isomorphism. This is observed by factoring the identity $UA\to UA$ through $\eta _{UA}$ by means of \cref{lem:desing_unique_factorization_through_unit}. As $U$ is a full embedding, the latter fact suggests the formulation of \cref{lem:non-singular_reflective_subcategory} below.
+
+A full subcategory of some category is a \textbf{reflective subcategory} if the inclusion admits a left adjoint. The terminology is not quite standard as the fullness assumption is omitted by some, for example in \cite[§IV.3]{ML98} and \cite[p.~1306]{AR15}. As announced, we have the following result \cite[Rem.~2.2.12]{WJR13}.
+\begin{lemma}\label{lem:non-singular_reflective_subcategory}
+The category of non-singular simplicial sets is a reflective subcategory of $sSet$.
+\end{lemma}
+\begin{proof}
+We will prove the lemma by establishing the natural map $\eta _X$ as the unit of a pair $(\eta ,\epsilon )$ consisting of a unit and a counit $\epsilon$.
+
+Let $f:A\to B$ be a morphism in $nsSet$. Consider the diagram
+\begin{displaymath}
+ \xymatrix{
+ & UD(UB) \\
+ && UD(UA) \ar[lu]_{UD(Uf)} \ar[ddr]^{U(\epsilon _A)=\eta ^{-1}_{UA}} \\
+ UB \ar[uur]_\cong ^{\eta _{UB}} \\
+ & UA \ar[lu]^{Uf} \ar[uur]_\cong ^{\eta _{UA} } \ar[rr]_{id} && UA
+ }
+\end{displaymath}
+in which the inverse $\eta ^{-1}_{UA}$ appears. As $U$ is full, the latter is equal to $U(\epsilon _A)$ for some morphism $\epsilon _A:DU\, A\to A$ of $nsSet$. It is evident from the outer part of the diagram that $\epsilon _A$ is natural in $A$.
+
+The triangle at the right hand side, which defines $\epsilon _A$, is the first half of the compatibility criterion that a unit and a counit must satisfy. The commutative square
+\begin{displaymath}
+\xymatrix{
+ X \ar[d]_{\eta _X} \ar[rr]_{\eta _X} && UDX \ar[d]^{UD(\eta _X)} \\
+ UDX \ar[rr]_{\eta _{UDX}}^\cong && UD(UDX)
+}
+ \end{displaymath}
+shows that
+\[\eta _{UDX}=UD(\eta _X)\]
+for every simplicial set $X$. If we combine this with the definition of $\epsilon _{DX}$, then we get the commutative triangle-shaped diagram
+\begin{displaymath}
+\xymatrix{
+& D(UDX)=DU(DX) \ar[dr]^(.6){\epsilon _{DX}} \\
+DX \ar[ur]^(.4){D(\eta _X)} \ar[rr]_{id} && DX
+}
+\end{displaymath}
+which is the second half of the compatibility criterion. This concludes the verification that $D$ is left adjoint to the inclusion $U$.
+\end{proof}
+\noindent The implication of \cref{lem:non-singular_reflective_subcategory} is that it has a strong bearing on the formation of (co)limits of diagrams in $nsSet$, as we now explain.
+
+A diagram in a reflective subcategory has a limit if it has a limit when considered a diagram in the surrounding category. In that case, the limit is inherited by the subcategory. See for example \cite[p.~92]{ML98} or \cite[p.~1306]{AR15}. Consequently, $nsSet$ is complete as $sSet$ is.
+
+The colimit in a reflective subcategory can be formed by taking it in the surrounding category, if it exists there, and then applying the reflector. As the counit of an adjunction is an isomorphism whenever the right adjoint is fully faithful \cite[§IV.3~Thm.1]{ML98}, we obtain a colimit of the original diagram. The reflector is in our case desingularization. Thus $nsSet$ is cocomplete because $sSet$ is cocomplete, although this way of computing a colimit in $nsSet$ requires knowledge of desingularization.
+
+For later reference we record the following consequence of \cref{lem:non-singular_reflective_subcategory}.
+\begin{corollary}\label{cor:nsSet_bicomplete}
+The category $nsSet$ of non-singular simplicial sets is bicomplete.
+\end{corollary}
+
+
+
+

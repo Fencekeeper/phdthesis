@@ -1,0 +1,19 @@
+
+\chapter{Model categories}
+\label{ch:model}
+
+In this chapter we will introduce the most basic notions of the language of model categories such as it is described in Hirschhorn's book on model categories \cite{Hi03}. We use another source as well, namely Hovey's book \cite{Ho99}. Their treatments of the subject differ. Furthermore, their notion of model category differs in that Hovey makes choices of functorial factorizations part of the model structure and does not merely assume the existence of such. This difference is, however, the only one. In this chapter we make the language as close to Hirschhorn as possible because we will follow Hirschhorn in \cref{ch:htythy}.
+
+We will use Hirschhorn's notion of model category outside of this chapter. Inside of this chapter, we will use Hirschhorn's notion up to the point where we introduce the homotopy category and total derived functors. For the purpose of describing these notions, we will however use Hovey's notion of model category because it simplifies the constructions. We will not need to refer to homotopy categories in \cref{ch:htythy}. Nor do we need it anywhere else in this dissertation.
+
+The purpose of the axioms that are part of the definition of the term model category is to provide a structure that makes sense of the category that arises when one inverts a certain class of morphisms, that will be called weak equivalences. It is this category that is known as the homotopy category. We will outline its construction in \cref{sec:language} and furthermore introduce total derived functors. The reason we outline the construction of the homotopy category is to give the reader who knows something about homotopy theory, but who is not familiar with the framework of model categories, a chance to see how a model structure makes sense of the homotopy category and how the model structure provides some basic tools to study it.
+
+Quillen's original definition \cite{Qu67} of model category has axioms that are somewhat weaker than what seems usual today. This gives rise to Quillen's adjective \emph{closed}, but we only consider closed model categories, so the adjective is not used.
+
+When it is relevant to or convenient with respect to establishing non-singular simplicial sets as a model category, we shall provide examples of the introduced concepts. Only when it is relevant to or convenient with respect to our goal will we provide examples. In this sense, the introduction is minimal.
+
+In \cref{ch:htythy}, we will lift the standard model structure on $sSet$ to $nsSet$ along the right adjoint $Ex^2U:nsSet\to sSet$ using a method that is credited to D. M. Kan. We will use the method in the form that appears as Theorem 11.3.2. in \cite[p.~214]{Hi03}. Our intention in \cref{sec:language} is to go through only what we need for our chosen approach to do the lifting.
+
+
+
+\input{chapters/model/language}

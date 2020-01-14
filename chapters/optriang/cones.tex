@@ -1,0 +1,60 @@
+
+\section{Concerning cones}
+\label{sec:cones}
+
+
+There is an interesting result concerning mapping cylinders that is related to \cref{thm:barratt_nerve_rep_map_dcr_iso}, namely \cref{prop:cones_vs_mapping_cylinders} below.
+
+A possible proof of \cref{prop:cones_vs_mapping_cylinders} was an inspiration for \cref{thm:barratt_nerve_rep_map_dcr_iso}, so this section should also give the reader insight into the idea behind the proof of \cref{thm:barratt_nerve_rep_map_dcr_iso} and the proof by induction presented in \cref{sec:zipping}.
+
+The result says the following.
+\begin{proposition}
+\label{prop:cones_vs_mapping_cylinders}
+Let $P$ be some poset. Then the canonical map $dcr$ in the diagram
+\begin{displaymath}
+\xymatrix{
+NP \ar[d]_{i_0} \ar[r]^{N\varphi } & \Delta [0] \ar[d] \ar@/^1.5pc/[ddr] \\
+NP\times \Delta [1] \ar@/_1pc/[drr] \ar[r] & DT(N\varphi ) \ar[dr]^{dcr} \\
+&& M(N\varphi )
+}
+\end{displaymath}
+in $nsSet$ is an isomorphism.
+\end{proposition}
+\noindent In words, \cref{prop:cones_vs_mapping_cylinders} says that the desingularization of the cone on $NP$ is the reduced mapping cylinder of the unique map $NP\to \Delta [0]$.
+\begin{proof}[Proof of \cref{prop:cones_vs_mapping_cylinders}.]
+We will argue that $dcr$ is degreewise surjective, that it is a bijection in degree $0$ and finally that it is injective in degrees above $0$.
+
+Let $k$ denote $i_0:P\to P\times[1]$ as in \cref{ex:pushout_poset_along_dwyer}. Then $k$ is canonically identified with $i_0:NP\to NP\times \Delta [1]$. Let $\bar{\varphi }$ denote the cobase change (in the category of posets) of $\varphi$ along $k$ and let $\bar{k}$ denote the cobase change of $k$ along $\varphi$. The map $k$ is a special kind of Dwyer map. Furthermore, let $r:P\times [1]\to P$ be the projection onto the first factor.
+
+First, the map
+\[cr:T(N\varphi )\to M(N\varphi )\]
+is degreewise surjective in this special case, as we now explain. This immediately implies that $dcr$ is degreewise surjective.
+
+If $z:[q]\to P\times [1]\sqcup _{P}[0]$ is some simplex in
+\[M(N\varphi )=N(P\times [1]\sqcup _{P}[0]),\]
+then there is some integer $j$ with $-1\leq j\leq q$ that has the property that $z(i)$ is in the image of $k$ for $i\leq j$ and that $z(i)$ is not in the image of $k$ for $i>j$. There is a $q$-simplex $x'$ of $T(N\varphi )$ whose image under $cr$ is $z$. It is defined thus.
+
+If $j=q$, then we can simply define $x'$ as a degeneracy of the unique $0$-simplex that is in the image of $\Delta [0]\to T(N\varphi )$. Else if $j<q$, then we may for each $i>j$ define $x(i)$ as the uniqe element of $P\times [1]$ that $\bar{\varphi }$ sends to $z(i)$. Suppose
+\[\bar{\varphi } (p,1)=z(j+1).\]
+For each $i\leq j$, we define $x(i)=(p,1)$. Let $x'$ be the image of $x$ under $NP\times \Delta [1]\to T(N\varphi )$. It follows that $cr(x')=z$. This finishes the argument that $cr$ is degreewise surjective, and therefore that $dcr$ is. Keep in mind that $cr$ and $dcr$ fit into the commutative triangle (\ref{eq:first_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}).
+
+By \cref{ex:pushout_poset_along_dwyer}, the map $cr$ is a bijection in degree $0$, which by (\ref{eq:first_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}) implies that $dcr$ is. It remains to verify that $dcr$ is injective in degrees above $0$.
+
+For the argument that $dcr$ is degreewise injective in degrees above $0$, we will apply \cref{prop:criterion_degreewise_injective_into_nerve_computation} to (\ref{eq:first_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}).
+
+Consider embedded siblings $x'$ and $y'$ of $T(N\varphi )$, say of degree $q>0$, whose zeroth common vertex is in the image of $\Delta [0]\to T(N\varphi )$ and whose $q$-th common vertex is not. This is the only non-trivial case. Let $x$ and $y$, respectively, be the unique simplices in $NP\times \Delta [1]$ whose image under $NP\times \Delta [1]\to T(N\varphi )$ is $x'$ and $y'$. Because the target of $\varphi$ has only one element, we see from (\ref{eq:first_diagram_proof_prop_cones_vs_mapping_cylinders}) that $\eta (x')=\eta (y')$.
+\begin{equation}
+\label{eq:first_diagram_proof_prop_cones_vs_mapping_cylinders}
+\begin{gathered}
+\xymatrix{
+x(0) \ar[dr] \ar@{-->}[r] & kr(x(1)) \ar@{-->}[d] & y(0) \ar[ld] \ar@{-->}[l] \\
+& x(1)=y(1) \ar[d] \\
+& \dots \ar[d] \\
+& x(q)=y(q)
+}
+\end{gathered}
+\end{equation}
+By \cref{prop:criterion_degreewise_injective_into_nerve_computation}, it follows that $dcr$ is injective in degree $q$. This finishes the proof that $dcr$ is injective in degrees above $0$ and hence an isomorphism.
+\end{proof}
+
+

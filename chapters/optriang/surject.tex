@@ -1,0 +1,155 @@
+
+
+\section{Surjectivity of the cylinder reduction}
+\label{sec:surject}
+
+Not every cylinder reduction map
+\[cr:T(N\varphi )\to M(N\varphi )\]
+is degreewise surjective. It can happen that the dimension of the reduced mapping cylinder is strictly higher than the dimension of the topological mapping cylinder.
+\begin{example}\label{ex:Non-surjective_cylinder_reduction}
+Let $\varphi :P\to R$ be the functor between posets defined as follows. Its source is the poset
+\[P=\{ b\leftarrow a\rightarrow c\}\]
+and its target is the poset
+\[R=\{ a'\rightarrow b'\rightarrow c'\} .\]
+The functor is given on objects by $\varphi (a)=a'$, $\varphi (b)=b'$ and $\varphi (c)=c'$.
+
+The (backwards) topological mapping cylinder $T(N\varphi )$ is evidently of dimension $2$. However, the (backwards) reduced mapping cylinder $M(N\varphi )$ is by definition the nerve of the pushout of the diagram
+\begin{displaymath}
+\xymatrix{
+P \ar[d]_{i_0} \ar[r]^\varphi & R \\
+P\times [1]
+}
+\end{displaymath}
+in $PoSet$. Thus the reduced mapping cylinder is seen to be of dimension $3$, so the cylinder reduction map is not surjective in degree $3$.
+\end{example}
+\noindent Note that, in \cref{ex:Non-surjective_cylinder_reduction}, the image of $\varphi$, meaning the smallest subcategory of $R$ containing each object and each morphism hit by $\varphi$, is not a sieve in $R$. This is because the morphism $b'\to c'$ is not in the image of $\varphi$, though the object $c'$ is.
+
+To take care of the surjectivity statement of \cref{thm:barratt_nerve_rep_map_dcr_iso}, we will adapt Lemma $2.5.6$ from \cite[p.~71]{WJR13} to our needs. Recall from \cref{def:simple_map_calculating_dsd2} the notion of simple maps. Note that a simple map is degreewise surjective. Simple maps are discussed in Chapter $2$ of \cite[pp.~29--97]{WJR13} and play a role in that book.
+
+Let $f:X\to Y$ be a simplicial map whose source $X$ is a finite simplicial set. We say that $f$ is \textbf{simple onto its image} if the induced map $X\to f(X)$ is simple.
+\begin{lemma}{(Lemma $2.5.6$ of \cite[p.~71]{WJR13})}
+\label{lem:barrat_nerve_of_any_representing_map_of_regular_simple}
+Let $X$ be a regular simplicial set. For each $n\geq 0$ and for each $n$-simplex $y$, the map
+\[B(\bar{y} ):B(\Delta [n])\to BX\]
+induced by the representing map $\bar{y}$ is simple onto its image.
+\end{lemma}
+\noindent Note that if $Y$ is the image of the representing map $\bar{y}$ of some simplex $y$, then $BY$ is the image of $B(\bar{y} )$ \cite[Lem.~2.4.20,~p.~67]{WJR13}.
+
+In the rather lengthy proof of \cref{lem:barrat_nerve_of_any_representing_map_of_regular_simple}, which we display below, the following term from \cite[Def.~2.4.7]{WJR13} is an ingredient.
+\begin{definition}
+\label{def:simplicial_homotopy_equivalence_over_the_target}
+Let $X$ and $Y$ be finite simplicial sets. A map $f:X\to Y$ is a \textbf{simplicial homotopy equivalence over the target} if there is a section $s:Y\to X$ of $f$ and a simplicial homotopy $H$ between $s\circ f$ and the identity $X\to X$ such that the square
+\begin{displaymath}
+\xymatrix{
+X\times \Delta [1] \ar[d]_{pr_1} \ar[r]^(.6)H & X \ar[d]^f \\
+X \ar[r]_f & Y
+}
+\end{displaymath}
+commutes.
+\end{definition}
+\noindent Note that the homotopy $H$ provides a contraction of each point inverse of $\lvert f\rvert$, so $f$ is simple. There are several related notions that could fill the term of \cref{def:simplicial_homotopy_equivalence_over_the_target} \cite[p.~60]{WJR13} with meaning.
+
+We are ready to prove the lemma.
+\begin{proof}[Proof of \cref{lem:barrat_nerve_of_any_representing_map_of_regular_simple}.]
+The proof is borrowed from the corresponding part of the proof of Lemma 2.5.6 from \cite[p.~71]{WJR13}. The only difference is that the notion of op-regularity is replaced with regularity.
+
+Notice that it is enough to consider the representing maps of non-degenerate simplices. If $y$ is a simplex of $X$, say of degree $n$, then we can factor $B(\bar{y} )$ as
+\[B(\Delta [n])\xrightarrow{B(Ny^\flat )} B(\Delta [k])\xrightarrow{B(\overline{y^\sharp } )} BX\]
+where $k$ denotes the degree of $\bar{y}$ and where $B(Ny^\flat )$ is simple as it is a simplicial homotopy equivalence over the target.
+
+Assume that $n>0$ is an integer such that the representing map of each non-degenerate simplex of $X$, of degree strictly less than $n$, is simple onto its image. Assume that $y$ is a non-degenerate simplex of degree $n$. We will prove that $B(\bar{y} )$ is simple onto its image.
+
+Let $z=y\delta _n$ so that the image $Y$ of $\bar{y}$ is a pushout $\Delta [n]\sqcup _{\Delta [n-1]}Z$, where $Z$ is the image of $\bar{z} :\Delta [n-1]\to X$. Here, $\Delta [n]$ is attached to $Z$ along its $n$-th face, meaning along the map $N\delta _n$.
+
+By the induction hypothesis, the map
+\[B(\bar{z} ):B(\Delta [n-1])\to BX\]
+is simple onto its image as the degree of $z^\sharp$ is at most $n-1$. The simplicial subset $BZ$ of $BX$ is the image of the Barratt nerve of the representing map of $z$ \cite[Lem.~2.4.20]{WJR13}.
+
+In \cref{fig:Cosieve_in_subdivided_two_simplex_that_contains_second_edge} we displayed the simplicial set $B(\Delta [2])$ and highlighted a copy of $B(\Delta [1])\times \Delta [1]$ as a simplicial subset. The figure holds the key to a decomposition
+\[B(\Delta [n])\cong M(B(\Delta [n-1])\to \Delta [0])\sqcup _{B(\Delta [n-1])}B(\Delta [n-1])\times \Delta [1]\]
+as we now explain.
+
+Recall the embedding $\psi :\Delta [n-1]^\sharp \times [1]\to \Delta [n]^\sharp$ from the proof of \cref{lem:second_reduction}. Form the backwards reduced mapping cylinder
+\[M(B(\Delta [n-1])\to \Delta [0])\]
+of $B(\Delta [n-1])\to \Delta [0]$. This mapping cylinder is the nerve of the pushout $P(\Delta [n-1]^\sharp \to [0])$ of
+\begin{displaymath}
+\xymatrix{
+\Delta [n-1]^\sharp \ar[d]_{i_0} \ar[r] & [0] \\
+\Delta [n-1]^\sharp \times [1]
+}
+\end{displaymath}
+where $i_0$ takes $\mu$ to $(\mu ,0)$. The cosieve
+\[i_1:\Delta [n-1]^\sharp \to \Delta [n-1]^\sharp \times [1]\]
+gives rise to a cosieve
+\[\Delta [n-1]^\sharp \to P(\Delta [n-1]^\sharp \to [0]).\]
+
+Furthermore, we can define a map
+\[\omega :\Delta [n-1]^\sharp \times [1]\to \Delta [n]^\sharp\]
+by letting it send $(\mu ,0)$ to $\varepsilon _n$ and $(\mu :[m]\to [n-1],1)$ to the operator
+\[[m+1]\to [n]\]
+given by $j\mapsto \mu (j)$ for $0\leq j\leq m$ and $m+1\mapsto n$. From $\omega$ arises the right hand vertical map of the commutative square
+\begin{displaymath}
+\xymatrix{
+\Delta [n-1]^\sharp \ar[d]_{i_1} \ar[r] & P(\Delta [n-1]^\sharp \to [0]) \ar[d] \\
+\Delta [n-1]^\sharp \times [1] \ar[r]_(.6)\psi & \Delta [n]^\sharp
+}
+\end{displaymath}
+which is cocartesian in the category of posets and even in the category of small categories. Moreover, the nerve functor preserves it as a cocartesian square as the legs are cosieves. This concludes the argument that $B(\Delta [n])$ can be decomposed as claimed.
+
+Next, we display a suitable decomposition of $BY$. Form the backwards mapping cylinder $M(B(\bar{z} ))$ of the Barratt nerve of the corestriction to $Z$ of the representing map of the simplex $z$. Here, we overload the symbol $\bar{z}$. There is a degreewise injective map
+\[B(\Delta [n-1])\xrightarrow{i_1} B(\Delta [n-1])\times \Delta [1]\to M(B(\bar{z} ))=NP((\bar{z} )^\sharp ),\]
+which is induced by
+\[\Delta [n-1]^\sharp \xrightarrow{i_1} \Delta [n-1]^\sharp \times [1]\to P((\bar{z} )^\sharp ).\]
+As the simplicial set $Y$ is regular, the composite
+\[P(\Delta [n-1]^\sharp \to [0])\to \Delta [n]^\sharp \xrightarrow{(\bar{y} )^\sharp } Y^\sharp\]
+is injective on objects and actually a cosieve.
+
+Next, consider the pushout
+\[Y^\sharp =\Delta [n]^\sharp \sqcup _{\Delta [n-1]^\sharp }Z^\sharp .\]
+Use the factorization of $(N\delta _n)^\sharp$ into $\psi \circ i_0$ as before and obtain $P((\bar{z} )^\sharp )\to Y^\sharp$ written as the cobase change of $\psi$ along $\Delta [n-1]^\sharp \times [1]\to P((\bar{z} )^\sharp )$. Combining this with the decomposition of $\Delta [n]^\sharp$ obtained above, we get the cocartesian square
+\begin{displaymath}
+\xymatrix{
+\Delta [n-1]^\sharp \ar[d] \ar[r] & P(\Delta [n-1]^\sharp \to [0]) \ar[d] \\
+P((\bar{z} )^\sharp ) \ar[r] & Y^\sharp
+}
+\end{displaymath}
+which is also preserved by the nerve. Again, this is because both legs are cosieves. The diagram
+\begin{displaymath}
+\xymatrix{
+B(\Delta [n-1])\times \Delta [1] \ar[d] & B(\Delta [n-1]) \ar[l]_(.4){i_1} \ar[d]^{id} \ar[r] & M(B(\Delta [n-1])\to \Delta [0]) \ar[d]^{id} \\
+M(B(\bar{z} )) & B(\Delta [n-1]) \ar[l] \ar[r] & M(B(\Delta [n-1])\to \Delta [0])
+}
+\end{displaymath}
+is a thus a way of obtaining the map $B(\Delta [n])\to BY$ induced by $B(\bar{y} )$.
+
+On the cone $M(B(\Delta [n-1])\to \Delta [0])$, the map $B(\bar{y})$ is the identity. However, on the cylinder $B(\Delta [n-1])\times \Delta [1]$, the map $B(\bar{y})$ is the composite
+\[B(\Delta [n-1])\times \Delta [1]\to T(B(\bar{z} ))\to M(B(\bar{z} )).\]
+
+The first map of the composite above is the cobase change of the simple map $B(\bar{z} )$ along $i_0$. A point inverse of that map is either a point inverse under the induced map
+\[\lvert B(\Delta [n-1])\rvert \times \lvert \Delta [1]\rvert -\lvert B(\Delta [n-1])\rvert \xrightarrow{\cong } \lvert T(B(\bar{z} )\rvert -\lvert BZ\rvert ,\]
+which is a homeomorphism, or it can be considered a point inverse under
+\[\lvert B(\bar{z} )\rvert :\lvert B(\Delta [n-1])\rvert \to  BZ.\]
+Thus the first map of the composite is simple.
+
+The second map is simple by the induction hypothesis and by Lemma 2.4.21. \cite[p.~67]{WJR13} as $\Delta [n-1]$ and $Z$ are of strictly lower dimension than $n$.
+\end{proof}
+\noindent Thus we obtain the technically important fact that for a regular simplicial set, the Barratt nerve of each representing map is simple onto its image.
+
+We use the following notion from \cite[Def.~2.4.9]{WJR13}.
+\begin{definition}
+\label{def:simple_cylinder_reduction}
+Let $\varphi :P\to R$ be a functor between finite posets $P$ and $R$. If the (backwards) cylinder reduction map
+\[cr:T(N\varphi )\to M(N\varphi )\]
+corresponding to the simplicial map $N\varphi $ is simple, then we say that $N\varphi $ has \textbf{simple cylinder reduction}.
+\end{definition}
+\noindent The notion of \cref{def:simple_cylinder_reduction} is defined more generally for a simplicial map $f:X\to Y$ whose source and target are both finite simplicial sets. However, we do not need the full generality.
+
+Consider the following result, which is essentially Corollary $2.5.7$ from \cite[p.~71]{WJR13}.
+\begin{proposition}\label{prop:map_between_regular_reduction_map_simple}
+Let $X$ and $Y$ be finite regular simplicial sets. Suppose $f:X\to Y$ a simplicial map. Then $B(f)$ has simple cylinder reduction.
+\end{proposition}
+\begin{proof}
+By \cref{lem:barrat_nerve_of_any_representing_map_of_regular_simple}, the map $B(\bar{x} )$ is simple onto its image for each $x\in X^\sharp$. Likewise for $Y$. Then $B(f)$ has simple cylinder reduction \cite[Lem.~2.4.21]{WJR13}.
+\end{proof}
+
+

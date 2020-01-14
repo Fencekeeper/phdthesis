@@ -1,0 +1,225 @@
+
+
+\section{On cofibrations}
+\label{sec:cofib}
+
+The cofibrations in the cofibrantly generated model category $nsSet$ form the class $DSd^2(I)$-cof \cite[Prop.~11.2.1~(1)]{Hi03}. In this section, we will briefly discuss the $DSd^2(I)$-cofibrations and establish the important axiom of propriety, which in this case amounts to arguing that weak equivalences are preserved under cobase change along $DSd^2(I)$-cofibrations.
+
+Notice that there is no change in the initial and terminal objects, compared with $sSet$.
+\begin{lemma}
+The empty simplicial set $\emptyset$ is the only initial object in the category $nsSet$. Similarly, the standard $0$-simplex $\Delta [0]$ a terminal object in $nsSet$.
+\end{lemma}
+\begin{proof}
+The empty simplicial set $\emptyset$ is the colimit of the empty diagram in $sSet$. It is a non-singular simplicial set, so it is also the colimit of the underlying diagram in $nsSet$. Thus $\emptyset$ is initial in $nsSet$.
+
+Similarly, the standard $0$-simplex $\Delta [0]$ is a limit of the empty diagram in $sSet$. Then $\Delta [0]$ is also the limit of the underlying diagram in $nsSet$ as this reflective subcategory inherits limits from $sSet$. Thus we can take $\Delta [0]$ to be a terminal object of $nsSet$.
+\end{proof}
+\noindent Furthermore, the following property of cofibrations is worth pointing out at this stage, although it is immediate from \cref{lem:relative_cell_complexes_degreewise_injective}.
+\begin{lemma}\label{lem:cofib_degreewise_injective}
+Any cofibration of $nsSet$ is a retract of a composition of Str\o m maps.
+\end{lemma}
+\noindent In particular, any cofibration is degreewise injective.
+\begin{proof}[Proof of \cref{lem:cofib_degreewise_injective}.]
+The cofibrations are precisely the retracts of the relative $DSd^2(I)$-cell complexes \cite[Prop.~11.2.1.~(1),~p.~211]{Hi03}. From \cref{lem:relative_cell_complexes_degreewise_injective} we know that the relative $DSd^2(I)$-cell complexes are compositions of Str\o m maps, which are degreewise injective.
+\end{proof}
+\noindent Regrettably, \cref{lem:cofib_degreewise_injective} does not provide a characterization of the cofibrations of $nsSet$.
+
+The following result concerns the classes $DSd^2(I)$-cell and $DSd^2(J)$-cell and is a strengthening of \cref{lem:Pushout_along_strom_homotopically_wellbehaved}.
+\begin{lemma}\label{lem:pushout_along_transfinite_comp_of_strom}
+Let $i:A\to B$ be a composition of Str\o m maps. Suppose $f:A\to C$ a map in $nsSet$. Then the canonical map
+\[B\sqcup _AC\to D(B\sqcup _AC)\]
+is a weak equivalence.
+\end{lemma}
+\noindent In previous sections, there were only one notion of weak equivalence, namely the weak equivalences in $sSet$. However, now that $nsSet$ is established as a model category there are really two notions of weak equivalence --- one in each model category.
+
+To avoid confusion, one might want to write the canonical map of \cref{lem:pushout_along_transfinite_comp_of_strom} as
+\[UB\sqcup _{UA}UC\to UD(UB\sqcup _{UA}UC).\]
+On the other hand, because a map in $nsSet$ is a weak equivalence if and only if the result of applying $U$ to it is a weak equivalence, it is not necessary to be so pedantic. We simply remind the reader that we have a convention that the notation $B\sqcup _AC$ always refers to a pushout in $sSet$, and not in $nsSet$. This is because the symbol $D(B\sqcup _AC)$ is readily available to denote the pushout in $nsSet$ of the underlying diagram.
+\begin{proof}[Proof of \cref{lem:pushout_along_transfinite_comp_of_strom}.]
+Suppose $i$ has the presentation
+\begin{displaymath}
+\xymatrix{
+A=A^{[0]} \ar@/_/[dr]_(.4)i \ar[r] & A^{[1]} \ar[d] \ar[r] & \dots \ar[r] & A^{[\beta ]}\ar@/^/[lld] \ar[r] & \dots \\
+& B=colim_{\beta <\lambda }A^{[\beta ]}
+}
+\end{displaymath}
+which by definition includes the assumption that each map $A^{[\beta ]}\to A^{[\beta +1]}$, $\beta +1<\lambda$, is a Str\o m map. 
+
+Again, because the inclusion $U:nsSet\to sSet$ preserves filtered colimits, the $\lambda$-sequence $U\circ A$ is a presentation of $U(i)$ as a composition of inclusions of Str\o m maps.
+
+Next, consider the diagram
+\begin{displaymath}
+\xymatrix{
+A \ar[d]_i \ar[r]^f & C \ar[d] \ar@/^1pc/[ddr] \\
+B \ar[r] \ar@/_1pc/[drr] & B\sqcup _AC \ar@{-->}[dr] \\
+&& D(B\sqcup _AC)
+}
+\end{displaymath}
+in $sSet$ from which the canonical map arises. Notice that it is the colimit of the $\lambda$-sequence of diagrams
+\begin{displaymath}
+\xymatrix{
+A^{[0]} \ar[d] \ar[r]^f & C \ar[d] \ar@/^1pc/[ddr] \\
+A^{[\beta ]}\ar[r] \ar@/_1pc/[drr] & A^{[\beta ]}\sqcup _{A^{[0]}}C \ar[dr] \\
+&& D(A^{[\beta ]}\sqcup _{A^{[0]}}C)
+}
+\end{displaymath}
+in $sSet$.
+
+For the purposes of an argument by induction, consider the diagram
+\begin{equation}
+\label{eq:diagram_proof_of_lem_pushout_along_transfinite_comp_of_strom}
+\begin{gathered}
+\xymatrix@C=0.9em{
+A^{[0]}\sqcup _{A^{[0]}}C \ar[d]^\sim \ar[r] & A^{[1]}\sqcup _{A^{[0]}}C \ar[d]^\sim \ar[r] & A^{[2]}\sqcup _{A^{[0]}}C \ar[d] \ar[r] & \cdots \\
+D(A^{[0]}\sqcup _{A^{[0]}}C) \ar[r] & D(A^{[1]}\sqcup _{A^{[0]}}C) \ar[r] & D(A^{[2]}\sqcup _{A^{[0]}}C) \ar[r] & \cdots
+}
+\end{gathered}
+\end{equation}
+in $sSet$, which gives rise to
+\[B\sqcup _AC\to D(B\sqcup _AC),\]
+as we have established. Notice that the horizontal maps in the upper part of the diagram are degreewise injective. We now explain that the horizontal maps in the lower part are also degreewise injective.
+
+Each map $A^{[\beta ]}\to A^{[\beta +1]}$,
+\[0\leq \beta ,\; \beta +1<\lambda,\]
+is a Str\o m map. Because the square
+\begin{displaymath}
+\xymatrix{
+A^{[\beta ]} \ar[d] \ar[r] & D(A^{[\beta ]}\sqcup _{A^{[0]}}C) \ar[d] \\
+A^{[\beta +1]} \ar[r] & D(A^{[\beta +1]}\sqcup _{A^{[0]}}C)
+}
+\end{displaymath}
+in $nsSet$ is cocartesian, each map
+\[D(A^{[\beta ]}\sqcup _{A^{[0]}}C)\to D(A^{[\beta +1]}\sqcup _{A^{[0]}}C)\]
+is also a Str\o m map by \cref{prop:Strom-maps_closed_under_cobasechange} and thus degreewise injective.
+
+Assume that an ordinal $\gamma \leq \lambda$ is such that
+\[A^{[\beta ]}\sqcup _{A^{[0]}}C\xrightarrow{\sim } D(A^{[\beta ]}\sqcup _{A^{[0]}}C)\]
+for any $\beta <\gamma$.
+
+In the case when $\gamma$ is a limit ordinal, then the map
+\[A^{[\gamma ]}\sqcup _{A^{[0]}}C\to D(A^{[\gamma ]}\sqcup _{A^{[0]}}C)\]
+arises as a map of colimits, from a truncated version of (\ref{eq:diagram_proof_of_lem_pushout_along_transfinite_comp_of_strom}). In that truncated version, all the vertical maps are weak equivalences.
+
+Next, we intend to use Kan's fibrant replacement functor $Ex^\infty$ on the truncated version of (\ref{eq:diagram_proof_of_lem_pushout_along_transfinite_comp_of_strom}). See \cite[pp.~215--217]{FP90} or \cite[p.~182--188]{GJ09}. The construction $Ex^\infty$ is the result of iterating the right adjoint $Ex:sSet\to sSet$ of the Kan subdivision. The functor $Ex$ can be defined thus
+\[Ex(X)_n=sSet(Sd(\Delta [n]),X).\]
+Kan's fibrant replacement preserves degreewise injective maps, filtered colimits and comes with a natural (degreewise injective) weak equivalence $e^\infty _X:X\xrightarrow{\sim } Ex^\infty\, X$, implying that the functor also preserves weak equivalences.
+
+% The following discussion says that $Ex^\infty$ preserves filtered colimits.
+% https://mathoverflow.net/questions/235526/when-do-colimits-agree-with-homotopy-colimits
+
+% The following discussion says that homotopy groups of simplicial sets preserve filtered colimits. But is this true, in general? I think John mentioned that it is true that potentially long sequential colimits are preserved when the maps in the sequence are degreewise injective.
+% https://mathoverflow.net/questions/56166/do-homotopy-groups-always-commute-with-filtered-colimits
+
+Applying $Ex^\infty$ to the trunctated version of (\ref{eq:diagram_proof_of_lem_pushout_along_transfinite_comp_of_strom}) yields a diagram of fibrant simplicial sets (Kan sets) where the horizontal maps are degreewise injective and where the vertical maps are weak equivalences. The simplicial homotopy groups respects the colimit of a sequence whenever the maps of the sequence are degreewise injective. It follows that
+\[A^{[\gamma ]}\sqcup _{A^{[0]}}C\xrightarrow{\sim } D(A^{[\gamma ]}\sqcup _{A^{[0]}}C)\]
+is a weak equivalence.
+
+In the case when $\gamma =\beta +1$ is a successor ordinal, we consider the diagram
+\begin{displaymath}
+\xymatrix@C=0.8em{
+A^{[0]} \ar[d] \ar[r]^{f} & C \ar[d] \\
+A^{[\beta ]}\ar[d] \ar[r] & A^{[\beta ]}\sqcup _{A^{[0]}}C \ar[d] \ar[r]^\sim & D(A^{[\beta ]}\sqcup _{A^{[0]}}C) \ar[d] \ar@/^1pc/[ddr] \\
+A^{[\beta +1]} \ar[r] & A^{[\beta +1]}\sqcup _{A^{[0]}}C \ar@/_1pc/[drr] \ar[r] & A^{[\beta +1]}\sqcup _{A^{[\beta ]}}D(A^{[\beta ]}\sqcup _{A^{[0]}}C) \ar@{-->}[dr]^\sim \\
+&&& D(A^{[\beta +1]}\sqcup _{A^{[0]}}C)
+}
+\end{displaymath}
+in $sSet$. Here, 
+\[A^{[\beta ]}\sqcup _{A^{[0]}}C\xrightarrow{\sim } D(A^{[\beta ]}\sqcup _{A^{[0]}}C)\]
+is a weak equivalence by the induction hypothesis. The dashed map is a weak equivalence by \cref{lem:Pushout_along_strom_homotopically_wellbehaved}.
+
+Because the map
+\[A^{[\beta ]}\sqcup _{A^{[0]}}C\to A^{[\beta +1]}\sqcup _{A^{[0]}}C\]
+is degreewise injective, the map
+\[A^{[\beta +1]}\sqcup _{A^{[0]}}C\xrightarrow{\sim } A^{[\beta +1]}\sqcup _{A^{[\beta ]}}D(A^{[\beta ]}\sqcup _{A^{[0]}}C)\]
+is a weak equivalence as $sSet$ is left proper. Therefore, the composite
+\[A^{[\beta +1]}\sqcup _{A^{[0]}}C\to D(A^{[\beta +1]}\sqcup _{A^{[0]}}C)\]
+is a weak equivalence.
+
+Thus far we know that the vertical maps of (\ref{eq:diagram_proof_of_lem_pushout_along_transfinite_comp_of_strom}) are all weak equivalences. If we use Kan's fibrant replacement $Ex^\infty$ again, then we get that
+\[B\sqcup _AC\cong colim_{\beta <\lambda }A^{[\beta ]}\sqcup _{A^{[0]}}C\xrightarrow{\sim } colim_{\beta <\lambda }D(A^{[\beta ]}\sqcup _{A^{[0]}}C)\cong D(B\sqcup _AC)\]
+is a weak equivalence.
+\end{proof}
+\noindent Note that the lemma we have just proven has implications for both relative $DSd^2(I)$-cell complexes and relative $DSd^2(J)$-cell complexes as these are all compositions of Str\o m maps.
+
+A result related to \cref{lem:pushout_along_transfinite_comp_of_strom} is the following, which implies that $nsSet$ is left proper.
+\begin{lemma}\label{lem:pushout_along_cofibration}
+Let $i:A\to B$ be a cofbration in $nsSet$. Suppose $f:A\to C$ a map in $nsSet$. Then the canonical map
+\[\eta _{B\sqcup _AC}:B\sqcup _AC\to D(B\sqcup _AC)\]
+is a weak equivalence.
+\end{lemma}
+\begin{proof}
+The model category $nsSet$ is cofibrantly generated by \cref{prop:main_homotopy_theory} and thus we can factor $i=qj$ as a relative $DSd^2(I)$-cell complex $j:A\to X$ followed by a trivial fibration $q:X\to B$. Thus $(i,q)$ is a lifting-extension pair, so we can lift in the square
+\begin{displaymath}
+\xymatrix{
+A \ar[d]_i \ar[r]^j & X \ar[d]^\sim _q \\
+B \ar[r]^1 \ar@{-->}[ur]^s & B
+}
+\end{displaymath}
+to write $i$ as a retract of $j$. This is what is known as the retract argument \cite[Prop.~7.2.2, p.~110]{Hi03}.
+
+Next, we use the construction above to draw the diagram
+\begin{displaymath}
+\xymatrix{
+& A \ar@{-}@/_1.9pc/[ldd]_j\hole \ar[d]_i \ar[r]^f & C \ar[d] \\
+& B \ar@/_3.4pc/[ddd]_1 \ar[dd]_s \ar[r] & B\sqcup _AC \ar[ddd]_1 \ar[r] & D(B\sqcup _AC) \ar[ddd]_1 \\
+\ar@/_/[dr] \\
+& X \ar[d]_q^\sim \\
+& B \ar[r] & B\sqcup _AC \ar[r] & D(B\sqcup _AC)
+}
+\end{displaymath}
+in $sSet$. We will expand this diagram to display $\eta _{B\sqcup _AC}$
+as a retract of the weak equivalence $\eta _{X\sqcup _AC}$.
+
+Form the pushout $X\sqcup _AC$ in $sSet$ and then use the naturality of $\eta _{B\sqcup _AC}$ to expand the diagram above to the diagram
+\begin{displaymath}
+\xymatrix{
+& A \ar@{-}@/_1.9pc/[ldd]_j\hole \ar[d]_i \ar[rr]^f && C \ar[d] \ar@{-}@/^1.5pc/[dr]\hole \\
+& B \ar@/_3.4pc/[ddd]_1 \ar[dd]_s \ar[rr]^(.4){\bar{f} } && B\sqcup _AC\ar@{-->}[dd]_{\bar{s} } \ar@/_1.5pc/@{-}[ldd]_1\hole \ar[rr] & \ar@/^1pc/[ldd] & D(B\sqcup _AC) \ar[dd] \ar@/^4pc/[ddd]^1 \\
+\ar@/_/[dr] \\
+& X \ar[d]_q^\sim \ar[rr]_(.3)g & \ar@/_1pc/[dr] & X\sqcup _AC \ar[rr]^\sim _{\eta _{X\sqcup _AC}} && D(X\sqcup _AC) \\
+& B \ar[rr]_(.4){\bar{f} } && B\sqcup _AC \ar[rr]_{\eta _{B\sqcup _AC}} && D(B\sqcup _AC)
+}
+\end{displaymath}
+in which $\eta _{X\sqcup _AC}$ is a weak equivalence by \cref{lem:pushout_along_transfinite_comp_of_strom} as $j$ is a composition of Str\o m maps.
+
+From this point, we can use that
+\[X\sqcup _AC\cong X\sqcup _B(B\sqcup _AC)\]
+to obtain a canonical map $\bar{q} :X\sqcup _AC\to B\sqcup _AC$ between pushouts. By its origin, it has the property that $1=\bar{q} \circ \bar{s}$ and $\bar{f} \circ q=\bar{q} \circ g$.
+
+Finally, the naturality of $\eta _{X\sqcup _AC}$ and the functorality of desingularization finishes our argument that $\eta _{B\sqcup _AC}$ is a retract of the weak equivalence $\eta _{X\sqcup _AC}$. Then by the retract axiom for model categories, it follows that the former is a weak equivalence as the latter is.
+\end{proof}
+\noindent \cref{lem:pushout_along_cofibration} lets us deduce that $nsSet$ is proper.
+\begin{proposition}\label{prop:axiom_of_propriety}
+The model category $nsSet$ is proper.
+\end{proposition}
+\begin{proof}
+The model category $nsSet$ is automatically right proper as $sSet$ with the standard model structure is proper \cite[Thm.~13.1.13, p.~242]{Hi03}. We prove that $nsSet$ is left proper and thus proper.
+
+Let $i:A\to B$ be a cofibration in $nsSet$. Suppose $f:A\to C$ a weak equivalence in $nsSet$. We will prove that the cobase change of $f$ along $i$ is a weak equivalence. Consider the diagram
+\begin{displaymath}
+\xymatrix{
+A \ar[d]_i \ar[r]^f_\sim & C \ar[d]_{\bar{\imath } } \ar@/^1pc/[ddr]^j \\
+B \ar[r]^(.35){\bar{f} } \ar@/_1pc/[drr]_g & B\sqcup _AC \ar[dr]^\sim \\
+&& D(B\sqcup _AC)
+}
+\end{displaymath}
+in $sSet$. The map
+\[\eta _{B\sqcup _AC}:B\sqcup _AC\xrightarrow{\sim } D(B\sqcup _AC)\]
+is a weak equivalence in $sSet$ as $i$ is a cofibration in $nsSet$. This is by \cref{lem:pushout_along_cofibration}.
+
+The map $i$ is degreewise injective by \cref{lem:cofib_degreewise_injective} and hence a cofibration in $sSet$. Therefore, by propriety of $sSet$ it follows that $\bar{f}$ is a weak equivalence in $sSet$. Thus the composite $g$ is a weak equivalence in $sSet$. It is the cobase change in $nsSet$ of $f$ along $i$. Thus $nsSet$ is left proper, as was announced.
+\end{proof}
+\noindent Note that left propriety implies that we have a glueing lemma in the model category $nsSet$ \cite[Prop.~13.3.9, p.~246]{Hi03}.
+
+We conclude this section by making a remark concerning the status of the work on characterizing the cofibrations and cofibrant objects in $nsSet$.
+\begin{remark}
+It does not seem likely that every composition of Str\o m maps is a cofibration. However, the converse may be true. According to the general theory, the $DSd^2(I)$-cofibrations are precisely the retracts of the relative $DSd^2(I)$-cell complexes \cite[Cor.~10.5.23, p.~200]{Hi03}.
+
+The author has conjectured that every cofibrant non-singular simplicial set that is the nerve of a small category is even the nerve of a poset. This is analogous to Thomason's result that every cofibrant category is a poset \cite[Prop.~5.7]{Th80}. The justification for this conjecture includes empirical evidence and is explained in \cref{ch:sixth}.
+
+On the other hand, May, Stephan and Zakharevich \cite[p.~13]{MSZ17} has found a six-element poset in the model structure on $PoSet$ due to Raptis \cite{Ra10} that is not cofibrant. Let $P$ denote this poset. Because the right adjoint of the functor $q:PoSet\to nsSet$ is fully faithful, the counit $qNP\xrightarrow{\cong } P$ is an isomorphism. As $q$ is a left Quillen functor, the poset $qNP$ is cofibrant if $NP$ is, so $NP$ cannot be cofibrant in $nsSet$.
+
+Bruckner and Pegel \cite{BP16} have found several classes of posets that are cofibrant in the model structure on $PoSet$ due to Raptis \cite{Ra10}. Hence, to claim that the nerve of any element taken from any of Bruckner's and Pegel's classes are cofibrant in $nsSet$ does not contradict the current knowledge of Raptis' model category.
+\end{remark}
+
+

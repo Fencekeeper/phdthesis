@@ -1,0 +1,68 @@
+
+
+\section{Further justification}
+\label{sec:justification}
+
+In this section, we will provide further justification for \cref{conj:cofibrant_nonsing_simp_set}. Let us investigate the first few stages of building a $DSd^2(I)$-cell complex $X$ in $nsSet$, which is by definition the target of some relative $DSd^2(I)$-cell complex whose source is the empty simplicial set. Recall from \cref{ch:htythy} that we write
+\[I=\{ \partial \Delta [n]\to \Delta [n]\mid n\geq 0\} .\]
+Also, recall the notion of relative cell complex from \cref{def:relative_cell_complex}.
+
+As an attempt to make a presentation of $X$, we define $A^0=\emptyset$. There exists a map $DSd^2(\partial \Delta [n_0])\to A^0$ only if $n_0=0$, so the first stage would have been to take a pushout
+\begin{displaymath}
+\xymatrix{
+DSd^2(\partial \Delta [0]) \ar[d] \ar[r] & A^0 \ar[d] \\
+DSd^2(\Delta [0]) \ar[r] & A^1
+}
+\end{displaymath}
+in $nsSet$. Then
+\[DSd^2(\Delta [0])\to A^1\]
+would have been an isomorphism, so in choosing a presentation of $X$ we may simply define $A^1=DSd^2(\Delta [0])$.
+
+The second stage would have been to take a pushout
+\begin{displaymath}
+\xymatrix{
+DSd^2(\partial \Delta [n_1]) \ar[d] \ar[r] & A^1 \ar[d] \\
+DSd^2(\Delta [n_1]) \ar[r] & A^2
+}
+\end{displaymath}
+where $DSd^2(\partial \Delta [n_1])\to A^1$ would have been unique as $A^1$ is terminal. Hence it would have been induced by the unique map $\partial \Delta [n_1]\to \Delta [0]$. This means that we may define the second building stage as
+\[A^2=DSd^2(\Delta [n_1]/\partial \Delta [n_1]).\]
+With this choice, the canonical map $A^1\to A^2$ is the one induced by the canonical map
+\[\Delta [0]\to \Delta [n_1]/\partial \Delta [n_1].\]
+
+We have seen that the zeroth, the first and the second building stage of $A$ is the nerve of a poset. What about the third? It is a pushout
+\begin{equation}
+\label{eq:first_diagram_conjecture_cofibrant_justification}
+\begin{gathered}
+\xymatrix{
+DSd^2(\partial \Delta [n_2]) \ar[d] \ar[r] & A^2 \ar[d] \\
+DSd^2(\Delta [n_2]) \ar[r] & A^3
+}
+\end{gathered}
+\end{equation}
+but in this case it is harder to say something useful about the top horizontal map. From \cref{prop:Strom-maps_closed_under_cobasechange}, we at least know that $A^2\to A^3$ is a Str\o m map.
+
+By \cref{thm:main_opt_triang}, we know that
+\begin{displaymath}
+\begin{array}{rcl}
+A^2 & = & DSd^2(\Delta [n_1]/\partial \Delta [n_1]) \\
+& \cong & BSd(\Delta [n_1]/\partial \Delta [n_1]) \\
+& = & N(Sd(\Delta [n_1]/\partial \Delta [n_1])^\sharp ),
+\end{array}
+\end{displaymath}
+which means that $DSd^2(\partial \Delta [n_2])\to A^2$ is the nerve of a unique functor
+\[Sd(\partial \Delta [n_2])^\sharp \to Sd(\Delta [n_1]/\partial \Delta [n_1])^\sharp .\]
+However, it is not clear that this map is the result of applying the functor $(-)^\sharp$ to some map
+\[Sd(\partial \Delta [n_2])\to Sd(\Delta [n_1]/\partial \Delta [n_1]).\]
+Therefore, although \cref{prop:pushout_along_Dwyer} is applicable to the square (\ref{eq:first_diagram_conjecture_cofibrant_justification}), it is not clear that the methods of \cref{thm:barratt_nerve_rep_map_dcr_iso} can be modified to argue that $A^3$ is the nerve of a poset.
+
+What seems probable, though, when comparing our situation with the argument of Proposition~5.7 in Thomason's article \cite[p.~323]{Th80} is that (\ref{eq:first_diagram_conjecture_cofibrant_justification}) captures enough of the complexity of our problem that we may make a serious attempt to prove \cref{conj:cofibrant_nonsing_simp_set}. Because of the assumptions of \cref{thm:barratt_nerve_rep_map_dcr_iso}, it is noteworthy that the source of the map
+\begin{equation}
+\label{eq:second_diagram_conjecture_cofibrant_justification}
+Sd(\partial \Delta [n_2])^\sharp \to Sd(\Delta [n_1]/\partial \Delta [n_1])^\sharp
+\end{equation}
+is a simplex category of a finite simplicial set and that its target is a simplex category of a regular simplicial set. With these properties in mind one could hope that $A^3$ is (isomorphic to) the nerve of a poset.
+
+
+
+

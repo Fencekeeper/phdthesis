@@ -1,0 +1,57 @@
+
+
+\section{Introduction}
+\label{sec:intro_hty}
+
+\noindent This paper concerns the diagram
+\begin{equation}
+\label{eq:diagram_of_adjunctions}
+\begin{gathered}
+\xymatrix{
+&& sSet \ar@<-.7ex>[ld]_{Sd^2} \\
+Cat \ar@<-.7ex>[d]_p \ar@<-.7ex>[r]_N & sSet \ar@<-.7ex>[ur]_{Ex^2} \ar@<-.7ex>[l]_c \ar@<-.7ex>[d]_D \\
+PoSet \ar@<-.7ex>[u]_U \ar@<-.7ex>[r]_N & nsSet \ar@<-.7ex>[l]_q \ar@<-.7ex>[u]_U
+}
+\end{gathered}
+\end{equation}
+which will be properly explained in \cref{sec:pre_exist}. For now it suffices to say the following.
+
+The diagram (\ref{eq:diagram_of_adjunctions}) consists of adjunctions between categories, where $sSet$ is the category of simplicial sets, where $Cat$ is the category of small categories, where $PoSet$ is the full subcategory of $Cat$ whose objects are the partially ordered sets (posets) and where $nsSet$ is the category of non-singular simplicial sets. The (full) inclusion $U:nsSet\to sSet$ admits a right adjoint functor \cite[Rem.~2.2.12]{WJR13}, which is known as desingularization and denoted $D$.
+
+Due to the preexisting literature, all of the categories that appear in (\ref{eq:diagram_of_adjunctions}), except $nsSet$, are model categories. Furthermore, all of the adjunctions that appear, except $(D,U)$ and $(q,N)$, are Quillen equivalences. The aim of this paper is to establish a model structure on $nsSet$ such that $(D,U)$ and $(q,N)$ are Quillen equivalences. This is essentially a reformulation of \cref{thm:main_homotopy_theory} below, which is our main result.
+
+For a justification of the model structure on $nsSet$ that we here suggest, see the highlight that is \cref{lem:Pushout_along_strom_homotopically_wellbehaved} and its implication \cref{lem:unit_weak_eq}, which says that the unit of the adjunction $(DSd^2,Ex^2U)$ is a weak equivalence.
+
+Given a simplicial set $X$, there is --- according to the Yoneda lemma --- a natural bijection $x\mapsto \bar{x}$ from the set $X_n$ of $n$-simplices to the set $sSet(\Delta [n],X)$ of simplicial maps from the standard $n$-simplex $\Delta [n]$ to $X$.
+\begin{definition}\label{def:embedded_simplex}
+Let $X$ be a simplicial set. The map $\bar{x}$ that corresponds to a simplex $x$ of $X$ under the natural bijection
+\[X_n\xrightarrow{\cong } sSet(\Delta [n],X)\]
+given by $x\mapsto \bar{x}$ is the \textbf{representing map} of $x$. A simplex is \textbf{embedded} if its representing map is degreewise injective.
+\end{definition}
+\noindent The terminology of \cref{def:embedded_simplex} makes sense of the notion of non-singular simplicial set. Here, we follow the terminology of Waldhausen, Jahren and Rognes \cite[Def.~1.2.2, p.~14]{WJR13}.
+
+In the diagram, the functor $Sd:sSet\to sSet$ is the Kan subdivision \cite[p.~147]{FP90} and $Ex$ denotes its right adjoint \cite[Prop.~4.2.10]{FP90}, which is sometimes referred to as extension \cite[p.~212]{FP90}. The symbol $Sd^k$, for $k\geq 0$, simply denotes the $k$-fold iteration of $Sd$, so in particular the symbol $Sd^2$ means the composite of $Sd$ with itself. Similarly, the symbol $Ex^2$ denotes the functor that performs extension twice.
+
+There is a standard model structure on $sSet$ due to Quillen \cite{Qu67} in which the weak equivalences are the maps whose geometric realizations are (weak) homotopy equivalences, the fibrations are the Kan fibrations and the cofibrations are the degreewise injective maps. Regarding the terminology of the theory model categories, we follow Hirschhorn's book \cite{Hi03}, but we also refer to Hovey's book \cite{Ho99}, which differs only slightly from the former. The differences are explained whenever relevant.
+
+In the passage between the categories $sSet$ and $nsSet$, there is a homotopical issue, namely that desingularization does not in general preserve the homotopy type, though every simplicial set is cofibrant in the standard model structure. We will discuss the issue in \cref{sec:behavior}. Nevertheless, we will prove the following result.
+\begin{theorem}\label{thm:main_homotopy_theory}
+Equip $sSet$ with the standard model structure. There is a proper, cofibrantly generated model structure on $nsSet$ such that $f$ is a weak equivalence (resp. fibration) if and only if $Ex^2U(f)$ is a weak equivalence (resp. fibration), and such that
+\[DSd^2:sSet\rightleftarrows nsSet:Ex^2U\]
+is a Quillen equivalence.
+\end{theorem}
+\noindent This theorem is our main result. Note that $Ex^2U(f)$ is a weak equivalence if and only if $U(f)$ is a weak equivalence, as $Ex$ preserves and reflects weak equivalences \cite[Cor.~4.6.21]{FP90}. Moreover, we will in \cref{sec:relations} argue that each adjunction that appears in (\ref{eq:diagram_of_adjunctions}) is a Quillen equivalence.
+
+Notice that non-singular simplicial sets is an intermediate between ordered simplicial complexes and simplicial sets in the following sense. In an ordered simplicial complex, the vertices of every simplex are pairwise distinct. Moreover, every simplex is uniquely determined by its vertices. In a non-singular simplicial set, the vertices of every non-degenerate simplex are pairwise distinct. However, a simplex is not necessarily uniquely determined by its vertices. In an arbitrary simplicial set, the vertices of a non-degenerate simplex are not necessarily pairwise distinct.
+
+Moreover, $nsSet$ as a category is strictly between ordered simplicial complexes and $sSet$. This is automatic from the definition of $nsSet$ as a full subcategory of $sSet$, because every simplicial set associated with an ordered simplicial complex is non-singular. Making $nsSet$ a model category puts the homotopy theory of ordered simplicial complexes more directly into the modern context of model categories.
+
+An advantage of non-singular simplicial sets over simplicial sets is that the former have a natural PL structure described in \cite[Sec.~3.4,~p.~126--127]{WJR13}. The key to this fact is the compatibility between the Kan subdivision of simplicial sets and the barycentric subdivision of simplicial complexes. The former performed on a non-singular simplicial set is (associated with) an ordered simplicial complex. See the explanation on page 36 in the book by Waldhausen, Jahren and Rognes \cite{WJR13} and Lemmas 2.2.10. and 2.2.11. \cite[p.~38]{WJR13} in the same book. The category $nsSet$ plays an important role there. Compared with ordered simplicial complexes, the category of non-singular simplicial sets has colimits that are somewhat more meaningful in the sense that more of the colimits are preserved by geometric realization.
+
+In \cref{sec:pre_exist}, we properly introduce the diagram (\ref{eq:diagram_of_adjunctions}). \cref{sec:structure} explains our chosen method for establishing the model structure on $nsSet$.
+
+Sections \ref{sec:behavior} throughout \ref{sec:lifting} concern the proof of \cref{prop:main_homotopy_theory}, which says that $nsSet$ is a cofibrantly generated model category and that $(DSd^2,Ex^2U)$ is a Quillen pair. Towards a proof of this, \cref{sec:behavior} begins by discussing the intution behind \cref{thm:main_homotopy_theory} and its connection to regular neighborhood theory. On that note, we introduce the important notion of Str\o m map whose properties are discussed in \cref{sec:properties}. The Str\o m maps form a class of auxiliary morphisms, which is used as a tool to establish the announced model structure on $nsSet$. \cref{sec:planes} handles important technicalities in that it shows how desingularization behaves when applied to certain pushouts. In \cref{sec:lifting}, we verify that the criteria laid out in \cref{sec:structure} are indeed satisfied so that \cref{prop:main_homotopy_theory} holds.
+
+We discuss cofibrations in \cref{sec:cofib} and state and prove \cref{prop:axiom_of_propriety}, which is the axiom of propriety. The sole purpose of \cref{sec:inverse} is to prove that $(DSd^2,Ex^2U)$ is a Quillen equivalence, which is stated as \cref{prop:homotopy_inverse}. \cref{thm:main_homotopy_theory} then immediately follows.
+
+Finally, in \cref{sec:relations}, we fullfill our promise that every adjunction in the diagram (\ref{eq:diagram_of_adjunctions}) is a Quillen equivalence.

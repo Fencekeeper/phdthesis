@@ -1,0 +1,141 @@
+
+\section{A homotopy inverse of the inclusion}
+\label{sec:inverse}
+
+In this section, we prove that the Quillen pair $(DSd^2,Ex^2U)$ is indeed a Quillen equivalence. This is stated as \cref{prop:homotopy_inverse} below. In other words, towards the end of this section, we have sufficient knowledge to establish \cref{thm:main_homotopy_theory}, which is our main result.
+
+Intuitively, the first step towards establishing the Quillen equivalence is the following result.
+\begin{proposition}\label{prop:desing_double_subdvision_homotopy_inverse}
+Let $X$ be a simplicial set. The unit $Sd^2\, X\to UDSd^2\, X$ of the adjunction
+\begin{displaymath}
+ \xymatrix{
+ sSet \ar@<+.7ex>[r]^D & nsSet \ar@<+.7ex>[l]^U
+ }
+\end{displaymath}
+is a weak equivalence.
+\end{proposition}
+\begin{proof}
+Consider the skeleton filtration
+\[X^0\to X^1\to \cdots \to X^n\to \cdots \]
+of $X$, given by successively attaching the non-degenerate $k$-simplices to the $(k-1)$-skeleton, $k>0$. Note that $Sd^2\, X^n$ can be built from $Sd^2\, X^{n-1}$ as the Kan subdivision preserves colimits and degreewise injective maps \cite[Prop.~4.6.3~(i),~p.~200]{FP90}.
+
+By naturality, the unit $Sd^2\, X\to UDSd^2\, X$ arises as a map between sequential colimits from the diagram
+\begin{displaymath}
+\xymatrix{
+Sd^2\, X^0 \ar[d]^\cong \ar[r] & Sd^2\, X^1 \ar[d] \ar[r] & \cdots \ar[r] & Sd^2\, X^n \ar[d] \ar[r] & \cdots \\
+UDSd^2\, X^0 \ar[r] & UDSd^2\, X^1 \ar[r] & \cdots \ar[r] & UDSd^2\, X^n \ar[r] & \cdots
+}
+\end{displaymath}
+in $sSet$. This is because $D$ is a left adjoint and because $U:nsSet\to sSet$ preserves filtered colimits by \cref{lem:filtered_colimits_preservation}.
+
+If $Sd^2\, X^n\to UDSd^2\, X^n$ is a weak equivalence for each $n\geq 0$, then $Sd^2\, X\to UDSd^2\, X$ is a weak equivalence. Now, the map
+\[Sd^2\, X^0\xrightarrow{\cong} UDSd^2\, X^0\]
+is an isomorphism for every $X$, because every $0$-dimensional simplicial set is non-singular.
+
+Suppose $n>0$ is such that $Sd^2\, X^{n-1}\to UDSd^2\, X^{n-1}$ is a weak equivalence.  Hence, the diagram
+\begin{equation}
+\label{eq:diagram_proof_of_prop_desing_double_subdvision_homotopy_inverse}
+\begin{gathered}
+\xymatrix@=1em{
+Sd^2(\bigsqcup _{x\in X^\sharp _n}\Delta [n]) \ar[d]^\cong & Sd^2(\bigsqcup _{x\in X^\sharp _n}\partial \Delta [n]) \ar[l] \ar[d]^\cong \ar[r] & Sd^2\, X^{n-1} \ar[d]^\sim \\
+UDSd^2(\bigsqcup _{x\in X^\sharp _n}\Delta [n]) & UDSd^2(\bigsqcup _{x\in X^\sharp _n}\partial \Delta [n]) \ar[l] \ar[r] & UDSd^2\, X^{n-1}
+}
+\end{gathered}
+\end{equation}
+in $sSet$ yields a factorization
+\[Sd^2\, X^n\xrightarrow{\sim } Z\to UDSd^2\, X^n\]
+of the unit $Sd^2\, X^n\to UDSd^2\, X^n$ as a map between the pushouts $Sd^2\, X^n$ and $Z$ in $sSet$ followed by a canonical map $Z\to UDSd^2\, X^n$.
+
+By the glueing lemma, the map $Sd^2\, X^n\xrightarrow{\sim } Z$ is a weak equivalence as the two left hand horizontal maps of (\ref{eq:diagram_proof_of_prop_desing_double_subdvision_homotopy_inverse}) are degreewise injective.
+
+The map
+\[Sd^2(\bigsqcup _{x\in X^\sharp _n}\partial \Delta [n])\to Sd^2(\bigsqcup _{x\in X^\sharp _n}\Delta [n])\]
+is a Str\o m map by \cref{cor:two-fold_subdivision_strom}. By \cref{lem:Pushout_along_strom_homotopically_wellbehaved} it therefore follows that $Z\xrightarrow{\sim } UDSd^2\, X^n$ is a weak equivalence.
+\end{proof}
+\noindent Thus we obtain the fact that the homotopy type is preserved when we apply desingularization to the double Kan subdivision of some simplicial set.
+
+Our second step is to move from considering the adjunction $(D,U)$ to considering the adjunction $(DSd^2,Ex^2U)$.
+\begin{lemma}\label{lem:unit_weak_eq}
+The unit $\eta _X:X\to Ex^2UDSd^2X$ is in general a weak equivalence.
+\end{lemma}
+\noindent \cref{lem:unit_weak_eq} will follow from the bulk of the proof of \cref{prop:second_condition_lifting_criterion}. In the language of Fritsch and Latch \cite{FL81}, the construction $DSd^2$ is a homotopy inverse for the inclusion $U:nsSet\to sSet$.
+\begin{proof}[Proof of \cref{lem:unit_weak_eq}.]
+The unit of $(DSd^2,Ex^2U)$ is that of the composite adjunction
+\begin{displaymath}
+ \xymatrix{
+ sSet \ar@<+.7ex>[r]^{Sd^2} & sSet \ar@<+.7ex>[l]^{Ex^2} \ar@<+.7ex>[r]^D & nsSet \ar@<+.7ex>[l]^U
+ }
+\end{displaymath}
+and is therefore itself the composite
+\begin{equation}
+\label{eq:diagram_proof_of_lem_unit_weak_eq}
+\begin{gathered}
+\xymatrix{
+X \ar[r]^(.3)\sim & Ex^2(Sd^2\, X) \ar[r] & Ex^2(UD(Sd^2\, X))
+}
+\end{gathered}
+\end{equation}
+where the first map is known to be a weak equivalence. To see that the latter statement is true, it is enough to realize that the unit $X\to ExSd\, X$ of $(Sd,Ex)$ is a weak equivalence.
+
+Adjoint \cite[p.~213]{FP90} to the last vertex map $d_X:Sd\, X\xrightarrow{\sim } X$ is a natural weak equivalence $e_X:X\xrightarrow{\sim } Ex\, X$ \cite[Lem.~4.6.20]{FP90}. The unit of $(Sd,Ex)$ is adjoint to the identity $Sd\, X\to Sd\, X$. Moreover, the unit of $(Sd,Ex)$ fits into the commutative triangle
+\begin{displaymath}
+\xymatrix{
+& ExSd\, X \ar[dr]^{Ex(d_X)}_\sim \\
+X \ar[ur] \ar[rr]_{e_X}^\sim && Ex\, X
+}
+\end{displaymath}
+as we see from the commutative square
+\begin{displaymath}
+\xymatrix{
+sSet(Sd\, X,Sd\, X) \ar[d]_{sSet(id,d_X)} \ar[r]^\cong & sSet(X,ExSd\, X) \ar[d]^{sSet(id,Ex(d_X))} \\
+sSet(Sd\, X,X) \ar[r]_\cong & sSet(X,Ex\, X)
+}
+\end{displaymath}
+in which $d_X$ is sent to $e_X$ under the lower horizontal map by definition and in which the identity is sent to the unit of $(Sd,Ex)$ under the upper horizontal map. The latter square implies that $e_X$ can be obtained by postcomposing the unit with $Ex(d_X)$. The two-out-of-three property implies that the unit is a weak equivalence.
+
+The second map of the composite (\ref{eq:diagram_proof_of_lem_unit_weak_eq}) is the result of applying $Ex^2$ to the unit
+\[Sd^2\, X\xrightarrow{\sim } UDSd^2\, X,\]
+which is a weak equivalence by \cref{prop:desing_double_subdvision_homotopy_inverse}. Now, the functor $Ex^2$ preserves weak equivalences. This shows that the composite (\ref{eq:diagram_proof_of_lem_unit_weak_eq}) is a weak equivalence.
+\end{proof}
+\noindent Having proven that the unit of the Quillen pair $(DSd^2,Ex^2U)$ is a weak equivalence is in fact enough, in our case, to prove that the Quillen pair is indeed a Quillen equivalence.
+
+We have so far followed Hirschhorn's terminology throughout this article. However, to prove \cref{prop:homotopy_inverse}, we will use a result in Hovey's book. Hirschhorn's and Hovey's definitions of the term Quillen equivalence are identical to the following.
+\begin{definition}
+Suppose $F:\mathscr{M} \rightleftarrows \mathscr{N} :G$ a Quillen pair with
+\[\varphi :\mathscr{N} (FX,Y)\xrightarrow{\cong } \mathscr{M} (X,GY)\]
+the natural bijection that comes with the underlying adjunction $(F,G)$ of categories. We say that $(F,G)$ is a \textbf{Quillen equivalence} if $f:FX\to Y$ is a weak equivalence in $\mathscr{N}$ if and only if $\varphi (f):X\to GY$ is a weak equivalence in $\mathscr{M}$ whenever $X$ is a cofibrant object of $\mathscr{M}$ and $Y$ is a fibrant object of $\mathscr{N}$.
+\end{definition}
+\noindent Moreover, this definition is independent of any choice of functorial factorizations and any choice of fibrant and cofibrant replacement functors.
+
+A canonical choice of fibrant and cofibrant replacement functors are implicitly part of the model structure in Hovey's notion of model category \cite[Def.~1.1.3, p.~3]{Ho99}, whereas the opposite is true in Hirschhorn's notion \cite[Def.~7.1.3, p.~109]{Hi03}. Namely, Hirschhorn assumes the existence of two functorial factorizations, one as a cofibration followed by a trivial fibration and another as a trivial cofibration followed by a fibration. However, Hovey makes such a choice of functorial factorizations part of the model structure. Thus arises canonical fibrant and cofibrant replacement functors. To think of $(DSd^2,Ex^2U)$ as a Quillen pair according to Hovey, we must then make a choice of functorial factorizations for each of the model categories $sSet$ and $nsSet$.
+
+Now, \cref{thm:lifting_across_adjunction} is the lifting theorem \cite[Thm.~11.3.2]{Hi03}, which applies the recognition theorem \cite[Thm.~11.3.1]{Hi03} whose proof uses the small object argument in the form \cite[Prop.~10.5.16]{Hi03}. From the latter result, which is more or less a standard formulation, we can read off that the small object argument establishes two functorial factorizations on $nsSet$, one into a relative $DSd^2(I)$-cell complex followed by a $DSd^2(I)$-injective, and another into a relative $DSd^2(J)$-cell complex followed by a $DSd^2(J)$-injective. We choose these to serve as part of the model structure on $nsSet$ according to Hovey's notion. Clearly, we follow the same procedure with regards to the sets $I$ and $J$ of maps in $sSet$.
+
+When choices of functorial factorizations have been made, there is a canonical fibrant replacement functor $R$ in $nsSet$ that arises from the factorization
+\[A\xrightarrow{r_A} RA\to \Delta [0]\]
+of the terminal map, for each non-singular $A$, as a relative $DSd^2(J)$-cell complex $r_A$ followed by a fibration $RA\to \Delta [0]$. In other words, the non-singular simplicial set $A$ is replaced by a fibrant non-singular simplicial set $RA$, with a natural map $r_A$ from the original to its replacement.
+
+The choices of functorial factorizations can simply be forgotten after the proof of \cref{prop:homotopy_inverse}. Because the term Quillen equivalence is defined the same way by both Hirschhorn and Hovey and because this definition has no reference to fibrant or cofibrant replacements, the pair $(DSd^2,Ex^2)$ will be a Quillen equivalence according to Hirschhorn if it is according to Hovey.
+
+Finally, we obtain the last piece used to establish \cref{thm:main_homotopy_theory}, which is the main result.
+\begin{proposition}\label{prop:homotopy_inverse}
+The Quillen pair
+\[DSd^2:sSet\rightleftarrows nsSet:Ex^2U\]
+is a Quillen equivalence.
+\end{proposition}
+\begin{proof}
+The pair $(DSd^2,Ex^2U)$ is a Quillen equivalence \cite[Cor.~1.3.16]{Ho99} if and only if $Ex^2U$ reflects weak equivalences between fibrant objects and the composite
+\[X\xrightarrow{\eta _X} Ex^2UDSd^2X\xrightarrow{Ex^2U(r_{DSd^2X})} Ex^2URDSd^2X\]
+is a weak equivalence for every cofibrant $X$. Here,
+\[r_{DSd^2\, X}:DSd^2\, X\xrightarrow{\sim } RDSd^2\, X\]
+is the natural relative $DSd^2(J)$-cell complex that comes with the fibrant replacement $R$.
+
+As the model structure on $nsSet$ is lifted along the right adjoint $Ex^2U$, this functor  reflects weak equivalences without an assumption on either the source or the target. For the same reason, the functor $Ex^2U$ preserves weak equivalences. Any object in $sSet$ is cofibrant. Nevertheless, it follows that \cref{prop:homotopy_inverse} holds if the following result holds, which it does.
+\end{proof}
+\begin{proof}[Proof of \cref{thm:main_homotopy_theory}.]
+First, by \cref{prop:main_homotopy_theory}, the category $nsSet$ is a cofibrantly generated model category and $(DSd^2,Ex^2U)$ is a Quillen pair when $sSet$ is equipped with the standard model structure due to Quillen. Second, the model category $nsSet$ satisfies the axiom of propriety according to \cref{prop:axiom_of_propriety}. Finally, \cref{prop:homotopy_inverse} says that the pair $(DSd^2,Ex^2U)$ is a Quillen equivalence.
+\end{proof}
+
+
+
+

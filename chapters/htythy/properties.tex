@@ -1,0 +1,208 @@
+
+
+\section{Properties of Str\o m maps}
+\label{sec:properties}
+
+In this section, we will prove that the class of Str\o m maps is closed under cobase change (in $nsSet$), stated as \cref{prop:Strom-maps_closed_under_cobasechange}. Based on this result, we establish \cref{lem:Pushout_along_strom_homotopically_wellbehaved}, which says that to take a pushout along a Str\o m map is a homotopically well behaved operation. The latter will be the key to establishing the model structure on $nsSet$ and to the relationship with the model category of simplicial sets.
+
+First, consider the following lemma.
+\begin{lemma}
+\label{lem_tool_for_proving_lem_Strom-maps_closed_under_cobasechange}
+Suppose $k:A\to B$ the inclusion of an eden $A$ in a non-singular simplicial set $B$ and that $f:A\to C$ is some map in $nsSet$. Assume that there is an abyss $W$ in $B$ that contains $A$. Let $i$ denote the inclusion $A\to W$ and let $j$ denote the inclusion $W\to B$. Then the canonical map
+\[B\sqcup _WD(W\sqcup _AC)\xrightarrow{\cong } D(B\sqcup _AC)\]
+is an isomorphism.
+\end{lemma}
+\noindent The proof of \cref{lem_tool_for_proving_lem_Strom-maps_closed_under_cobasechange} is an adaptation of Thomason's argument on page 315 in his article \cite{Th80} whose purpose is analogous.
+\begin{proof}[Proof of \cref{lem_tool_for_proving_lem_Strom-maps_closed_under_cobasechange}.]
+Let $V$ denote the full simplicial subset of $B$ whose $0$-simplices are those that are not simplices of $A$. Then $V$ is an abyss in $B$. Consider the square
+\begin{displaymath}
+\xymatrix{
+V\cap W \ar[d] \ar[r] & W \ar[d] \\
+V \ar[r] & B
+}
+\end{displaymath}
+in $sSet$. The simplicial set $V\cap W$ is an abyss in both $V$ and $W$. Due to these facts and the fact that $B=V\cup W$, it follows that the square is cocartesian. We put it next to the diagram (\ref{eq:diagram_proof_of_lem_Strom-maps_closed_under_cobasechange_big}). Then we get a canonical isomorphism
+\[B\sqcup _WD(W\sqcup _AC)\cong V\sqcup _{V\cap W}D(W\sqcup _AC)\]
+between pushouts in $sSet$.
+
+We know from \cref{prop:desingularizing_after_collapsing_elysium} that the canonical map
+\[V\cap W\to D(W/A)\]
+is an abyss, hence
+\[V\cap W\to D(W\sqcup _AC)\]
+is degreewise injective.
+Therefore, the simplicial set $V\sqcup _{V\cap W}D(W\sqcup _AC)$ is the pushout in $sSet$ of a diagram in which all objects are non-singular and where both legs are degreewise injective, which means that the pushout is itself non-singular. By the universal property of desingularization, it follows that the canonical map
+\[B\sqcup _WD(W\sqcup _AC)\xrightarrow{\cong } D(B\sqcup _AC)\]
+is an isomorphism.
+\end{proof}
+\noindent Next, we combine \cref{lem_tool_for_proving_lem_Strom-maps_closed_under_cobasechange} with \cref{prop:desingularizing_after_collapsing_elysium} to establish \cref{prop:Strom-maps_closed_under_cobasechange}.
+
+In the proof of \cref{lem:Pushout_along_strom_homotopically_wellbehaved} below, we will refer to the full strength of \cref{prop:Strom-maps_closed_under_cobasechange} and not just that Str\o m maps are closed under taking cobase change. Hence the slightly awkward formulation of \cref{prop:Strom-maps_closed_under_cobasechange}.
+\begin{proposition}\label{prop:Strom-maps_closed_under_cobasechange}
+The class of Str\o m maps is closed under taking cobase change (in $nsSet$). Moreover, if $k:A\to B$ is a Str\o m map with factorization
+\[A\xrightarrow{i} W\xrightarrow{j} B\]
+and if the diagram
+\begin{displaymath}
+\xymatrix@C=1em{
+  A \ar@/_1.5pc/[dd]_k \ar[r]^f \ar[d]^i & C \ar[d]_{\hat{\imath }} \ar@/^3.5pc/[dd]^{\hat{k} } \\
+  W \ar[r] \ar[d]^j & D(W\sqcup _AC) \ar[d]_{\hat{\jmath }} \\
+  B \ar[r] & D(B\sqcup _AC) \\
+}
+\end{displaymath}
+in $nsSet$ displays $\hat{k}$ as the cobase change of $k$ along some map $f:A\to C$ and $\hat{\imath }$ as the cobase change of $i$ along $f$, then
+\[A\xrightarrow{\hat{\imath }} W\xrightarrow{\hat{\jmath } } B\]
+is a factorization of $\hat{k}$ as a Str\o m map.
+\end{proposition}
+\begin{proof}
+Consider the commutative diagram
+\begin{equation}
+\label{eq:diagram_proof_of_lem_Strom-maps_closed_under_cobasechange_big}
+\begin{gathered}
+\xymatrix@C=1em{
+  A \ar@/_1pc/[dd]_k \ar[r]^f \ar[d]^i & C \ar[d]^{\bar{\imath }} \ar[dr]^{\hat{\imath }} \ar[rrr] &&& \Delta [0] \ar[d] \\
+  W \ar[r]^(.35)g \ar[d]^j & W\sqcup _A C \ar[d]^{\bar{\jmath }} \ar[r] & D(W\sqcup _AC) \ar[dr]^{\hat{\jmath }} \ar[rr] \ar[d] && D(W/A) \ar[d]\\
+  B \ar[r]^(.35)h & B\sqcup _AC \ar@/_2pc/[rr]_{\eta _{B\sqcup _AC}} \ar[r] & B\sqcup _WD(W\sqcup _AC) \ar[r]_(.6)\cong & D(B\sqcup _AC) \ar[r] & D(B/A) \\
+}
+\end{gathered}
+\end{equation}
+\\
+in $sSet$, where we have used the naturality of $W\sqcup _AC\to D(W\sqcup _AC)$. Because we simplify notation many places, for instance by removing redundant $U$'s, the terms natural and naturality may seem out of place. Nevertheless, it is the category-theoretical notion that is understood. Notice that the cobase change $\hat{k} =\hat{\jmath } \circ \hat{\imath }$ of $k$ in $nsSet$ is present in the diagram, diagonally.
+
+\cref{def:strom} has four conditions that the map $\hat{k}$ must satisfy. We will start by confirming the third, which is that there is a retraction
+\[\hat{r} :D(W\sqcup _AC)\to C\]
+of $\hat{\imath }$. This is immediate from the existence of the retraction $r:W\to A$ of $i$ as we see in the diagram
+\begin{displaymath}
+\xymatrix{ %% Hvordan lage en pil fra W til A og til høyre for pilen fra A til W?
+  A \ar[rr]^f \ar[d]_i && C \ar[d]_{\hat{\imath }} \ar@/^1pc/[ddr]^1 \\
+  W \ar[dr]^r \ar[rr]^(.45){\eta \circ g} && D(W\sqcup _AC) \ar@{-->}[dr]_{\hat{r} } \\
+  & A \ar[rr]^f && C
+}
+\end{displaymath}
+in $nsSet$ where we make use of the universal property of $D(W\sqcup _AC)$ as a pushout. This concludes our verification of the third condition of \cref{def:strom}.
+
+For the fourth condition of \cref{def:strom} one should be convinced that the functor
+\[-\times \Delta [1]:nsSet\to nsSet\]
+preserves pushouts, which it does according to \cref{cor:take_product_cocontinous_endofunctor_non-singular}. Hence, the simplicial homotopy rel $A$ denoted $\epsilon$ that comes with the Str\o m map $k$ gives rise to a corresponding simplicial homotopy $\hat{\epsilon }$ via the diagram
+\begin{equation}
+\label{eq:diagram_proof_of_lem_Strom-maps_closed_under_cobasechange_existence_homotopy}
+\begin{gathered}
+\xymatrix@C-1pc@R-1pc{ %% Hvordan lage en pil fra W til A og til høyre for pilen fra A til W?
+  A\times \Delta [1] \ar[rr]^{f\times 1} \ar[dd]_{i\times 1} && C\times \Delta [1] \ar[dd]_{\hat{i} \times 1} \ar[dr]^{pr_1} \\
+  &&& C \ar[dd]_{\hat{i}} \\
+  W\times \Delta [1] \ar[rr]^(.4){(\eta \circ g)\times 1} \ar[dr]^\epsilon && D(W\sqcup _AC)\times \Delta [1] \ar@{-->}[dr]^(.6){\hat{\epsilon } } \\
+  & W \ar[rr]_{\eta \circ g} && D(W\sqcup _AC)
+}
+\end{gathered}
+\end{equation}
+in $nsSet$. We can expand the diagram by considering the diagram
+\begin{displaymath}
+\xymatrix{
+W \ar[d]^{i_0} & A \ar[l]_i \ar[d]^{i_0} \ar[r]^f & C \ar[d]^{i_0} \\
+W\times \Delta [1] & A\times \Delta [1] \ar[l]_{i\times 1} \ar[r]^{f\times 1} & C\times \Delta [1] \\
+W \ar[u]_{i_1} & A \ar[l]^i \ar[u]_{i_1} \ar[r]_f & C \ar[u]_{i_1}
+}
+\end{displaymath}
+in $nsSet$. It gives rise to a diagram
+\begin{displaymath}
+\xymatrix{
+D(W\sqcup _AC) \ar[d]_{i_0} \ar[dr] \\
+D(W\sqcup _AC)\times \Delta [1] \ar[r]^(.6){\hat{\epsilon } } & D(W\sqcup _AC) \\
+D(W\sqcup _AC) \ar[u]^{i_1} \ar[ur]_{id}
+}
+\end{displaymath}
+in which the composite $\hat{\epsilon } \circ i_1$ is the identity. Using the universal property of $D(W\sqcup _AC)$, one can check that the upper diagonal map
+\[D(W\sqcup _AC)\to D(W\sqcup _AC)\]
+is $\hat{i} \circ \hat{r}$. Thus $\hat{\epsilon }$ is a deformation of $D(W\sqcup _AC)$ to $C$. That the deformation is rel $C$ is immediate from the diagram that defines $\hat{\epsilon }$, namely (\ref{eq:diagram_proof_of_lem_Strom-maps_closed_under_cobasechange_existence_homotopy}). This concludes our verification of the fourth condition of \cref{def:strom}.
+
+We are about to take care of the first and the second condition of \cref{def:strom}. To this end, note that \cref{lem_tool_for_proving_lem_Strom-maps_closed_under_cobasechange} below says that the canonical map
+\[B\sqcup _WD(W\sqcup _AC)\xrightarrow{\cong } D(B\sqcup _AC)\]
+is an isomorphism. This implies that the map $\hat{\jmath }$ is identified with a map that is a cobase change in $sSet$ of the abyss $j$. Thus $\hat{\jmath }$ is an abyss. In other words, the second condition of \cref{def:strom} holds.
+
+In particular, the map $\hat{\jmath }$ is degreewise injective. Hence, the map $\hat{k}$ is degreewise injective, for it is the composite $\hat{\jmath } \circ \hat{\imath }$. Recall that the map $\hat{\imath }$ is degreewise injective as it is a section of $\hat{r}$.
+
+Finally, we prove that the first condition of \cref{def:strom} holds. By \cref{lem:elysiums_abysses_preserved_cobase_change}, the cobase change $\bar{k} =\bar{\jmath } \circ \bar{\imath }$ in $sSet$ of $k$ is an eden. Furthermore, the characteristic map $\chi :B\sqcup _AC\to \Delta [1]$ of $C$ as an eden in $B\sqcup _AC$ gives rise to a unique map
+\[\Psi :D(B\sqcup _AC)\to \Delta [1]\]
+such that $\chi =\Psi \circ \eta _{B\sqcup _AC}$ via the universal property of desingularization. We will argue that $\Psi$ is the characteristic map of $C$ as an eden in $D(B\sqcup _AC)$, meaning that $\hat{k}$ is the base change of $N\varepsilon _0$ along $\Psi$.
+
+Suppose we are given a simplicial set $X$ and maps $\beta :X\to B$ and $\gamma :X\to C$ such that
+\begin{equation}
+\label{eq:proof_first_condition_Strom-maps_closed_under_cobasechange}
+\hat{k} \circ \gamma =\eta _{B\sqcup _AC}\circ \beta .
+\end{equation}
+Consider the solid arrow diagram
+\begin{displaymath}
+\xymatrix{
+X \ar@/_1pc/[ddr]_\beta \ar@{-->}[dr]_\alpha \ar@/^1pc/[drr]^\gamma \\
+& C \ar[d]^{\bar{k} } \ar[r]_{id_C} & C \ar[d]^(.45){\hat{k} } \ar[r]_h & \Delta [0] \ar[d]^{N\varepsilon _0} \\
+& B\sqcup _AC \ar[r]_(.45){\eta _{B\sqcup _AC}} & D(B\sqcup _AC) \ar[r]^(.6)\Psi & \Delta [1]
+}
+\end{displaymath}
+in $sSet$. Notice from the equations
+\begin{displaymath}
+\begin{array}{rcl}
+N\varepsilon _0\circ h & = & N\varepsilon _0\circ h\circ id_C \\
+& = & \chi \circ \bar{k} \\
+& = & (\Psi \circ \eta _{B\sqcup _AC})\circ \bar{k} \\
+& = & \Psi \circ (\eta _{B\sqcup _AC}\circ \bar{k} ) \\
+& = & \Psi \circ (\hat{k} \circ id_C) \\
+& = & \Psi \circ \hat{k}
+\end{array}
+\end{displaymath}
+that the right hand square commutes.
+
+We use that the outer square is cartesian to obtain a dashed map $\alpha :X\to C$ such that
+\begin{displaymath}
+\begin{array}{rcl}
+\beta & = & \bar{k} \circ \alpha \\
+h\circ \gamma & = & (h\circ id_C)\circ \alpha .
+\end{array}
+\end{displaymath}
+The second equation is uninteresting, but the first combined with (\ref{eq:proof_first_condition_Strom-maps_closed_under_cobasechange}) yields
+\[\hat{k} \circ \gamma =\eta _{B\sqcup _AC}\circ \beta =\eta _{B\sqcup _AC}\circ (\bar{k} \circ \alpha )=(\eta _{B\sqcup _AC}\circ \bar{k} )\circ \alpha =\hat{k} \circ \alpha .\]
+Thus $\alpha =\gamma$ as $\hat{k}$ is degreewise injective. The degreewise injective maps are the monomorphisms of $sSet$. This shows that the left hand square is cartesian.
+
+Because $\eta _{B\sqcup _AC}$ is degreewise surjective it follows by \cref{cor:sSet_Pullbacks_close_to_twooutofthree_property} that the right hand square is cartesian. In other words, the map $\hat{k}$ is the base change of $N\varepsilon _0$ along $\Psi$. This concludes our verification of the first condition of \cref{def:strom}.
+\end{proof}
+\noindent The proof of \cref{prop:Strom-maps_closed_under_cobasechange} finishes the technical bulk of this article.
+
+We conclude the section by establishing the following crucial homotopical link between simplicial sets and non-singular simplicial sets. It is an adaptation of the analogous result for Dwyer maps \cite[Prop.~4.3]{Th80}.
+\begin{lemma}\label{lem:Pushout_along_strom_homotopically_wellbehaved}
+Let $k:A\rightarrow B$ be a Str\o m map and $f:A\rightarrow C$ some map in $nsSet$. If the square
+\begin{displaymath}
+\xymatrix{
+A \ar[d]_k \ar[r]^f & C \ar[d] \\
+B \ar[r] & D(UB\sqcup _{UA}UC)
+}
+\end{displaymath}
+is cocartesian in $nsSet$, then the square
+\begin{displaymath}
+\xymatrix{
+UA \ar[d]_{Uk} \ar[r]^{Uf} & UC \ar[d] \\
+UB \ar[r] & UD(UB\sqcup _{UA}UC)
+}
+\end{displaymath}
+is homotopy cocartesian in $sSet$.
+\end{lemma}
+\begin{proof}
+We are pedantic in the formulation of the proposition in the hope that the notation will make it clear which pushout belongs in which category. What we will prove is that the canonical map
+\[UB\sqcup _{UA}UC\to UD(UB\sqcup _{UA}UC)\]
+from the pushout in $sSet$ of the diagram
+\[UB\xleftarrow{Uk} UA\xrightarrow{Uf} UC\]
+to the pushout in $nsSet$ of the underlying diagram is a weak equivalence in $sSet$. Now, we remove the redundant $U$'s from the notation and proceed.
+
+Suppose $k=j\circ i$ a factorization of $k$ as a Str\o m map. Assume that $\hat{k} =\hat{\jmath } \circ \hat{\imath }$ is the cobase change in $nsSet$ of $k$ along $f$ and that $\hat{\imath }$ is the cobase change in $nsSet$ of $i$ along $f$. By \cref{prop:Strom-maps_closed_under_cobasechange}, it follows that the right hand vertical map in the diagram
+\begin{displaymath}
+\xymatrix{
+	B \ar[d]_1 & A \ar[l]_k \ar[d]_i^\sim \ar[r]^f & C \ar[d]_{\hat{i} }^\sim \\
+	B & W \ar[l]_j \ar[r] & D(W\sqcup _AC)
+}
+\end{displaymath}
+in $sSet$ is a weak equivalence. The diagram yields a factorization of
+\[\eta _{B\sqcup _AC}:B\sqcup _AC\to D(B\sqcup _AC)\]
+as
+\[B\sqcup _AC\xrightarrow{\sim } B\sqcup _WD(W\sqcup _AC)\xrightarrow{\cong } D(B\sqcup _AC).\]
+Here, the first map is a weak equivalence by the glueing lemma\\ \cite[Prop.~13.3.9, p.~246]{Hi03}. Note that $k$ and $j$ are cofibrations in the standard model structure on $sSet$ as the cofibrations are the degreewise injective maps. The second map is an isomorphism by \cref{lem_tool_for_proving_lem_Strom-maps_closed_under_cobasechange}.
+\end{proof}
+
+
+
+

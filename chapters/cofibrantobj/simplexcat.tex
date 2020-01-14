@@ -1,0 +1,454 @@
+
+
+\section{More on simplex categories}
+\label{sec:simplexcat}
+
+\subsection{Four related simplex categories}
+
+
+Among reasonable simplex categories of a simplicial set $X$, the poset $X^\sharp$ whose objects are the non-degenerate simplices is arguably the category whose formation is the most drastic as the non-degenerate simplices are the only objects and as the category only remembers whether a non-degenerate simplex is a face of another, but not how. The category $cSd\, X$ can also be viewed as a simplex category. It shares its set of objects with $X^\sharp$, but there are more morphisms in general. These two simplex categories seem relevant in trying to characterize the cofibrant objects of $nsSet$. In the hope that \cref{conj:cofibrant_nonsing_simp_set} can be proven with the machinery that is used in this thesis we discuss two more simplex categories in this chapter.
+
+We have previously mentioned the simplex category $\Delta \downarrow X$ whose objects are the representing maps $\bar{x}$ of simplices $x$ of $X$ and whose morphisms are the commutative triangles
+\begin{displaymath}
+\xymatrix{
+\Delta [m] \ar[dr]_{\bar{y} } \ar[rr]^\alpha && \Delta [n] \ar[ld]^{\bar{x} } \\
+& X
+}
+\end{displaymath}
+for $y$ and $x$ of degree $m$ and $n$, respectively. In this chapter we are concerned with the full subcategory $\Delta '\downarrow X$ whose objects are the representing maps of the non-degenerate simplices. In \cref{sec:formal}, we proved that there is a close relationship between $\Delta '\downarrow X$ and its surrounding category $\Delta \downarrow X$ when $X$ is non-singular.
+
+In contrast to $X^\sharp$, the morphisms $\bar{y} \to \bar{x}$ of the category $\Delta '\downarrow X$ correspond to all the ways in which $y$ can be written as a face of $y$. Still, $Sd\, X$ has strictly more $1$-simplices than there are morphisms in $\Delta '\downarrow X$, for if $x$ and $y$ are non-degenerate simplices of $X$ with $y=(x\mu )^\sharp \neq x\mu$, then the pair $((y,(\mu ,\iota ))$ uniquely represents a $1$-simplex of $Sd\, X$ as the Kan subdivision has the Eilenberg-Zilber property. Here, $\iota$ is the identity morphism whose target is shared with the face operator $\mu$. This means that $cSd\, X$ has potentially more morphisms than $\Delta '\downarrow X$. In this sense, the latter seems ungeometric compared to the former. However, we will shortly display an example that shows that the identifications used when constructing $cSd\, X$ can make $cSd\, X$ possess strictly fewer morphisms between two objects than $\Delta '\downarrow X$. Therefore, these two simplex categories do not seem directly comparable.
+
+The Eilenberg-Zilber property of the Kan subdivision and the explicit description of the categorification functor $c$ yields an explicit description of $cSd\, X$. However, the description is not quite elementary. We can compare $cSd\, X$ with $X^\sharp$ in the sense that there is a full functor $cSd\, X\to X^\sharp$. An issue when working with $cSd\, X$ is that it has an awkward, albeit explicit, description. We would like a full functor from another simplex category with the same set of objects and whose target is $cSd\, X$. Preferably, this new simplex category would have an elementary description, such as the descriptions of $X^\sharp$ and $\Delta '\downarrow X$.
+
+In an attempt to make a bigger simplex category than $cSd\, X$ that is comparable to the latter and that has an elementary description, we define $SX$ thus. Its objects are the non-degenerate simplices of $X$ as before. In this case, however, we let the morphisms $y\to x$ be the pairs $(x,\mu )$ such that $y=(x\mu )^\sharp$. This construction is the topic of the next subsection.
+
+
+
+\subsection{Construction of $SX$}
+
+Composition in $SX$ is less obvious than in $\Delta '\downarrow X$. Suppose we are given
+morphisms $z\xrightarrow{(y,\nu )} y$ and $y\xrightarrow{(x,\mu )} x$. We assign letters to the degrees of the simplices $x$, $y$ and $z$ and to the sources of the face operators $\mu$ and $\nu$ as in the diagram
+\begin{displaymath}
+\xymatrix@=1em{
+&& \Delta [m] \ar@{-->}[lldd]_{\widehat{(x\mu )^\flat } } \ar@{-->}[ddrr]^{\hat{\nu } } \\
+\\
+\Delta [l] \ar[ddrr]^\nu \ar[ddddd]_{(y\nu )^\flat } \ar[dddddddrr]_{y\nu } &&&& \Delta [k] \ar[lldd]_{(x\mu )^\flat } \ar[ddddd]^\mu \ar[llddddddd]^{x\mu } \\
+\\
+&& \Delta [n_y] \ar[ddddd]_(.4){\overline{(x\mu )^\sharp } } \\
+&&&& \\
+\\
+\Delta [n_z] \ar[ddrr]_{\overline{(y\nu )^\sharp } } &&&& \Delta [n_x] \ar[lldd]^{\bar{x} } \\
+\\
+&& X
+}
+\end{displaymath}
+in $sSet$. At the top we have formed the pullback $[m]$ of the underlying diagram in $\Delta$ and then reapplied the nerve. The map $\hat{\nu }$ is then a face operator, and $\widehat{(x\mu )^\flat }$ is a degeneracy operator. This is because a base change of an epimorphism in $\Delta$ is again an epimorphism. The epimorphisms are precisely the degeneracy operators. A base change in any category of a monomorphism is again a monomorphism. The monomorphisms of $\Delta$ are precisely the monomorphisms.
+
+If we apply the composite face operator $\mu \hat{\nu }$ to $x$, then we get a simplex whose non-degenerate part is $z$ and whose degenerate part is $(y\nu )^\flat \widehat{(x\mu )^\flat }$, as is revealed by the outer part of the big diagram. We define
+\[(x,\mu )\circ (y,\nu )=(x,\mu \hat{\nu } ).\]
+Notice that $(x,\iota )$, where $\iota$ is the identity, takes the role as the identity $x\to x$ in $SX$. It remains to verify associativity of the composition rule.
+
+Note that the category $\Delta '\downarrow X$ can be embedded as a subcategory of $SX$ as soon as we have verified that composition in $SX$ is associative. For if
+\begin{displaymath}
+\xymatrix{
+\Delta [m] \ar[dr]_{\bar{y} } \ar[rr]^\mu && \Delta [n] \ar[ld]^{\bar{x} } \\
+& X
+}
+\end{displaymath}
+is a morphism of $\Delta '\downarrow X$, then $y=x\mu =(x\mu )^\sharp$, so $(x,\mu )$ is trivially a morphism of $SX$.
+
+Composition in $SX$ is compatible with composition in $\Delta '\downarrow X$, for if $z\xrightarrow{(y,\nu )} y$ and $y\xrightarrow{(x,\mu )} x$ are morphisms of $SX$ with $z=y\nu$ and $y=x\mu$, then $\hat{\nu } =\nu$ as $(x\mu )^\flat$ is the identity. Furthermore, we get that
+\[x\mu \hat{\nu } =x\mu \nu =y\nu =z.\]
+In other words, the category $\Delta '\downarrow X$ becomes a subcategory of $SX$ as soon as we have verified associativity of the above composition rule.
+
+Finally, we verify associativity of the composition rule for $SX$. Suppose we have morphisms $w\xrightarrow{(z,\xi )} z$, $z\xrightarrow{(y,\nu )} y$ and $y\xrightarrow{(x,\mu )} x$. We will verify that
+\begin{equation}\label{eq:simplex_category_verification_associativity}
+(x,\mu )\circ ((y,\nu )\circ (z,\xi ))=((x,\mu )\circ (y,\nu ))\circ (z,\xi )
+\end{equation}
+which is the final piece of the argument that $SX$ is a category.
+
+The composition on the right hand side of (\ref{eq:simplex_category_verification_associativity}) is constructed by means of the diagram
+\begin{displaymath}
+\xymatrix@=1em{
+\Delta [q] \ar[dddd] \ar@{-->}[ddr] \ar[rrrrrr]^{\tilde{\xi }} &&&&&& \Delta [m] \ar[lldd]_{\widehat{(x\mu )^\flat }} \ar[ddrr]^{\hat{\nu } } \\
+\\
+& \Delta [r] \ar@{-->}[ldd]^{\widehat{(y\nu )^\flat } } \ar@{-->}[rrr]_{\hat{\xi } } &&& \Delta [l] \ar[ddrr]^\nu \ar[ddddd]_{(y\nu )^\flat } \ar[ddddddrr]_{y\nu } &&&& \Delta [k] \ar[lldd]_{(x\mu )^\flat } \ar[ddddd]^\mu \ar[lldddddd]^{x\mu } \\
+\\
+\Delta [p] \ar[dddd]^{(z\xi )^\flat } \ar[dddrrrr]_{\xi} &&&&&& \Delta [n_y] \ar[dddd]_(.4){\overline{(x\mu )^\sharp } } \\
+&&&&&&&& \\
+\\
+&&&& \Delta [n_z] \ar[drr]_{\overline{(y\nu )^\sharp } } &&&& \Delta [n_x] \ar[lld]^{\bar{x} } \\
+\Delta [n_w] \ar[rrrrrr]^{(z\xi )^\sharp } &&&&&& X
+}
+\end{displaymath}
+where $\tilde{\xi }$ is base change of $\xi$ along $(y\nu )^\flat \circ \widehat{(x\mu )^\flat }$ and $\hat{\xi }$ is base change of $\xi$ along $(y\nu )^\flat$. Recall that we form pullbacks in $\Delta$ when performing composition in $SY$ and then reapplying the nerve, which is fully faithful and continous. In turn, we get that $\tilde{\xi }$ is base change of $\hat{\xi }$ along $\widehat{(x\mu )^\flat }$. Finally, we get that $\hat{\nu }\circ \tilde{\xi }$ is base change of $\nu \circ \hat{\xi }$ along $(x\mu )^\flat$.
+
+Next, we use the knowledge from the previous paragraph to consider the composition on the left hand side of (\ref{eq:simplex_category_verification_associativity}). This composition is constructed by means of the diagram
+\begin{displaymath}
+\xymatrix@=1em{
+&& \Delta [r] \ar[lldd]_{\widehat{(y\nu )^\flat } } \ar[ddrr]^{\hat{\xi } } &&&&&& \Delta [q] \ar[llllll] \ar@{-->}[ldd] \ar[dddd]^{\hat{\nu } \circ \tilde{\xi } } \\
+\\
+\Delta [p] \ar[ddrr]^\xi \ar[ddddd]_{(z\xi )^\flat } \ar[dddddddrr]_{z\xi } &&&& \Delta [l] \ar[lldd]_{(y\nu )^\flat } \ar[ddddd]^\nu \ar[llddddddd]^{y\nu } &&& \Delta [m] \ar[lll]^{\widehat{(x\mu )^\flat }} \ar[ddr]_{\hat{\nu }} \\
+\\
+&& \Delta [n_z] \ar[ddddd]_(.4){(y\nu )^\sharp } &&&&&& \Delta [k] \ar[llllddd]^{(x\mu )^\flat } \ar[ddddd]^\mu \\
+\\
+\\
+\Delta [n_w] \ar[ddrr]_{(z\xi )^\sharp } &&&& \Delta [n_y] \ar[lldd]^{y=(x\mu )^\sharp } \\
+\\
+&& X &&&&&& \Delta [n_x] \ar[llllll]_x
+}
+\end{displaymath}
+where the map $\Delta [q]\to \Delta [m]$ arises the nerve of a map between pullbacks in $\Delta$. From both the diagrams arises the morphism
+\[w\xrightarrow{(x,\mu \hat{\nu } \tilde{\xi } )} x,\]
+so it follows that (\ref{eq:simplex_category_verification_associativity}) holds. This concludes the verification that composition in $SY$ is associative.
+
+Note that if $X$ is non-singular and if $(x,\mu ):y\to x$ is any morphism of $SX$, then $x\mu =(x\mu )^\sharp$ as $x$ must be embedded. Hence, $x\mu$ must be embedded and thus non-degenerate, so we get the following result.
+\begin{lemma}
+Let $X$ be a simplicial set. The set of non-degenerate simplices are the objects of a category whose morphisms $y\to x$ are the pairs $(x,\mu )$ such that $y=(x\mu )^\sharp$. There is a an embedding $\Delta '\downarrow X\to SX$ given by the rule $\bar{x}\mapsto x$ on objects. If $X$ is non-singular, then this embedding is full.
+\end{lemma}
+\noindent Note that the category $SX$ has more morphisms than $\Delta '\downarrow X$ in general, for if $(x,\mu )$ is a pair such that $y=(x\mu )^\sharp$ and such that $x\mu$ is degenerate, then $(x,\mu )$ does not correspond to a morphism $\bar{y} \to \bar{x}$ of $\Delta \downarrow X$.
+
+Finally, it would be interesting to know whether the construction $SX$ is functorial. If it is, then it may be of help in the work to characterize the cofibrant objects.
+\begin{remark}\label{rem:question_is_SX_functorial}
+A simplicial map $f:X\to X'$ gives rise to a rule
+\[x\xmapsto{Sf} f(x)^\sharp,\]
+for objects together with a compatible rule for morphisms, also denoted $Sf$. We now explain this.
+
+Consider a morphism $y\xrightarrow{(x,\mu )} x$ of $SX$. Denote $y'=f(y)^\sharp$ and $x'=f(x)^\sharp$. We will find a canonically constructed face operator such that the simplex we get when applying it to $f(x)^\sharp$ has $f(y)^\sharp$ as its non-degenerate part.
+
+We can decompose $f(x\mu )$ into the two expressions
+\[f(x\mu )=f(x)\mu =f(x)^\sharp f(x)^\flat \mu =x'(f(x)^\flat \mu )^\sharp (f(x)^\flat \mu )^\flat\]
+and
+\begin{displaymath}
+\begin{array}{rcl}
+f((x\mu )^\sharp )(x\mu )^\flat & = & f(y)(x\mu )^\flat \\
+& = & f(y^\sharp y^\flat )(x\mu )^\flat \\
+& = & f(y^\sharp )y^\flat (x\mu )^\flat \\
+& = & f(y^\sharp )^\sharp f(y^\sharp )^\flat y^\flat (x\mu )^\flat .
+\end{array}
+\end{displaymath}
+Because
+\[f(y)=f(y)^\sharp f(y)^\flat ,\]
+it is by the Eilenberg-Zilber lemma true that
+\[f(y^\sharp )^\sharp =f(y)^\sharp =y'.\]
+If we use the Eilenberg-Zilber lemma once more, we get that $y'$ is the non-degenerate part of $x'(f(x)^\flat \mu )^\sharp$, so we get a compatible rule
+\[(x,\mu )\xmapsto{Sf} (x',(f(x)^\flat \mu )^\sharp )\]
+on morphisms.
+
+If $f$ is the identity, then $f(x)=x=x^\sharp$. Therefore, in this case, the degeneracy operator $f(x)^\flat$ is just the identity, meaning $(f(x)^\flat \mu )^\sharp =\mu$. Also, we get that $f(x)^\sharp =x^\sharp =x$ for non-degenerate $x$. This implies that the rule $Sf$ is the identity in this case. The question remains whether the equation
+\begin{equation}\label{eq:question_is_SX_functorial}
+Sf((x,\mu )\circ (y,\nu ))=Sf((x,\mu ))\circ Sf((y,\nu )).
+\end{equation}
+holds? If so, the rule $Sf$ defines a functor $SX\to SX'$.
+\end{remark}
+
+
+\subsection{Construction of $cSd\, X$}
+
+
+The Kan subdivision $Sd\, X$ of a simplicial set $X$ has the following explicit description.
+
+By $\Delta '_q:\Delta \to Set$ for $q$ a non-negative integer, we refer to the cosimplicial set given by
+\[[n]\mapsto \Delta '[n]_q=N(\Delta [n]^\sharp )_q.\]
+The set of $q$-simplices can be explicitly described as
+\[\textrm{Sd} \, (X)_q=X\otimes \Delta '_q=\bigsqcup _{n\geq 0}X_n\times \Delta '[n]_q/\sim\]
+where we make the identification $(x\alpha ,\varphi )\sim (x,\alpha \varphi )$ for $x\in X_n$.  This is analogous to a tensor product from an algebraic setting as a right action and a left action cancel eachother out. Here,
+\[\varphi =(\varphi _0,\dots ,\varphi _q)\]
+is a ($q+1$)-touple of face operators with
+\[\textrm{Im} \, (\varphi _0)\subseteq \dots \subseteq \textrm{Im} \, (\varphi _q),\]
+which is just a way of denoting an element of $N(\Delta [n]^\sharp )_q$.
+
+We have that $\varphi$ is a so-called \emph{interior point} of $\Delta '_q$ if and only if $\varphi _q$ is the identity. The cosimplicial set $\Delta '_q$ satisfies the Eilenberg-Zilber property, which implies that any $q$-simplex of the subdivision is represented uniquely by a minimal pair $(x,\varphi )$, meaning that $x$ is non-degenerate and $\varphi$ is interior.
+
+For an arbitrary simplicial set $Y$, the category $cY$ is defined thus. Take the (directed) graph $G=(O,A)$ whose objects are the $0$-simplices $O=Y_0$ and whose arrows are the $1$-simplices $A=Y_1$. The vertex operators $\varepsilon _j:[0]\to [1]$, $j=0,1$, define the source and target functions $\varepsilon _0^*,\varepsilon _1^*:A\to O$, respectively. The morphisms of the free category $C(G)$ generated by the graph $C(G)$ are the finite strings
+\[y_0\xrightarrow{f_1} y_1\to \dots \xrightarrow{f_n} y_n\]
+with $n\geq 0$. If $y_0=o$ and $y_n=o'$, then the morphism belongs to the hom set $C(G)(o,o')$. Composition is concatenation of strings and the empty strings, meaning strings of length $n=0$, are the identities.
+
+The categorification of $Y$ is defined as the quotient
+\[cY=C(G)/\sim\]
+under the congruence defined by identifying
+\[z\delta _1\sim z\delta _0\circ z\delta _2\]
+for $2$-simplices $z$.
+
+Notice that the congruence generated by $\sim$ makes the degeneracy $x\sigma _0$, $\sigma _0:[1]\to [0]$, of any $0$-simplex $x$ behave as the identity morphism $x\to x$ of $cY$. One verifies this by checking the following two cases.
+
+The first case is when $y\in Y_1=A$ is an arrow of $G$ with $x=\varepsilon _0^*(y)$. Then the identification above in the case of the $2$-simplex $z=y\sigma _0$ ensures that the triangle
+\begin{displaymath}
+ \xymatrix{
+ & \varepsilon ^*_1(y) \\
+ x \ar[ur]^{y=z\delta _1} \ar[rr]_{x\sigma _0=z\delta _2} && x=\varepsilon ^*_0(y) \ar[lu]_{y=z\delta _0}
+ }
+\end{displaymath}
+in $cY$ commutes. The equalities $y=z\delta _1$ and $y=z\delta _0$ are immediate from the fact that $\delta _1$ and $\delta _0$ are sections of $\sigma_0:[2]\to [1]$. The third equality $x\sigma _0=z\delta _2$ comes from the calculation
+\[z\delta _2=(y\sigma _0)\delta _2=y(\sigma _0\delta _2)=y(\varepsilon _0\sigma _0)=(y\varepsilon _0)\sigma _0=x\sigma _0.\]
+In other words, the string
+\[x=\varepsilon ^*_0(y)\xrightarrow{y} \varepsilon ^*_1(y)\]
+of length $1$ is identified with the string
+\[x\xrightarrow{x\sigma _0} x=\varepsilon ^*_0(y)\xrightarrow{y} \varepsilon ^*_1(y)\]
+of length $2$. If $y=f_1$ for a morphism
+\[y_0\xrightarrow{f_1} y_1\to \dots \xrightarrow{f_n} y_n\]
+of $C(G)$ denoted $f$, say of length $n$, then the concatenation $\langle x\sigma _0,f\rangle$ of $x\sigma _0$ and $f$ is identified with $f$. This is because $f$ is the concatenation of $f_1$ and the string $y_1\xrightarrow{f_2} y_1\to \dots \xrightarrow{f_n} y_n$ of length $n-1$.
+
+The second case is when $y\in Y_1=A$ is an arrow of $G$ with $x=\varepsilon _1^*(y)$. In this case we let $z=y\sigma _1$, $\sigma _1:[2]\to [1]$. An analogous argument shows that the string
+\[\varepsilon ^*_0(y)\xrightarrow{y=z\delta _1} x=\varepsilon ^*_1(y)\]
+of length $1$ is identified with the string
+\[\varepsilon ^*_0(y)\xrightarrow{y=z\delta _1} \varepsilon ^*_1(y)=x\xrightarrow{x\sigma _0} x\]
+of length $2$.
+
+Now we can conclude that $x\sigma _0$ behaves as the identity $x\to x$. Such behavior uniquely determines a morphism, so the empty string
+\[x,\]
+which is the identity $x\to x$ of the free category $C(G)$, must be identified with the string $x\xrightarrow{x\sigma _0} x$ under the congruence generated by $\sim$ and it can therefore be regarded as (a representative for) the identity of $cY$.
+
+
+\subsection{Comparison of $cSd\, X$ and $SX$}
+
+
+We consider $cY$ in the case when $Y=Sd\, X$ and aim to define a comparison map $SX\to cSd\, X$.
+
+There is no question with regards to the objects. We let the object function be the canonical
+bijection
+\[y\mapsto [y,(\iota _{n_y})].\]
+Here, $n_y$ denotes the degree of $y$ and $\iota _{[n_y]}$ is the identity $[n_y]\to [n_y]$. If
+\[y\xrightarrow{(x,\mu )} x\]
+is a morphism of $SX$, then there are two cases.
+
+In the case when $\mu$ is the identity $[n_x]\to [n_x]$, then
+$(x,\mu )$ is the
+identity $x\to x$. Therefore, we send $(x,\mu )$ to the morphism of $cSd\, X$ that is represented by the empty string $(x)$.
+
+In the case when $\mu$ is not the identity we send $(x,\mu )$ to the morphism that is represented by
+\[[x,(\mu ,\iota _{[n_x]})].\]
+We claim that these rules define a full functor.
+
+First, note that we could simply send $(x,\mu )$ to the morphism represented by
+\[[x,(\mu ,\iota _{[n_x]})],\]
+whether $\mu$ is the identity or not. This is because both the empty string
+\[x,\]
+and
+\[x\xrightarrow{x\sigma _0} x\]
+represents the identity $x\to x$ in $cSd\, X$, as is true for any simplicial set $Y$, not only for $Y=Sd\, X$.
+
+We go on to prove that the given rule respects composition. Suppose $z\xrightarrow{(x,\pi )} x$ is the composite in $SX$ of morphisms $y\xrightarrow{(x,\mu )} x$ and $z\xrightarrow{(y,\nu )} y$. If we apply the rule above to these we get the representatives
+\begin{displaymath}
+ \begin{array}{rcl}
+  z\xrightarrow{(x,\pi )} x & \mapsto & [x,(\pi ,\iota _{[n_x]})] \\
+  y\xrightarrow{(x,\mu )} x & \mapsto & [x,(\mu ,\iota _{[n_x]})] \\
+  z\xrightarrow{(y,\nu )} y & \mapsto & [y,(\nu ,\iota _{[n_y]})]
+ \end{array}
+\end{displaymath}
+of morphisms of $cSd\, X$. Because
+\[\textrm{Im } \pi \subseteq \textrm{Im } \mu ,\]
+it makes sense to define $\varphi _0=\pi$ and $\varphi _1=\mu$. We let $\varphi _2=\iota _{[n_x]}$ be the identity $[n_x]\to [n_x]$ and $\varphi =(\varphi _0,\varphi _1,\varphi _2)$. The $2$-simplex $[x,\varphi ]$ of $Sd\, X$ provides
+the identification
+\[[x,\varphi ]\delta _1\sim [x,\varphi ]\delta _0\circ [x,\varphi ]\delta _2,\]
+which ought to be a relevant one. Applying $\delta _1$ and $\delta _0$ to $[x,\varphi ]$ is straightforward
+as the $1$-simplices $\varphi \delta _1$ and $\varphi \delta _0$ of $\Delta [n_x]$ are interior points of the cosimplicial
+set $\Delta '_1:\Delta \to Set$. We get that
+\[[x,\varphi ]\delta _1=[x,\varphi \delta _1]=[x,(\varphi _{\delta _1(0)},\varphi _{\delta _1(1)})]=[x,(\varphi _0,\varphi _2)]=[x,(\pi,\iota _{[n_x]})]\]
+and
+\[[x,\varphi ]\delta _0=[x,\varphi \delta _0]=[x,(\varphi _{\delta _0(0)},\varphi _{\delta _0(1)})]=[x,(\varphi _1,\varphi _2)]=[x,(\mu,\iota _{[n_x]})],\]
+which is simply by design of $\varphi$. Our real task is to calculate the minimal representative of $[x,\varphi ]\delta _2$.
+
+The simplex $\varphi \delta _2$ is equal to
+\[\varphi \delta _2=(\varphi _{\delta _2(0)},\varphi _{\delta _2(1)})=(\varphi _0,\varphi _1)=(\pi ,\mu ).\]
+Say that the sources of $\mu$, $\nu$ and $\pi$ are $[k]$, $[l]$ and $[m]$, respectively. We can write
+\[\mu =\mu \iota _{[k]}=(\mu \iota _{[k]})^\sharp .\]
+The face operator $\pi$ factors through $\mu$, meaning there is a dashed arrow in the triangle
+\begin{displaymath}
+ \xymatrix{
+ [m] \ar@{-->}[dr]_\xi \ar[rr]^\pi && [n_x] \\
+ & [k] \ar[ur]_\mu
+ }
+\end{displaymath}
+that makes it commute. This factorization is unique, so the $\xi '$ appearing in the diagram
+\begin{displaymath}
+ \xymatrix@=1em{
+ && \Delta [m] \ar@{-->}[lldd]_{N\rho } \ar@{-->}[ddrr]^{N\xi '} \\
+ \\
+ \Delta [l] \ar[ddrr]^{N\nu } \ar[ddddd]_{N(y\nu )^\flat } \ar[ddddddrr]_{\overline{y\nu } } &&&& \Delta [k] \ar[lldd]_{N(x\mu )^\flat } \ar[ddddd]^{N\mu } \ar[lldddddd]^{\overline{x\mu } } \\
+ \\
+ && \Delta [n_y] \ar[dddd]_(.4){\overline{(x\mu )^\sharp } } \\
+ &&&& \\
+ \\
+ \Delta [n_z] \ar[drr]_{\overline{(y\nu )^\sharp } } &&&& \Delta [n_x] \ar[lld]^{\bar{x} } \\
+ && X
+ }
+\end{displaymath}
+that defines the composite $(x,\pi )$ must be equal to $\xi =\xi '$. Here, the top square is the nerve of a pullback in $\Delta$.
+
+Now we calculate the minimal representative of $[x,\varphi ]\delta _2$. We get the following series of identifications.
+\begin{displaymath}
+ \begin{array}{rcl}
+ (x,(\pi ,\mu )) & = & (x,(\mu \xi ,\mu \iota _{[k]})) \\
+  & = & (x,((\mu \xi )^\sharp ,(\mu \iota _{[k]})^\sharp )) \\
+  & \sim & (x\mu ,(\xi ,\iota _{[k]})) \\
+  & \sim & ((x\mu )^\sharp ,(((x\mu )^\flat \xi )^\sharp ,\iota _{[n_y]}))
+ \end{array}
+\end{displaymath}
+The face operator $(((x\mu )^\flat \xi )^\sharp$ can simply be read off the upper square in the diagram defining the
+composite $(x,\pi )$, and it is $\nu$. Recall that any operator factors uniquely as a degeneracy operator followed by
+a face operator. From the diagram we get the factorization
+\[(x\mu )^\flat \xi =\nu \rho\]
+in which $\rho$ is a degeneracy operator and $\nu$ is a face operator.
+
+The pair $((x\mu )^\sharp ,(\nu ,\iota _{[n_y]}))$ is
+the minimal representative of a $1$-simplex that represents the morphism of $cSd\, X$ to which our rule assigned the morphism $(y,\nu )$ of $SX$. As we explained above, the category $cSd\, X$ is defined as a quotient of
+the free category $C(G)$ of the graph
+\[G=(O,A)=(Sd(X)_0,Sd(X)_1)\]
+whose objects are the $0$-simplices and whose arrows are the $1$-simplices. The congruence is defined in terms of $2$-simplices, and the $2$-simplex $[x,\varphi ]$ provides the identification
+\[[x,(\pi ,\iota _{[n_x]})]\sim [x,(\mu ,\iota _{[n_x]})]\circ [y,(\nu ,\iota _{[n_y]})],\]
+which shows functorality.
+
+By the design of $SX$, the functor $SX\to cSd\, X$ is a bijection on objects. It is also full as we now clarify. Any morphism of $cSd\, X$ is represented by some morphism of $C(G)$ where $G=(Sd(X)_0,Sd(X)_1)$. The morphisms of the latter are generated by the $1$-simplices of the the Kan subdivision of $X$. Each such generator is hit by a morphism of $SX$ by its construction. Therefore, every morphism of $cSd\, X$ is hit, so to sum up we now have the following result.
+\begin{lemma}\label{lem:comparison_SX_vs_cSdX}
+The rule $x\mapsto [x,(\iota )]$ can be used to define a full functor $SX\to cSd\, X$ that is bijective on objects.
+\end{lemma}
+\noindent As a result we can now compare $cSd\, X$ to both the smaller simplex category $X^\sharp$ and the bigger simplex category $SX$.
+
+The arrival of \cref{lem:comparison_SX_vs_cSdX} means that the map $cSd\, X\to X^\sharp$ that we used in \cref{sec:evidence} can be seen as arising from the comparison maps $SX\to cSd\, X$ and $SX\to X^\sharp$ and creating a commutative triangle
+\begin{equation}
+\label{eq:commutative_triangle_simplex_categories}
+\begin{gathered}
+\xymatrix{
+SX \ar[dr] \ar[rr] && cSd\, X \ar@{-->}[ld] \\
+& U(X^\sharp )
+}
+\end{gathered}
+\end{equation}
+in $Cat$. Because of the elementary descriptions of $SX$ and $X^\sharp$ compared with $cSd\, X$, which is a quotient of a free category generated by a graph, it is even easier to analyze $cSd\, X$ or $cSd\, X\to U(X^\sharp )$ by means of (\ref{eq:commutative_triangle_simplex_categories}) and the maps $SX\to cSd\, X$ and $SX\to U(X^\sharp )$.
+
+The map $SX\to U(X^\sharp )$ is full and bijective on objects by the definitions and $SX\to U(X^\sharp )$ is designed to be full and bijective on objects. Thus we obtain the fact that $cSd\, X\to U(X^\sharp )$ is full an bijective on objects. Because $PoSet$ is a reflective subcategory of $Cat$, the map $pcSd\, X\xrightarrow{\cong } X^\sharp$ that we get by applying posetification is automatically an isomorphism. We record the following observation.
+\begin{lemma}
+\label{lem:comparison_categorification_of_subdivision_vs_non-degenerate_simplices_poset}
+The natural map $cSd\, X\to U(X^\sharp )$ is full and bijective on objects.
+\end{lemma}
+
+This line of thought is a more complicated way of explaining that \cref{thm:main_opt_triang} provides evidence for \cref{conj:cofibrant_nonsing_simp_set}, compared with our argument in \cref{sec:evidence}. Refer to \cref{prop:categorification_of_DSd_vs_B} and its proof. One can hope, however, that the detour leads to something useful in an endeavor to characterize the cofibrant objects in $nsSet$.
+
+In \cref{rem:question_is_SX_functorial}, we ask whether the construction $SX$ is functorial. If it is, then it becomes interesting to know whether the map $SX\to cSd\, X$ is natural.
+\begin{remark}\label{rem:question_is_comparison_SX_vs_cSdX_natural}
+If the construction $SX$ is functorial, then there is a diagram
+\begin{displaymath}
+\xymatrix@=1em{
+&&&&& sSet \ar@/_3pc/[lllllddd]_S \ar[llddd]^{Sd} \ar@/^5pc/[lldddddd]^B \\
+&& \ar@{==>}[dr] \\
+&&& \\
+Cat \ar[ddd]_p &&& sSet \ar[lll]^c \ar[ddd]^D & \ar@{=>}[dr] \\
+& \ar@{=>}[dr]^\cong &&&& \\
+&& \\
+PoSet &&& nsSet \ar[lll]^q
+}
+\end{displaymath}
+of functors and natural transformations, which might prove useful in studying the cofibrant non-singular simplicial sets. The natural isomorphism $pc\xRightarrow{\cong } qD$ arises because the square of right adjoints commutes. Thus $pc$ and $qD$ are left adjoints of the same functor $N\circ U=U\circ N$.
+
+For if $f:X\to X'$ is some simplicial map, then it is in general true that the rules on objects in the square
+\begin{displaymath}
+\xymatrix{
+SX \ar@{-->}[d]_{Sf} \ar[r] & cSd\, X \ar[d]^{cSd\, f} \\
+SX' \ar[r] & cSd\, X'
+}
+\end{displaymath}
+makes the diagram commute. This is because the map $cSd\, f$ is simply $Sd\, f$ in degree $0$ and because any simplex of degree $0$ is non-degenerate, so we get that
+\[(cSd\, f)([x,(\iota )]=[f(x),(\iota )]=[f(x)^\sharp ,(\iota )],\]
+which is where the lower horizontal map sends $Sf(x)=f(x)^\sharp$.
+
+Observe that the rules on morphisms from \cref{rem:question_is_SX_functorial} also make the diagram commute. We verify this statement now. Applyng the rule $Sf$ and then the functor $SX'\to cSd\, X'$ to a morphism $(x,\mu )$ of $SX$, we get the morphism of $cSd\, X'$ that is represented by
+\[[f(x)^\sharp ,((f(x)^\flat \mu )^\sharp ,\iota _{[n_{f(x)^\sharp }]})].\]
+On the other hand, if we apply the functor $SX\to cSd\, X$ and then $cSd\, f$, we get the morphism represented by $[f(x),(\mu ,\iota _{[n_x]})]$. The representative $(f(x),(\mu ,\iota _{[n_x]}))$ of this $1$-simplex of $Sd\, X$ can be made into a minimal representative thus.
+\begin{displaymath}
+\begin{array}{rcl}
+(f(x),(\mu ,\iota _{[n_x]})) & \sim & (f(x)^\sharp ,f(x)^\flat (\mu ,\iota _{[n_x]})) \\
+& = & (f(x)^\sharp ,((f(x)^\flat \mu )^\sharp ,(f(x)^\flat\iota _{[n_x]})^\sharp )) \\
+& = & (f(x)^\sharp ,((f(x)^\flat \mu )^\sharp ,\iota _{[n_{f(x)^\sharp }]}))
+\end{array}
+\end{displaymath}
+This concludes our verification that $SX\to cSd\, X$ is natural if $SX$ is a functorial construction under the rules defined in \cref{rem:question_is_SX_functorial}.
+\end{remark}
+
+
+\subsection{Contrast}
+
+To more clearly contrast the four simplex categories $X^\sharp$, $cSd\, X$, $\Delta '\downarrow X$ and $SX$ we will provide a couple of examples.
+
+First, we summarize the work so far. It has given us the commutative diagram
+\begin{displaymath}
+\xymatrix{
+& SX \ar[dd] \ar[dr] \\
+\Delta '\downarrow X \ar[dr] \ar[ur] && cSd\, X \ar[ld] \\
+& X^\sharp
+}
+\end{displaymath}
+that displays the relationship between the four simplex categories that we have discussed. The top left map is an embedding and the rest are full functors. One can immediately think of all the full functors except the top right one as identification maps.
+
+Now contrast the four simplex categories. Actually it is obvious that $X^\sharp$ and $cSd\, X$ are generally different, as is seen from the case when
+\[X=\Delta [1]/\partial \Delta [1]\]
+is the standard $1$-simplex with a collapsed boundary. Then there are exactly two non-degenerate simplices, one in degree $0$, denoted $y$, and one in degree $1$, denoted $x$. The simplicial set $Sd\, X$ has two distinct $1$-simplices whose zeroeth vertex is $y$ and whose first vertex is $x$, and these give rise to different morphisms of $cSd\, X$.
+
+Next, we present an example that contrasts the biggest three of the four simplex categories that we are concerned with.
+\begin{example}\label{ex:simplex_cat}
+Consider the cocartesian square
+\begin{displaymath}
+\xymatrix{
+\Delta [1] \ar[d]_{N\delta _2} \ar[r] & \Delta [0] \ar[d]^{\bar{y} } \\
+\Delta [2] \ar[r]_{\bar{x} } & X
+}
+\end{displaymath}
+and the various simplex categories of the pushout $X$. The commutative triangles
+\begin{displaymath}
+\xymatrix{
+\Delta [1] \ar[dr]_{\bar{y} } \ar[rr]^{\epsilon _j} && \Delta [2] \ar[ld]^{\bar{x} } \\
+& X
+}
+\end{displaymath}
+for $j=0,1$ are distinct morphisms $\bar{y} \to \bar{x}$. These are the only two morphisms $\bar{y} \to \bar{x}$ in $\Delta '\downarrow X$.
+
+In contrast, the corresponding hom set of $cSd\, X$ is a singleton, for in addition to the $1$-simplices of $Sd\, X$ that are represented uniquely by $(x,(\varepsilon _0,\iota ))$ and $(x,(\varepsilon _1,\iota ))$ there is the $1$-simplex represented by $(x,(\delta _2,\iota ))$. During the formation of $cSd\, X$ from $C(G)$ the three arising (generating) morphisms are identified with each other.
+
+There are exactly three morphisms $y\to x$ in $SX$, namely the two morphisms $(x,\varepsilon _0)$ and $(x,\varepsilon _1)$ that exist in $\Delta '\downarrow X$ and in addition the pair $(x,\delta _2)$.
+
+To sum up, there are three morphisms $z\to y$ in $SX$, there are two in $\Delta '\downarrow X$ and one in $cSd\, X$.
+\end{example}
+\noindent By now we have a description of the relationship and the differences between the four simplex categories that we have presented here.
+
+We conclude this brief investigation into the relationships of the simplex categories with the following remark.
+\begin{remark}
+Because the model structure on $nsSet$ is constructed by means of the two-fold Kan subdivision, it could be interesting to know how close
+\[\Delta '\downarrow (Sd\, X)\to S(Sd\, X)\]
+is to being full, or in other words, an isomorphism. Alternatively, what properties does the map have?
+
+In this setting it may be worth remembering the result \cref{lem:non-degenerate_simplices_reflective_subcategory_non-singular}, which says that the inclusion $\Delta '\downarrow X\to \Delta \downarrow X$ has a retraction in the case when $X$ is non-singular that is left adjoint to the inclusion.
+
+A simplex $y$ of $Sd\, X$ is non-degenerate if and only if the minimal representative $(x,\varphi )$ of $y$ is such that $\varphi _i= \varphi _j$ implies $i=j$. Say that $y$ is of degree $q$ and that $x$ is of degree $n$. Suppose $\mu :[p]\to [q]$ is a face operator. We will prove that $y\mu$ is non-degenerate if $y$ is, so assume that $y$ is non-degenerate.
+
+A representative of $y\mu$ is
+\[(x,(\varphi _{\mu (0)},\dots ,\varphi _{\mu (p)}))=(x,(\varphi _{\mu (p)}\psi _0,\dots ,\varphi _{\mu (p)}\psi _p))=(x,\varphi _{\mu (p)}\psi )\]
+where $\psi _p$ is the identity, so $\psi$ is an interior point. Again, this equivalent to
+\[(x\varphi _{\mu (p)},\psi )\sim ((x\varphi _{\mu (p)})^\sharp ,(x\varphi _{\mu (p)})^\flat \psi ).\]
+The latter is minimal, so it is the unique minimal representative for $y\mu$. As $\varphi _{\mu (p)}$ is monic one can argue that
+\[\varphi _{\mu (p)}\psi _i=\varphi _{\mu (p)}\psi _j\]
+if and only if $\psi _i=\psi _j$. As $(x,\varphi )$ is the unique minimal representative of a non-degenerate simplex it follows that
+\[\varphi _{\mu (p)}\psi _i=\varphi _{\mu (p)}\psi _j\]
+if and only if $i=j$. Therefore, we get that $\psi _i=\psi _j$ if and only if $i=j$.
+
+However, the simplex $y\mu$ may still be degenerate, for it seems possible that
+\[((x\varphi _{\mu (p)})^\flat \psi _i)^\sharp =((x\varphi _{\mu (p)})^\flat \psi _j)^\sharp \]
+even if $i\neq j$. So it would seem that we can construct an example $X$ such that the embedding $\Delta '\downarrow (Sd\, X)\to S(Sd\, X)$ is not an isomorphism.
+\end{remark}
+\noindent Now we have an idea of the relationship between the four simplex categories described above.
+
+If the construction $SX$ is functorial, then a simplicial map $X\to Y$ gives rise to a diagram
+\begin{equation}
+\label{eq:comparison_diagram_simplex_categories}
+\begin{gathered}
+\xymatrix@=0.8em{
+\Delta '\downarrow X \ar[dd] \ar[rr] \ar[dr] && SX \ar[ld] \ar@{-}[d] \ar[dr] \\
+& X^\sharp \ar[dd] & \ar[d] & cSd\, X \ar[ll] \ar[dd] \\
+\Delta '\downarrow Y \ar[dr] \ar@{-}[r] & \ar[r] & SY \ar[ld] \ar[dr] \\
+& Y^\sharp && cSd\, Y \ar[ll]
+}
+\end{gathered}
+\end{equation}
+which can be used for comparison.
+
+

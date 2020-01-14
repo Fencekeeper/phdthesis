@@ -1,0 +1,141 @@
+
+
+\section{How to build a non-singular simplicial set}
+\label{sec:formal}
+
+Any non-singular simplicial set is a colimit over its non-degenerate simplices in the same way that a simplicial set is a colimit over its simplices. This type of viewpoint has proven useful in $sSet$, so we present a proof of a similar statement for $nsSet$ as we are about to establish a model structure on the latter category.
+
+Various simplex categories for a simplicial set $X$ appear in the literature. A common variant is the category $\Delta \downarrow X$ defined thus. Its objects are the representing maps $\bar{x}$ of simplices of $X$. Given simplices $x$ and $y$, say of degree $n$ and $m$, respectively, then the morphisms $\bar{y} \to \bar{x}$ are the commutative triangles
+\begin{displaymath}
+\xymatrix{
+\Delta [m] \ar[dr]_{\bar{y} } \ar[rr]^\alpha && \Delta [n] \ar[ld]^{\bar{x} } \\
+& X
+}
+\end{displaymath}
+which is the same as saying that $y=x\alpha$.
+
+By design, the simplicial set $X$ is itself the colimit of the composite
+\[\Delta \downarrow X\to \Delta \xrightarrow{\Upsilon } sSet,\]
+denoted $\Upsilon _X$. A reference is Lemma 3.1.3. in Hovey's book \cite[p.~75]{Ho99}. Here, the functor $\Upsilon$ is the Yoneda embedding and $\Delta \downarrow X\to \Delta$ is the forgetful functor that sends a representing map $\bar{x} :\Delta [n]\to X$ to the ordinal $[n]$, following Chapter 4 in \cite{FP90}. Viewing $X$ as a colimit over its simplices is a useful technical tool when dealing with simplicial sets.
+
+When $X$ is non-singular, it turns out that $X$ is even a colimit over its non-degenerate simplices. Let $\Upsilon _X'$ be the restriction of $\Upsilon _X$ to the full subcategory $\Delta '\downarrow X$ of $\Delta \downarrow X$ whose objects are the representing maps of the non-degenerate simplices.
+\begin{proposition}\label{prop:non-singular_colimit_over_non-degenerate_simplices}
+Let $X$ be a simplicial set. If $X$ is non-singular, then it is the colimit (in $sSet$) of $\Upsilon _X'$.
+\end{proposition}
+\noindent This result is known among users of the category of non-singular simplicial sets. It is presented without proof in \cite[Lemma~3.1.4, p.~76]{Ho99}, but without any assumption on the simplicial set $X$. In that case the statement is wrong, but this is commented on and corrected in the corresponding erratum, which is part of the book's online resources.
+
+Hovey's erratum uses the name \emph{regular simplicial set} for the term non-singular simplicial set. This may be an unfortunate choice as the name \emph{regular simplicial set} seems established as a simplicial set such that each non-degenerate $n$-simplex is attached along its $n$-th face, for each $n\geq 0$. At least, the latter meaning is implied in \cite{FP90}. There, the word regular is seen in connection with regularity of CW-complexes.
+
+Towards proving the proposition, we have the following interesting result.
+\begin{lemma}
+\label{lem:non-degenerate_simplices_reflective_subcategory_non-singular}
+Let $X$ be a non-singular simplicial set. The inclusion
+\[i:\Delta '\downarrow X\to \Delta \downarrow X\]
+has a retraction.
+\end{lemma}
+\begin{proof}
+We explain that the rule $\bar{x} \mapsto \overline{x^\sharp }$ defines a retraction $r$ of the inclusion $i$.
+
+On morphisms $\bar{y} \xrightarrow{(x,\alpha )} \bar{x}$, where $y$ and $x$ are of degree $m$ and $n$, respectively, we define $r$ thus. Suppose $y^\sharp$ and $x^\sharp$ of degree $k$ and $l$, respectively. Now we need a choice of a section of the degenerate part $x^\flat$ of each object $\bar{x}$ of $\Delta \downarrow X$. The choice does not matter for our purposes, although there are systematic choices of sections of degeneracy operators, for example the maximal section $(-)^\perp$ \cite[p.~136]{FP90}.
+
+Next, we expand the diagram above to
+\begin{displaymath}
+\xymatrix{
+\Delta [k] \ar@/_2pc/[dd]_1 \ar[d]^{(y^\flat )^\perp } && \Delta [l] \ar[d]_{(x^\flat )^\perp } \ar@/^2pc/[dd]^1 \\
+\Delta [m] \ar[d]^{y^\flat } \ar[rr]^\alpha && \Delta [n] \ar[d]_{x^\flat } \\
+\Delta [k] \ar[dr]_{\overline{y^\sharp } } && \Delta [l] \ar[ld]^{\overline{x^\sharp } } \\
+& X
+}
+\end{displaymath}
+where we have displayed our choices of sections to the degenerate parts. The diagram gives rise to the morphism
+\begin{displaymath}
+\xymatrix{
+\Delta [k] \ar[dr]_{\overline{y^\sharp } } \ar[rr]^{x^\flat \circ \alpha \circ (y^\flat )^\perp } && \Delta [l] \ar[ld]^{\overline{x^\sharp } } \\
+& X
+}
+\end{displaymath}
+from $\overline{y^\sharp }$ to $\overline{x^\sharp }$, which can be denoted $r(x,\alpha )$. The triangle commutes, so
+\[\mu =x^\flat \circ \alpha \circ (y^\flat )^\perp\]
+must be a face operator as $y^\sharp$ is non-degenerate.
+
+Different choices of sections of the degenerate parts could perhaps lead to different morphisms $\overline{y^\sharp } \to \overline{x^\sharp }$, but not if $X$ is non-singular. In that case, the simplex $y^\sharp$ is a face of $x^\sharp$ in a unique way. Moreover, the rule of sending the given morphism $\bar{y} \xrightarrow{(x,\alpha )} \bar{x} $ to $\overline{y^\sharp } \xrightarrow{(x^\sharp ,\mu )} \overline{x^\sharp }$ respects composition when $X$ is non-singular for the same reason. In other words, we get a retraction
+\[r:\Delta \downarrow X\to \Delta '\downarrow X\]
+of the inclusion $i$.
+\end{proof}
+\noindent In \cref{sec:simplexcat}, we discuss various simplex categories and their relations.\\ \cref{lem:non-degenerate_simplices_reflective_subcategory_non-singular} provides an example of such a relation.
+
+We are ready to prove the proposition. The proof consists of a recognition that the relationship between $\Delta \downarrow X$ and $\Delta '\downarrow X$ is improved over the general case when $X$ is non-singular.
+\begin{proof}[Proof of \cref{prop:non-singular_colimit_over_non-degenerate_simplices}.]
+Let $r$ be the retraction of
+\[i:\Delta '\downarrow X\to \Delta \downarrow X\]
+from \cref{lem:non-degenerate_simplices_reflective_subcategory_non-singular}.
+
+Notice that there is a map $\bar{x} \to ir(\bar{x} )$, defined as the commutative triangle
+\begin{displaymath}
+\xymatrix{
+\Delta [n] \ar[dr]_{\bar{x} } \ar[rr]^{x^\flat } && \Delta [l] \ar[ld]^{\overline{x^\sharp } } \\
+& X
+}
+\end{displaymath}
+in the case when $x$ is of degree $n$ and when $x^\sharp$ is of degree $l$. The diagram
+\begin{equation}
+\label{eq:diagram_proof_lem_non-degenerate_simplices_reflective_subcategory}
+\begin{gathered}
+\xymatrix{
+\Delta [m] \ar@/_1pc/[dddr]_{\bar{y} } \ar[dr]_{y^\flat } \ar[rr]^{\alpha } && \Delta [n] \ar@{-}@/^/[d] \ar[dr]^{x^\flat } \\
+& \Delta [k] \ar@/^/[dd]_{\overline{y^\sharp } } \ar[rr]^(.3)\mu & \ar@/^/[ldd]^(.35){\bar{x} } & \Delta [l] \ar@/^1pc/[lldd]^{\overline{x^\sharp } } \\
+\\
+& X
+}
+\end{gathered}
+\end{equation}
+commutes if the top square commutes. Furthermore, the top square of (\ref{eq:diagram_proof_lem_non-degenerate_simplices_reflective_subcategory}) commutes as $\overline{x^\sharp }$ is a monomorphism. Thus the map $\bar{x} \to ir(\bar{x} )$ is in fact natural.
+
+That $X$ is the colimit of $\Upsilon _X$ is the same as saying that the cocone $\Upsilon _X\Rightarrow \underline{X}$ that arises from the definition of $\Delta \downarrow X$ is universal. The symbol $\underline{X}$ denotes the the functor $\Delta \downarrow X\to sSet$ that sends each object to $X$ and each morphism to the identity $1_X$. We refer to $\underline{X}$ as the \textbf{constant diagram} at $X$. Sometimes this language and notation is convenient.
+
+The notation and terminology of the previous paragraph is more or less taken from Section 2.6 in May's book on algebraic topology \cite{Ma99}. There, the notion of (co)cone is of course present to describe (co)limits, although the term (co)cone is not used. (Co)limits are, however, referred to as universal (co)cones in \cite{Bo94}.
+
+Note that the unit of the adjunction
+\[r:\Delta \downarrow X\rightleftarrows \Delta '\downarrow X:i\]
+yields a natural transformation $\Upsilon _X\Rightarrow \Upsilon _X\circ ir$. Recall that $r$ is a retraction of $i$. Let $X'$ denote the colimit of $\Upsilon _X'$. To prove \cref{prop:non-singular_colimit_over_non-degenerate_simplices} is to prove universality of the cocone $\Upsilon _X'\Rightarrow \underline{X}$ that arises from the universal cocone $\Upsilon _X\Rightarrow \underline{X}$.
+
+Combine the universal cocone $\Upsilon _X\Rightarrow \underline{X}$ with $i$ to obtain a triangle
+\begin{displaymath}
+\xymatrix{
+\Upsilon _X' \ar@{=>}[dr] \ar@{=>}[rr] && \underline{X} \\
+& \underline{X'} \ar@{==>}[ur]
+}
+\end{displaymath}
+where the dashed natural transformation appears because $X'$ is the colimit of $\Upsilon _X'=\Upsilon _X\circ i$. We will prove that the canonical map $X'\to X$ is an isomorphism.
+
+In turn, we get the diagram
+\begin{displaymath}
+\xymatrix{
+\Upsilon _X \ar@{=>}[d] \ar@{=>}[r] & \Upsilon _X'\circ r \ar@{=>}[dr] \ar@{=>}[rr] && \underline{X} \\
+\underline{X} \ar@{==>}[rr] && \underline{X'} \ar@{=>}[ur]
+}
+\end{displaymath}
+which means that we now have a composite $X\to X'\to X$. Here, we have used the natural transformation $\Upsilon _X\Rightarrow \Upsilon _X\circ ir=\Upsilon _X'\circ r$ that arises from the unit of $(r,i)$.
+
+The composite
+\[\Upsilon _X(\bar{x} )\to \Upsilon _X'\circ r(\bar{x} )\to \underline{X} (\bar{x} )\]
+is precisely the composite
+\[\Delta [n]\xrightarrow{x^\flat } \Delta [l]\xrightarrow{\overline{x^\sharp } } X\]
+if $x$ is of degree $n$ and $x^\sharp$ is of degree $l$. In other words, the cocone
+\[\Upsilon _X\Rightarrow \Upsilon _X'\circ r\Rightarrow \underline{X}\]
+is actually the universal one. Finally, by applying $i$ once more, we obtain
+\begin{displaymath}
+\xymatrix{
+&& \Upsilon _X' \ar@{=>}[lld] \ar@{=>}[ldd] \ar@{=>}[ddr] \ar@{=>}[drr] \\
+\underline{X'} \ar@{==>}[dr] &&&& \underline{X} \\
+& \underline{X} \ar@{=>}[rr] && \underline{X'} \ar@{=>}[ur]
+}
+\end{displaymath}
+where the two cocones with apex $X'$ are universal. Thus arises a commutative diagram
+\begin{displaymath}
+\xymatrix{
+X' \ar[r] \ar@/^1pc/[rr]^1 & X \ar[r] \ar@/_1pc/[rr]_1 & X' \ar[r] & X
+}
+\end{displaymath}
+showing that $X'\to X$ is an isomorphism as announced.
+\end{proof}

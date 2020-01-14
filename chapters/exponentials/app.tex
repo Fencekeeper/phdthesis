@@ -1,0 +1,89 @@
+
+
+\section{Applications}
+\label{sec:app}
+
+The inclusion $U:nsSet\to sSet$ admits a left adjoint functor called desingularization \cite[Rem.~2.2.12.,~p.~39]{WJR13}, which is denoted $D$. Note that the unit
+\[\eta _X:X\to UDX\]
+is degreewise surjective and that desingularization has the universal property that any simplicial map $f:X\to Y$ whose target $Y$ is non-singular factors through the unit by a unique map $UDX\to Y$.
+
+In general, we say that a full subcategory of some category is a \textbf{reflective subcategory} if the inclusion admits a left adjoint, which is then referred to as a \textbf{reflector}. Thus $nsSet$ is a reflective subcategory of $sSet$. Note that the word reflective is not quite standard terminology. For example, Mac Lane \cite[§IV.3]{ML98} Adámek and Rosický \cite[p.~1306]{AR15} do not include fullness as an assumption in their definition, although some other authors do. \cref{prop:standard_1_simplex_as_exponent} and its generalization \cref{thm:arbitrary_exponent} has a noteworthy application and a couple of consequences.
+
+\cref{thm:main_homotopy_theory} establishes a model structure on $nsSet$ that is right-induced a la Thomason \cite{Th80} from $sSet$ equipped with the standard model structure due to Quillen \cite{Qu67}. Moreover, the theorem says that $(D,U)$ is a Quillen equivalence. \cref{prop:standard_1_simplex_as_exponent} is used as a technical ingredient in the proof of \cref{thm:main_homotopy_theory}.
+
+Another way to state \cref{thm:arbitrary_exponent} is to say that the non-singular simplicial sets form an exponential ideal in $sSet$. The category of simplicial sets is cartesian closed and even a topos. Part of this is the fact that $(-)^K$ is right adjoint to $-\times K$. Here, the author has in mind the notions, terminology and notation from \cite[§IV.6--§IV.10]{ML98}. Note that the construction $X^K$ is bifunctorial. A generalized result known as the parameter theorem ensures this \cite[p.~102]{ML98}.
+\begin{corollary}\label{cor:desingularization_preserves_finite_products_cartesian_closed}
+Desingularization preserves finite products.
+\end{corollary}
+\noindent It seems that \cref{cor:desingularization_preserves_finite_products_cartesian_closed} follows from Day's reflection theorem \cite[Thm.~1.2]{Da72} and its corollary \cite[Cor.~2.1]{Da72}. Day's reflection theorem concerns a more general setting, although he does refer to the condition that the \emph{reflective subcategory is closed under exponentiation} \cite[§0]{Da72}. Another phrase that is used in the literature is that the non-singular simplicial sets form an \emph{exponential ideal} in $sSet$, which is exactly the content of \cref{thm:arbitrary_exponent}.
+
+In case one does not want to unravel the general form of Day's reflection theorem, we provide the following elementary proof.
+\begin{proof}[Proof of \cref{cor:desingularization_preserves_finite_products_cartesian_closed}.]
+It is enough to consider two factors. Suppose $X$ and $Y$ simplicial sets.
+
+Consider the map
+\[Y\times X\xrightarrow{\eta _{Y\times X}} D(Y\times X).\]
+Here, we omit the redundant symbol $U$ for the inclusion functor. By \cref{thm:arbitrary_exponent}, the simplicial set $D(Y\times X)^X$ is non-singular, so we obtain a factorization
+\begin{equation}
+\label{eq:first_diagram_proof_cor_desingularization_preserves_finite_products_cartesian_closed}
+\begin{gathered}
+\xymatrix{
+Y \ar[dr] \ar[rr]^{\eta _Y} && DY \ar@{-->}[ld] \\
+& D(Y\times X)^X
+}
+\end{gathered}
+\end{equation}
+of the adjoint. Next, we switch the two factors of the adjoint
+\[DY\times X\to D(Y\times X)\]
+of the dashed map in (\ref{eq:first_diagram_proof_cor_desingularization_preserves_finite_products_cartesian_closed}) and factor the adjoint of the resulting map by means of the diagram
+\begin{equation}
+\label{eq:second_diagram_proof_cor_desingularization_preserves_finite_products_cartesian_closed}
+\begin{gathered}
+\xymatrix{
+X \ar[dr] \ar[rr]^{\eta _X} && DX \ar@{-->}[ld] \\
+& D(X\times Y)^{DY}
+}
+\end{gathered}
+\end{equation}
+in which the dashed map arises by \cref{thm:arbitrary_exponent} as $D(X\times Y)^{DY}$ is non-singular.
+
+By adjunction, we can combine (\ref{eq:first_diagram_proof_cor_desingularization_preserves_finite_products_cartesian_closed}) and (\ref{eq:second_diagram_proof_cor_desingularization_preserves_finite_products_cartesian_closed}) into the solid commutative diagram
+\begin{equation}
+\label{eq:third_diagram_proof_cor_desingularization_preserves_finite_products_cartesian_closed}
+\begin{gathered}
+\xymatrix{
+X\times Y \ar[dr]_{\eta _{Y\times X}} \ar[rr]^{id\times \eta _X} && X\times DY \ar[ld] \ar[dr]^{\eta _X\times id} \\
+& D(X\times Y) \ar@{-->}@/_1pc/[rr]_{(D(pr_1),D(pr_2))} && DX\times DY \ar[ll]
+}
+\end{gathered}
+\end{equation}
+in which a dashed map arises because $DX\times DY$ is non-singular, being a product of non-singular simplicial sets. Indeed, the dashed map must be equal to the canonical map $(D(pr_1),D(pr_2))$ due to the universal property of desingularization.
+
+Because the map $\eta _{X\times Y}$ is degreewise surjective and because (\ref{eq:third_diagram_proof_cor_desingularization_preserves_finite_products_cartesian_closed}) commutes, it follows immediately that
+\[DX\times DY\to D(X\times Y)\]
+is degreewise surjective.
+
+Furthermore, by the universal property of desingularization, it follows that the composite
+\[DX\times DY\to D(X\times Y)\xrightarrow{(D(pr_1),D(pr_2))} DX\times DY\]
+is the identity. This implies that the first of the two maps of the composite is even degreewise injective, which implies that it is degreewise bijective and hence an isomorphism. In this way, we see that $(D(pr_1),D(pr_2))$ is degreewise bijective and hence an isomorphism.
+\end{proof}
+\noindent Another consequence of \cref{thm:arbitrary_exponent} is the following result.
+\begin{corollary}
+The category of non-singular simplicial sets is cartesian closed.
+\end{corollary}
+
+% Is $nsSet$ a topos in the sense of Mac Lane? I suppose I have to study the subobject classifier of $sSet$ to be able to answer this question. According to
+
+% https://www.encyclopediaofmath.org/index.php/Reflective_subcategory
+
+% a morphism in a (full) reflective subcategory is a monomorphism if and only if it is so in the surrounding category. And limits are formed in $nsSet$ as they are formed in $sSet$. Is $\Omega$, the subobject classifier of $sSet$, a non-singular simplicial set? If not, what is its desingularization? What is gained by being able to answer this question?
+
+% Subobject classifiers in the sense of Mac Lane are discussed here:
+
+% https://mathoverflow.net/questions/159989/internal-logic-of-the-topos-of-simplicial-sets
+% https://en.wikipedia.org/wiki/Subobject_classifier
+% https://ncatlab.org/nlab/show/subobject+classifier
+% https://ncatlab.org/toddtrimble/published/Monic+endomorphisms+on+the+subobject+classifier
+
+
+

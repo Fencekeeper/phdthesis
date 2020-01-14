@@ -1,0 +1,111 @@
+
+\section{Tricategorical comparison}
+\label{sec:tricat}
+
+Often, one compares pushouts taken in several different subcategories. For example, in this article, we are interested in the commutative triangle
+\begin{equation}
+\label{eq:first_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}
+\begin{gathered}
+\xymatrix@=1em{
+T(N\varphi ) \ar[dr]_{cr} \ar[rr]^{\eta } && DT(N\varphi ) \ar[ld]^{dcr} \\
+& M(N\varphi )
+}
+\end{gathered}
+\end{equation}
+that factors the cylinder reduction map through the canonical degreewise surjective map $\eta$ whose target is the desingularization of the topological mapping cylinder.
+
+To study $dcr$ is for many purposes to study $\eta$ and $cr$. There is a condition on
+\[\eta _{T(N\varphi )}:T(N\varphi )\to DT(N\varphi )\]
+that will ensure that $dcr$ is degreewise injective.
+\begin{definition}
+\label{def:siblings}
+Whenever $x$ and $x'$ are simplices of the same degree of some simplicial set, we will say that they are \textbf{siblings} if $x\varepsilon _j=x'\varepsilon _j$ for all $j$.
+\end{definition}
+\noindent Our motivating example for the next result is $f=\eta _{T(N\varphi )}$, $g=dcr$ and $h=cr$.
+\begin{proposition}\label{prop:criterion_degreewise_injective_into_nerve_computation}
+Suppose we have a commutative diagram
+\begin{displaymath}
+\xymatrix{
+X \ar[dr]_h \ar[rr]^f && Y \ar[ld]^g \\
+& Z
+}
+\end{displaymath}
+in $sSet$ in which $f$ is degreewise surjective and
+\[h_0:X_0\to Z_0\]
+is injective. Furthermore, assume that $Y$ is non-singular and that $Z$ is the nerve
+of some poset. The simplicial map $g$ is injective in a given degree $q>0$ if and only if
+\[f(x)=f(x')\]
+whenever $x$ and $x'$ are embedded siblings of degree $q$.
+\end{proposition}
+\noindent Before we prove the proposition, we remind the reader of some standard piece of terminology.
+
+Recall the Eilenberg-Zilber lemma \cite[Thm.~4.2.3]{FP90}, which says that each simplex $x$ of each simplicial set is uniquely a degeneration $x=x^\sharp x^\flat$ of a non-degenerate simplex. The non-degenerate simplex $x^\sharp$ is the \textbf{non-degenerate part} of $x$ and $x^\flat$ is the \textbf{degenerate part}.
+\begin{proof}[Proof of \cref{prop:criterion_degreewise_injective_into_nerve_computation}.]
+The ``only if'' part will not be needed, but we state it to emphasize that the conditions are equivalent under the hypothesis of the lemma. This part uses that the diagram commutes and that $Z$ is the nerve of a poset.
+
+Suppose $g$ is injective in degree $q$ and that $x$ and $x'$ are siblings of degree $q$. Then
+\[h(x)\varepsilon _j=h(x\varepsilon _j)=h(x'\varepsilon _j)=h(x')\varepsilon _j\]
+for each $j$, so $h(x)$ and $h(x')$ are siblings. This implies that $h(x)=h(x')$ as $Z$ is the nerve of a poset. Because the diagram commutes and because $g$ is injective in degree $q$, it follows that $f(x)=f(x')$.
+
+To prove the ``if'' part, we will use every condition of the hypothesis of the lemma, except that $Z$ is the nerve of a poset. First, observe that $g_0$ is injective as $h_0$ is injective and as $f_0$ is surjective and hence a bijection.
+
+Suppose $f$ satisfies the described condition and that $y_1$ and $y_2$ are simplices of $Y$, of degree $q$, such that
+\begin{equation}\label{lb:Equation0_criterion_embedded_sieblings}
+g(y_1)=g(y_2).
+\end{equation}
+We prove that $y_1=y_2$, which will imply that $g$ is injective in degree $q$. This we do by proving that the non-degenerate parts and the degenerate parts of $y_1$ and $y_2$ are equal, respectively.
+
+The two decompositions
+\begin{displaymath}
+g(y_1)=g(y_1)^\sharp g(y_1)^\flat
+\end{displaymath}
+\begin{displaymath}
+g(y_1)=g(y_1^\sharp y_1^\flat )=g(y_1^\sharp )y_1^\flat =g(y_1^\sharp )^\sharp g(y_1^\sharp )^\flat y_1^\flat .
+\end{displaymath}
+are one and the same due to the uniqueness part of the Eilenberg-Zilber lemma.
+
+As usual, then, we have the equations
+\begin{equation}\label{lb:Equation1_criterion_embedded_sieblings}
+g(y_1)^\sharp =g(y_1^\sharp )^\sharp
+\end{equation}
+\begin{equation}\label{lb:Equation2_criterion_embedded_sieblings}
+g(y_1)^\flat =g(y_1^\sharp )^\flat y_1^\flat .
+\end{equation}
+However, because $Y$ is non-singular, the non-degenerate simplex $y_1^\sharp$ is embedded, which is the same as saying that its vertices are pairwise distinct. Because $g$ is injective in degree $0$ it follows that $g(y_1^\sharp )=g(y_1^\sharp )^\sharp$ is embedded and thus non-degenerate. This implies that (\ref{lb:Equation1_criterion_embedded_sieblings}) turns into
+\begin{equation}\label{lb:Equation3_criterion_embedded_sieblings}
+g(y_1)^\sharp =g(y_1^\sharp ).
+\end{equation}
+That $g(y_1^\sharp )$ is non-degenerate also implies that the degeneracy operator $g(y_1^\sharp )^\flat$ is the identity, meaning (\ref{lb:Equation2_criterion_embedded_sieblings}) turns into
+\begin{equation}\label{lb:Equation4_criterion_embedded_sieblings}
+g(y_1)^\flat =y_1^\flat .
+\end{equation}
+The reasoning we applied to $y_1$ is equally valid for $y_2$, so
+\begin{equation}\label{lb:Equation5_criterion_embedded_sieblings}
+g(y_2)^\sharp =g(y_2^\sharp )
+\end{equation}
+\begin{equation}\label{lb:Equation6_criterion_embedded_sieblings}
+g(y_2)^\flat =y_2^\flat .
+\end{equation}
+
+Due to the assumption (\ref{lb:Equation0_criterion_embedded_sieblings}) the combination of (\ref{lb:Equation3_criterion_embedded_sieblings}) and (\ref{lb:Equation5_criterion_embedded_sieblings}) yields
+\begin{equation}\label{lb:Equation7_criterion_embedded_sieblings}
+g(y_1^\sharp )=g(y_2^\sharp )
+\end{equation}
+by the uniqueness part of the Eilenberg-Zilber lemma, again. For the same reason, the combination of (\ref{lb:Equation4_criterion_embedded_sieblings}) and (\ref{lb:Equation6_criterion_embedded_sieblings}) yields
+\begin{equation}\label{lb:Equation8_criterion_embedded_sieblings}
+y_1^\flat =y_2^\flat .
+\end{equation}
+Thus we get that the degenerate part of $y_1$ is equal to the degenerate part of $y_2$. It remains to prove that $y_1$ and $y_2$ have the same non-degenerate part.
+
+Suppose $y_1^\sharp =f(x_1)$ and $y_2^\sharp =f(x_2)$. Such simplices $x_1$ and $x_2$ exist as $f$ is degreewise surjective, and they are embedded in $X$ as $y_1^\sharp$ and $y_2^\sharp$ are embedded in $Y$. Due to (\ref{lb:Equation7_criterion_embedded_sieblings}) we know that $h(x_1)=h(x_2)$, hence
+\[h(x_1\varepsilon _j)=h(x_1)\varepsilon _j=h(x_2)\varepsilon _j=h(x_2\varepsilon _j)\]
+for each $j$. As $h$ is injective in degree $0$ it follows that $x_1$ and $x_2$ are siblings. Finally, as $f$ sends embedded siblings to the same simplex, we get
+\begin{equation}\label{lb:Equation9_criterion_embedded_sieblings}
+y_1^\sharp =f(x_1)=f(x_2)=y_2^\sharp .
+\end{equation}
+Now we also know that the non-degenerate part of $y_1$ is equal to the non-degenerate part of $y_2$.
+
+The equations (\ref{lb:Equation8_criterion_embedded_sieblings}) and (\ref{lb:Equation9_criterion_embedded_sieblings}) together imply that $y_1=y_2$, so it follows that $g$ is injective in degree $q$.
+\end{proof}
+
+

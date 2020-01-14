@@ -1,0 +1,91 @@
+
+\section{Obstructions}
+\label{sec:possible}
+
+Proposition~$5.7$ in \cite{Th80} says that each cofibrant small category is a poset in Thomason's model structure on $Cat$. We have in mind the possibility of trying to mimic the method in Thomason's proof of this fact.
+
+Note that a simplicial subset of the nerve of a poset is an ordered simplicial complex, but not necessarily itself the nerve of a poset.
+\begin{example}\label{ex:supplement_lemma_retract_of_nerve}
+The simplicial subset $\partial \Delta [2]$ of $\Delta [2]$ is an ordered simplicial complex, but not the nerve of a poset.
+\end{example}
+\noindent However, we have the following result.
+\begin{lemma}\label{lemma_retract_of_nerve}
+Let $A$ be a non-singular simplicial set and assume that $X$ is a retract of $A$. If $A$ is the nerve of a poset, then $X$ is the nerve of a poset.
+\end{lemma}
+\begin{proof}
+Remember that $q$ denotes the left adjoint of the nerve
+\[N:PoSet\to nsSet.\]
+Suppose $A=NP$. We can draw the commutative diagram
+\begin{displaymath}
+\xymatrix{
+X \ar@/^2pc/[rr]^1 \ar[d]_{\eta _X} \ar[r]^i & NP \ar[d]_{\eta _{NP}} \ar[r]^r & X \ar[d]_{\eta _X} \\
+NqX \ar[r]^{Nq(i)} & NqNP \ar[d]_{N(\epsilon _P)}^\cong \ar[r]^{Nq(r)} & NqX \\
+& NP
+}
+\end{displaymath}
+where $\eta _X:X\to NqX$ is the unit of the adjunction. We get that $\eta _X$ is a retract of $\eta _{NP}$.
+
+The composite $N(\epsilon _P)\circ \eta _{NP}$ is the identity, so $\eta _{NP}$ is degreewise injective. Because $N$ is fully faithful, the counit $\epsilon _P$ is an isomorphism, which implies that $N(\epsilon _P)$ is an isomorphism. Thus $\eta _{NP}$ is also degreewise surjective, hence an isomorphism.
+
+From the previous paragraph, we see that $\eta _X$ is an isomorphism. This implies that $X$ is isomorphic to the nerve of the poset $qX$.
+\end{proof}
+\noindent \cref{lemma_retract_of_nerve} has an immediate consequence.
+
+Let $X$ be a cofibrant non-singular simplicial set. Factor $\emptyset \to X$ as a relative $DSd^2(I)$-cell complex $\emptyset \to A$ followed by a trivial fibration $A\to X$. Then there is a dashed lifting in the solid square
+\begin{displaymath}
+\xymatrix{
+\emptyset \ar[d] \ar[r] & A \ar[d] \\
+X \ar[r]_{id} \ar@{-->}[ur] & X
+}
+\end{displaymath}
+so that we can write $X$ as a retract of $A$. This implies that $X$ is the nerve of a poset if $A$ is. The non-singular simplicial set $A$ is a $DSd^2(I)$-cell complex.
+
+Of course, we cannot conclude that every $DSd^2(I)$-cell complex is the nerve of a poset. In fact, G. Raptis has pointed out to the author the non-singular simplicial set $C$, recorded in \cref{ex:cofibrant_nsset_not_nerve}, of a cofibrant non-singular simplicial set that is not the nerve of a small category.
+\begin{example}\label{ex:cofibrant_nsset_not_nerve}
+Because $\Delta [0]$ is cofibrant in $sSet$, in the standard model structure, it is also true that
+\[\Delta [0]\cong DSd^2(\Delta [0])\]
+is cofibrant in $nsSet$. Furthermore, we can write $N\varepsilon _j$ as a retract of $DSd^2(N\varepsilon _j)$ by means of a diagram
+\begin{displaymath}
+\xymatrix{
+\Delta [0] \ar[d]^{N\varepsilon _j} \ar[r] & DSd^2(\Delta [0]) \ar[d]^{DSd^2(N\varepsilon _j)} \ar[r] & \Delta [0] \ar[d]^{N\varepsilon _j} \\
+\Delta [1] \ar[r] & DSd^2(\Delta [1]) \ar[r] & \Delta [1]
+}
+\end{displaymath}
+for $j=0,1$. Thus we get that $N\varepsilon _j$ is a cofibration for $j=0,1$. In particular, we obtain the fact that $\Delta [1]$ is cofibrant in $nsSet$.
+
+Next, consider the cocartesian square
+\begin{displaymath}
+\xymatrix{
+\Delta [0] \ar[d]_{N\varepsilon _1} \ar[r]^{N\varepsilon _0} & \Delta [1] \ar[d] \\
+\Delta [1] \ar[r] & C
+}
+\end{displaymath}
+in $sSet$. The simplicial set $C$ is non-singular as both legs are degreewise injective, so the square is even cocartesian in $nsSet$. As the class of cofibrations is stable under cobase change, the non-singular simplicial set $C$ is then cofibrant. However, it is not even the nerve of a small category.
+\end{example}
+\noindent \cref{ex:cofibrant_nsset_not_nerve} implies that not every $DSd^2(I)$-cell complex is the nerve of a poset.
+
+For the purposes of studying the process of building $DSd^2(I)$-cell complexes, it is relevant to note that empty simplicial set $\empty$ is the nerve of the empty poset (or the empty small category). Furthermore, the colimit of any given sequence in $PoSet$ is preserved by
+\[U:PoSet\to nsSet,\]
+according to \cref{lem:inclusion_poset_nsset_preserves_sequential_colimits}.
+
+Consider a possible building step, or in other words a diagram
+\begin{equation}
+\label{eq:first_diagram_possible_proof_cofibrant_non-singular_nerve_poset}
+\begin{gathered}
+\xymatrix{
+NP \ar[d]_{i=Nk} \ar[r]^{f=N\varphi } & NR \ar[d]^{\bar{i} } \\
+NQ \ar[r]_(.3){\bar{f} } & D(NQ\sqcup _{NP}NR)
+}
+\end{gathered}
+\end{equation}
+in $nsSet$ with $P$, $Q$ and $R$ posets and $k$ a Dwyer map. Consider the pushout. Because of, say \cref{ex:Non-surjective_cylinder_reduction} and \cref{ex:Non-injective_dcylinder_reduction}, it is certainly not true that $D(NQ\sqcup _{NP}NR)$ is in general the nerve of a poset.
+
+\cref{ex:Non-injective_dcylinder_reduction} provides a desingularized topological mapping cylinder $DT(N\varphi )$ that is not even an ordered simplicial complex. However, note that the target of this $\varphi$ is the simplex category $(\Delta [1]/\partial \Delta [1])^\sharp$ of the non-regular simplicial set $\Delta [1]/\partial \Delta [1]$. Compare this situation with (\ref{eq:first_diagram_conjecture_cofibrant_justification}), in which the target of (\ref{eq:second_diagram_conjecture_cofibrant_justification}) can be interpreted as the simplex category $Sd(\Delta [n_1]/\partial \Delta [n_1])^\sharp$ of the regular simplicial set $Sd(\Delta [n_1]/\partial \Delta [n_1])$.
+
+\cref{ex:Non-surjective_cylinder_reduction} provides a desingularized topological mapping cylinder\\ $DT(N\varphi )$ that is an ordered simplicial complex, but not the nerve of a poset. Note that the image of $\varphi$ is in this case not a sieve in the target. According to \cref{lem:sharp_creates_sieves}, the functor $(-)^\sharp$ applied to a degreewise injective map yields a sieve. Still, the map (\ref{eq:second_diagram_conjecture_cofibrant_justification}) does not necessarily arise by applying $(-)^\sharp$ to a simplicial map. In this example, the canonical map
+\[DT(N\varphi )\xrightarrow{dcr} M(N\varphi )\]
+from the pushout in $nsSet$ to the nerve of the pushout in $PoSet$ is degreewise injective. A simplicial subset of an ordered simplicial complex is in general an ordered simplicial complex, but a simplicial subset of the nerve of a poset is not necessarily the nerve of a poset, as is seen from \cref{ex:supplement_lemma_retract_of_nerve}.
+
+
+
+

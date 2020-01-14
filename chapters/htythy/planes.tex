@@ -1,0 +1,396 @@
+
+
+\section{On higher and lower planes of existence}
+\label{sec:planes}
+
+\noindent \cref{cor:two-fold_subdivision_strom} has shown us that the sets $DSd^2(I)$ and $DSd^2(J)$ are both contained in the class of Str\o m maps. This class of maps will serve as an auxiliary class of maps that aids us in establishing the model structure.
+
+To form a pushout in $nsSet$ one can first form the pushout in $sSet$ and then desingularize it. The desingularization process destroys the homotopy type in general, but it turns out that the homotopy type is preserved when the pushout in $sSet$ is taken along a Str\o m map. This result is stated as \cref{lem:Pushout_along_strom_homotopically_wellbehaved}. The important formal property of Str\o m maps is that they are preserved under taking cobase change, which is stated as \cref{prop:Strom-maps_closed_under_cobasechange}. To prove both of these results, the most work intensive task is to establish \cref{prop:desingularizing_after_collapsing_elysium}, which we will focus on in this section. It helps us control the homotopical behavior of desingularization in important cases.
+
+As a preliminary step towards proving that Str\o m maps are preserved under cobase change, we have the following basic result.
+\begin{lemma}\label{lem:elysiums_abysses_preserved_cobase_change}
+If the square
+\begin{displaymath}
+\xymatrix{
+A \ar[d]_i \ar[r]^f & C \ar[d]^j \\
+X \ar[r]_(.35)g & X\sqcup _AC
+}
+\end{displaymath}
+is cocartesian in $sSet$ and $i$ embeds $A$ as an eden (resp. abyss) in $X$ then $j$ embeds $C$ as an eden (resp. abyss) in $X\sqcup _AC$.
+\end{lemma}
+\begin{proof}
+We do the case when $A$ is an eden. Notice that no part of the proof prefers the case when $A$ is an eden over the case when $A$ is an abyss. Alternatively, use the notion of the opposite \cite[Def.~2.2.19, p.~ 42]{WJR13} of a simplial set to conclude that the result also holds in the case when $A$ is an abyss.
+
+Note that we can factor $f:A\to C$ as a degreewise surjective map followed by a degreewise injective map, so we can prove the lemma by proving that it holds in the two cases when $f$ is degreewise surjective or degreewise injective.
+
+First, we do the case when $f$ is degreewise surjective. Suppose $y$ some simplex of $X\sqcup _AC$ whose last vertex is in the image of $j$. We will prove that $y$ is in the image of $g$. Here, we use the elementary characterization from \cref{lem:(co)sieve_characterization_elementary}.
+
+There is at most one simplex $x$ such that $y=g(x)$. Suppose there is one. As $f$ is surjective in degree $0$, there is a $0$-simplex $v$ of $A$ such that
+\[y\varepsilon _n=j\circ f(v)=g\circ i(v)\]
+by the assumption that $y\varepsilon _n$ is in the image of $j$. As $i$ embeds $A$ as an eden in $X$, there is a simplex $a$ of $A$ such that $x=i(a)$. Then we can define $c=f(a)$. The given simplex $y$ is the image under $j$ of $c$. It follows that $j$ embeds $C$ as an eden in $X\sqcup _AC$.
+
+Finally, we do the case when $f$ is degreewise injective. Suppose $y$ some simplex of $X\sqcup _AC$ whose last vertex is in the image of $j$. We will prove that $y$ is in the image of $g$.
+
+There is at most one simplex $x$ such that $y=g(x)$. Suppose there is one. The vertex $y\varepsilon _n$ is then uniquely the image under $g$ of $x\varepsilon _n$, in addition to being uniquely the image under $j$ of some $0$-simplex $w$ of $C$. Hence, there is some unique $0$-simplex $v$ of $A$ whose images under $f$ and $i$ are $w$ and $x\varepsilon _n$, respectively. Hence, there is some simplex $a$ of $A$ with $x=i(a)$ by the assumption that $i$ embeds $A$ as an eden in $X$. Thus $y$ is the image under $j$ of $c=f(a)$. It follows that $j$ embeds $C$ as an eden in $X\sqcup _AC$.
+\end{proof}
+\noindent In addition to \cref{lem:elysiums_abysses_preserved_cobase_change}, we will state some basic properties of cartesian squares.
+
+The properties stated in \cref{Lemma_Pullbacks_close_to_twooutofthree_property} below are here collectively referred to as the two-out-of-three property for cartesian squares. See for example III.4 Exercise 8 (b) in \cite{ML98} for a reference to the first two statements of \cref{Lemma_Pullbacks_close_to_twooutofthree_property} below. All three statements of \cref{Lemma_Pullbacks_close_to_twooutofthree_property} appear in Lemma 2.4 of \cite[p.~57]{CPS06} for the case $\mathscr{C} =sSet$ as Chachólski, Pitsch and Scherer work in that category.
+\begin{lemma}[Two-out-of-three property for cartesian squares]
+\label{Lemma_Pullbacks_close_to_twooutofthree_property}
+Suppose
+\begin{displaymath}
+\xymatrix{
+A \ar[d] \ar[r] & C \ar[d] \ar[r] & E \ar[d] \\
+B \ar[r] & D \ar[r] & F
+}
+\end{displaymath}
+a diagram in some category $\mathscr{C}$.
+\begin{enumerate}
+\item{The outer square is cartesian if both the left hand and the right hand square are cartesian squares.}
+\item{Likewise, the left hand square is cartesian if the right hand and outer squares are cartesian.}
+\item{If the outer and left hand squares are cartesian, then the right hand square is cartesian if the morphism $B\to D$ has a section.}
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+Consider the third statement, meaning the case when the left hand and outer squares are cartesian and $k$ has a section, consider the diagram
+\begin{displaymath}
+\xymatrix{
+& X \ar@{-}@/_0.2pc/[d] \ar@{-->}[dr]^\gamma \ar@/^1pc/[drrr]^\epsilon \\
+A \ar[d]_f \ar[rr]^(.3)i & \ar@/_/[dr]^(.4)\delta & C \ar[d]^g \ar[rr]^j && E \ar[d]^h \\
+B \ar[rr]^k && D \ar@/^1pc/[ll]^s \ar[rr]_l && F
+}
+\end{displaymath}
+in $\mathscr{C}$, where we assume that $h\circ \epsilon =l\circ \delta$.
+
+We will prove the existence and uniqueness of a map $\gamma :X\to C$ such that $\epsilon =j\circ \gamma$ and $\delta =g\circ \gamma$.
+
+First we prove existence. Because the outer square is cartesian and because $s$ is a section of $k$, the two maps $\epsilon$ and $s\circ \delta$ give rise to a map $\alpha :X\to A$ such that
+\begin{equation}\label{eq:one_proof_of_Lemma_Pullbacks_close_to_twooutofthree_property}
+\epsilon =(j\circ i)\circ \alpha
+\end{equation}
+and
+\begin{equation}\label{eq:two_proof_of_Lemma_Pullbacks_close_to_twooutofthree_property}
+s\circ \delta =f\circ \alpha .
+\end{equation}
+Define $\gamma =i\circ \alpha$. Then (\ref{eq:one_proof_of_Lemma_Pullbacks_close_to_twooutofthree_property}) is the first half of what we need to verify. For the second half, observe that $k$ composed with each side of (\ref{eq:two_proof_of_Lemma_Pullbacks_close_to_twooutofthree_property}) yields
+\begin{displaymath}
+\begin{array}{rcl}
+\delta & = & (k\circ s)\circ \delta \\
+& = & k\circ (s\circ \delta ) \\
+& = & k\circ (f\circ \alpha ) \\
+& = & (k\circ f)\circ \alpha  \\
+& = & (g\circ i)\circ \alpha  \\
+& = & g\circ (i\circ \alpha ) \\
+& = & g\circ \gamma ,
+\end{array}
+\end{displaymath}
+which is the second half of the verification of the existence of $\gamma$.
+
+Finally, we prove uniqueness of $\gamma$. Take two maps $X\to C$, denoted $\gamma$ and $\gamma '$, such that the equations
+\begin{displaymath}
+\begin{array}{rcl}
+\delta & = & g\circ \gamma \\
+\delta & = & g\circ \gamma ' \\
+\epsilon & = & j\circ \gamma \\
+\epsilon & = & j\circ \gamma '
+\end{array}
+\end{displaymath}
+hold. Then the two maps $s\circ \delta$ and $\gamma$ give rise to a canonical map $\alpha :X\to A$ as the left hand square is cartesian. Similarly, the two maps $s\circ \delta$ and $\gamma '$ give rise to a canonical map $\alpha ':X\to A$. Next, we can take advantage of the assumption that the outer square is cartesian. This shows that $\alpha =\alpha '$. Then the equations
+\[\gamma =i\circ \alpha =i\circ \alpha '=\gamma '\]
+yield the desired uniqueness.
+\end{proof}
+\noindent Note that the assumption that $B\to D$ is an epimorphism is enough for the third statement of \cref{Lemma_Pullbacks_close_to_twooutofthree_property} to hold for for some categories $\mathscr{C}$. This is trivially true when $\mathscr{C} =Set$ is the category of sets and functions, for the epimorphisms are in that case the surjective functions, which are in turn the functions that have a section.
+\begin{corollary}\label{cor:sSet_Pullbacks_close_to_twooutofthree_property}
+Suppose
+\begin{displaymath}
+\xymatrix{
+A \ar[d] \ar[r] & C \ar[d] \ar[r] & E \ar[d] \\
+B \ar[r] & D \ar[r] & F
+}
+\end{displaymath}
+a diagram in the category $sSet$. If the outer and left hand squares are cartesian, then the right hand square is cartesian if $B\to D$ is degreewise surjective.
+\end{corollary}
+\begin{proof}
+The corollary follows from the third statement of \cref{Lemma_Pullbacks_close_to_twooutofthree_property} in the following way. The category $sSet$ is the category of functors $\Delta ^{op} \to Set$ and natural transformations between them. As a $Set$-valued functor category, the category $sSet$ is bicomplete. In a functor category, limits and colimits are formed pointwise. In other words, we can apply \cref{Lemma_Pullbacks_close_to_twooutofthree_property} in the case when $\mathscr{C} =Set$, in a given degree $n$ as $B_n\to D_n$ is surjective by assumption. The right hand square in degree $n$ is thus cartesian. We can conclude that the right hand square of the given diagram is cartesian in $sSet$
+\end{proof}
+\noindent Note that \cref{cor:sSet_Pullbacks_close_to_twooutofthree_property} shows that the assumption that $B\to D$ is an epimorphism is sufficient in the case when $\mathscr{C} =sSet$ in \cref{Lemma_Pullbacks_close_to_twooutofthree_property} above.
+
+We are interested in triples $(X,A,V)$ where $X$ is a simplicial set, where $A$ is a non-singular eden in $X$ and where $V$ is a non-singular abyss in $X$. We are particularly interested in two cases. The first is when $A$ is contained in $V$ as this is part of the definition of the term Str\o m map. Secondly, we are interested in the case when $A_0\cup V_0=X_0$ and $A_0\cap V_0=\emptyset$. In this section, we will only consider the second case, however the first case plays a role in the next section.
+
+Notice that if $\chi :X\to \Delta [1]$ is the characteristic map of $A$ as an eden in $X$, then $\chi$ is actually also the characteristic map of $V$ as an abyss in $X$. This is because we are concerned with the special case when $A_0\cup V_0=X_0$ and $A_0\cap V_0=\emptyset$. Therefore, given an $n$-simplex $x$ of $X$ we can consider the diagram
+\begin{equation}\label{eq:diagram_proof_of_prop_desingularizing_after_collapsing_elysium}
+\begin{gathered}
+\xymatrix{
+\Delta [k] \ar[d] \ar@{-->}[r] \ar@/^1pc/[rr] & A \ar[d] \ar[r] & \Delta [0] \ar[d]^{N\varepsilon _0} \\
+\Delta [n] \ar[r]^{\bar{x} } & X \ar[r]^\chi & \Delta [1] \\
+\Delta [n-k-1] \ar[u] \ar@/_1pc/[rr] \ar@{-->}[r] & V \ar[u] \ar[r] & \Delta [0] \ar[u]_{N\varepsilon _1}
+}
+\end{gathered}
+\end{equation}
+where we have taken the base changes of $\chi \circ \bar{x}$ along $N\varepsilon _0$ and $N\varepsilon _1$, respectively. Here, we allow $-1\leq k\leq n$ and use the convention $\Delta [-1]=\emptyset$. The vertex $x\varepsilon _j$ is a simplex of $A$ if $j\leq k$ and a simplex of $V$ if $j>k$. The diagram above also illustrates the intuition from \cref{sec:behavior}, which says that a simplex can leave an eden or enter an abyss, but that a simplex can neither enter an eden nor leave an abyss.
+
+Now, consider the case when $x$ is non-degenerate. If $k=-1$, then $x$ is a simplex of $V$, which means that it is embedded in $V$ as $V$ is non-singular. Then $x$ is also embedded in $X$, of course. If $k=n$, then $x$ is a simplex of $A$, which means that it is embedded as $A$ is non-singular. Taking the contrapositive, we get that $k\neq -1$ and that $k\neq n$ if $x$ is not embedded. In particular, it follows that $n>0$ if $x$ is not embedded. But if $n=1$, then $x$ is embedded in the case when $k=0$. This is because $A_0$ and $V_0$ are disjoint and because the vertex $x\varepsilon _0$ is a $0$-simplex of $A$ and because $x\varepsilon _1$ is a $0$-simplex of $V$. So in fact,
+\begin{equation}\label{eq:conditions_proof_of_prop_desingularizing_after_collapsing_elysium}
+-1\neq k\neq n>1
+\end{equation}
+when $x$ is non-degenerate and non-embedded.
+
+For the statement of \cref{prop:desingularizing_after_collapsing_elysium}, note that we intend to replace the triple $(X,A,V)$ with the triple $(X/A,\Delta [0],V)$ where $X$ is non-singular. In other words, we specialize quite a lot.
+\begin{proposition}\label{prop:desingularizing_after_collapsing_elysium}
+Let $X$ be non-singular and $A$ an eden in $X$. Furthermore, consider the cocartesian square
+\begin{displaymath}
+\xymatrix{
+  A \ar[d]_i \ar[r]^f & \Delta [0] \ar[d]^{\bar{\imath} } \\
+  X \ar[r]_(.4){\bar{f} } & X/A
+}
+\end{displaymath}
+in $sSet$. If $V$ is the full simplicial subset of $X$ whose $0$-simplices are the ones that are not in $A$, then the composite
+\[V\xrightarrow{j} X\xrightarrow{\bar{f} } X/A\xrightarrow{\eta } D(X/A),\]
+denoted $\tilde{\jmath }$, is an embedding of $V$ as an abyss in $D(X/A)$.
+\end{proposition}
+\noindent Notice that $V$ is an abyss in $X$ as $A$ is an eden. It is even true that $V$ is an abyss in $X/A$. If the latter statement is not clear at this time, it will be early in the proof. Thus the triple $(X/A,\Delta [0],V)$ is indeed a specialization from the previous paragraphs.
+
+Recall from the fact that $nsSet$ is a reflective subcategory of $sSet$ that one can make the square from \cref{prop:desingularizing_after_collapsing_elysium} cocartesian in $nsSet$ by desingularizing the pushout $X/A$. Let $\tilde{\imath }$ denote the composite of the canonical map $X/A\xrightarrow{\eta } D(X/A)$ with $\bar{\imath }$. Let $\bar{\jmath } =\bar{f} \circ j$.
+
+The triple $(X,\Delta [0],V)$ is a form of world order, where the eden $\Delta [0]$ can be thought of as a higher plane of existence and the abyss $V$ as a lower plane. A simplex of $X/A$ is thought of as living in this world in the manner explained by the diagram (\ref{eq:diagram_proof_of_prop_desingularizing_after_collapsing_elysium}) and the conditions of (\ref{eq:conditions_proof_of_prop_desingularizing_after_collapsing_elysium}).
+
+We will make use of the following terminology.
+\begin{definition}\label{def:hty_sequence}
+If $\lambda$ is an ordinal, then a \textbf{$\lambda$-sequence} in a cocomplete category $\mathscr{C}$ is a cocontinous functor $X:\lambda \to \mathscr{C}$, written as
+\begin{displaymath}
+\xymatrix{
+X^{[0]} \ar[r] & X^{[1]} \ar[r] & \cdots \ar[r] & X^{[\beta ]} \ar[r] & \cdots \; ,
+}
+\end{displaymath}
+$\beta <\lambda$. The canonical map
+\[X^{[0]}\to colim_{\beta <\lambda }X^{[\beta ]}\]
+is the \textbf{composition} of the $\lambda$-sequence. A \textbf{sequence} is a $\lambda$-sequence for some ordinal $\lambda$.
+\end{definition}
+\noindent For sequences, we sometimes use the same letters that at other times denote simplicial sets. However, we use the brackets in the notation to avoid confusion with skeleton filtrations. This is because $X^n$, $n\geq 0$, denotes the $n$-skeleton of a simplicial set $X$. Also recall that we have taken $X_n$, $n\geq 0$, to mean the set of $n$-simplices of a simplicial set $X$. Both of the two latter notations are standard.
+
+Next, we prove the proposition.
+\begin{proof}[Proof of \cref{prop:desingularizing_after_collapsing_elysium}]
+We will desingularize the simplicial set $X/A$ in an iterative manner. Each non-embedded non-degenerate simplex of $X/A$ will be made degenerate.
+
+The method we use is similar to how G. Lewis Jr. makes a $k$-space compactly generated by identifying two points whenever they cannot be separated by open sets \cite[p.~158]{Le78}.
+
+Our method is also a modification of \cref{thm:main_result_itdesing}. Moreover, the simplicial set $X/A$ is quite special as it is formed by collapsing an eden within a non-singular simplicial set. This makes it viable to deal with one non-embedded non-degenerate simplex at a time. Doing this seems to maximize the transparency of the process so that it becomes easy to realize that $V$ stays an abyss during the process. This is the reason we modify the theory in \cref{sec:calculations} and \cref{sec:description} instead of applying the general result that is \cref{thm:main_result_itdesing}. Recall that $V$ is defined as the full simplicial subset of $X$ whose $0$-simplices are the ones that are not in $A$.
+
+The canonical map $\bar{\imath }$ is by \cref{lem:elysiums_abysses_preserved_cobase_change} an embedding of $\Delta [0]$ as a eden, which says precisely that the first quadrant of the diagram
+\begin{displaymath}
+ \xymatrix{
+  A \ar[d]_i \ar[r] & \Delta [0] \ar[d]^{\bar{\imath } } \ar[r] & \Delta [0] \ar[d]^{N\varepsilon _0} \\
+  X \ar@{->>}[r]^(.4){\bar{f} } & X/A \ar@{-->}[r]^{\bar{\chi } } & \Delta [1] \\
+  V \ar[u]^j \ar@{-->}[r]_\cong \ar[ur]_{\bar{\jmath } } & V' \ar[u] \ar[r] & \Delta [0] \ar[u]_{N\varepsilon _1}
+ }
+\end{displaymath}
+is cartesian. This yields the canonical map $\bar{\chi }$. In addition, we have formed the cartesian square in the fourth quadrant, which yields the map $V\to V'$. Next, we will argue that the latter map is an isomorphism.
+
+We start by proving that $V\to V'$ is degreewise surjective. The outer part of the lower half is cartesian and so is the fourth quadrant. By \cref{Lemma_Pullbacks_close_to_twooutofthree_property} it then follows that the third quadrant is also cartesian. Hence, the map $V\to V'$ is a base change of the degreewise surjective map $\bar{f}$. Limits in $sSet$ are computed in each degree, and in the category of sets, a base change of a surjective map is again surjective. We can conclude that $V_q\to V_q'$ is surjective
+for each $q\geq 0$.
+
+Next, we argue that $V\to V'$ is degreewise injective. Consider the diagram
+\begin{displaymath}
+\xymatrix{
+ V \ar[d]_j & \emptyset \ar[l] \ar[d] \ar[r] & \Delta [0] \ar[d] \\
+ X & A \ar[l]^i \ar[r]_(.45)f & \Delta [0]
+ }
+\end{displaymath}
+which gives rise to a canonical map $V\sqcup \Delta [0]\to X/A$ between pushouts in $SSet$. As $A$ is an eden in $X$ and by the definition of $V$, the images of $i$ and $j$ are disjoint. Hence, the map between pushouts is degreewise injective. In particular, the composite $\bar{\jmath }$ is degreewise injective, implying that $V\to V'$ is. In other words, the canonical map $V\xrightarrow{\cong } V'$ is an isomorphism.
+
+We are ready to begin the iterative desingularization of $X/A$. Let $p^0$ be the canonical degreewise surjective map $X/A\xrightarrow{\eta _{X/A} } D(X/A)$ and write
+\[D^{[0]}(X/A)=X/A.\]
+Here, we use brackets, because we intend to describe a sequence. This is to make the notation reflect that of  \cref{def:hty_sequence}
+
+Furthermore, write
+\begin{displaymath}
+\begin{array}{rcl}
+i^0 & = & \bar{\imath } \\
+j^0 & = & \bar{\imath } \\
+\chi ^0 & = & \bar{\chi } .
+\end{array}
+\end{displaymath}
+Assume that we for some ordinal $\gamma >0$ have a $\gamma$-sequence of commutative diagrams
+\begin{displaymath}
+\xymatrix{
+& \Delta [0] \ar[ld]_{\tilde{i} } \ar[d]_{i^\beta } \ar[r] & \Delta [0] \ar[d]^{N\varepsilon _0} \\
+D(X/A) & D^{[\beta ]}(X/A) \ar[l]_(.45){p^\beta } \ar[r]^(.6){\chi ^\beta } & \Delta [1] \\
+& V \ar[lu]^{\tilde{j} } \ar[u]^{j^\beta } \ar[r] & \Delta [0] \ar[u]_{N\varepsilon _1}
+}
+\end{displaymath}
+for $\beta <\gamma$ where\dots
+\begin{enumerate}
+\item{\dots the two squares are cartesian, where\dots}
+\item{\dots $p^\beta$ is degreewise surjective for each $\beta <\gamma$ and where\dots}
+\item{\dots each map $D^{[\alpha ]}(X/A)\xrightarrow{f^{\alpha ,\beta }} D^{[\beta ]}(X/A)$, $0\leq \alpha \leq \beta <\gamma$, is also degreewise surjective.}
+\end{enumerate}
+By the phrase \emph{$\gamma$-sequence of commutative diagrams} used above we mean a functor from the ordinal $\gamma$ to the category of functors whose source is the category
+\begin{displaymath}
+\xymatrix{
+& 2 \ar[ld] \ar[d] \ar[r] & 1 \ar[d] \\
+3 & 6 \ar[l] \ar[r] & 0 \\
+& 4 \ar[lu] \ar[u] \ar[r] & 5 \ar[u]
+}
+\end{displaymath}
+and whose target is $sSet$. Thus compatibility of all the maps above is implicit in the hypothesis. We will refer to the commutative diagram with index $\beta$ as the \textbf{$\beta$-th stage} of the (iterative) desingularization process, and even to $D^{[\beta ]}(X/A)$ under the same name.
+
+If a simplicial set is not non-singular, then we say that it is \textbf{singular}. Together with the $\gamma$-sequence, assume that for each ordinal $\beta <\gamma$ such that $D^{[\beta ]}(X/A)$ is singular, we have a simplex $x^\beta$ of $X$ such that $f^{0,\beta }(x^\beta )$ is a non-embedded non-degenerate simplex of $D^{[\beta ]}(X/A)$. Suppose $x^\alpha \neq x^\beta$ whenever $\alpha \neq \beta$. Assume that for each ordinal $\beta$ such that $\beta +1<\gamma$, we have that the simplex $f^{0,\beta +1}(x^\beta )$ of $D^{[\beta +1]}(X/A)$ is degenerate. This data will later be used in proving that the iterative desingularizing process does indeed come to a halt.
+
+If $D^{[\gamma ]}(X/A)$ is singular, then let $x^\gamma$ be a simplex of $X/A$ whose image under $f^{0,\gamma }$ is a non-embedded non-degenerate simplex. Suppose $\beta <\gamma$. Notice that $x^\beta \neq x^\gamma$ as the commutative diagram
+\begin{displaymath}
+ \xymatrix{
+ X/A \ar[dr]_{f^{0,\beta }} \ar[rr]^{f^{0,\gamma }} && D^{[\gamma ]}(X/A) \\
+ & D^{[\beta ]}(X/A) \ar[ur]_{f^{\beta ,\gamma }} \ar[rr]_{f^{\beta ,\beta +1}} && D^{[\beta +1]}(X/A) \ar[lu]_{f^{\beta +1,\gamma}}
+ }
+\end{displaymath}
+shows. Namely, we have that
+\[f^{\beta ,\gamma }\circ f^{0,\beta }(x^\beta )\]
+is degenerate whereas $f^{0,\gamma }(x^\gamma )$ is not. Note that this argument concerns both the case when $\gamma$ is a limit ordinal and the case when $\gamma$ is a successor ordinal. In the latter case, the map $f^{\beta +1,\gamma }$ in the diagram above is potentially the identity, which is ok.
+
+If $\gamma$ is a limit ordinal, then we form the colimit of the $\gamma$-sequence of commutative diagrams. Because colimits in a functor category are computed pointwise \cite[Section~V.3]{ML98}, the colimit is a diagram
+\begin{displaymath}
+\xymatrix{
+& \Delta [0] \ar[ld]_{\tilde{i} } \ar[d]_{i^\gamma } \ar[r] & \Delta [0] \ar[d]^{N\varepsilon _0} \\
+D(X/A) & D^{[\gamma ]}(X/A) \ar[l]_(.45){p^\gamma } \ar[r]^(.6){\chi ^\gamma } & \Delta [1] \\
+& V \ar[lu]^{\tilde{j} } \ar[u]^{j^\gamma } \ar[r] & \Delta [0] \ar[u]_{N\varepsilon _1}
+}
+\end{displaymath}
+where $D^{[\gamma ]}(X/A)$ is the colimit of the $\gamma$-sequence
+\[D^{[0]}(X/A)\xrightarrow{f^{0,1}} \cdots \to D^{[\beta ]}(X/A)\xrightarrow{f^{\beta ,\beta +1}} \cdots\]
+where $0\leq \beta$ and $\beta +1<\gamma$. Because the colimit of commutative diagrams is filtered, both of the squares are cartesian as filtered colimits commute with finite limits \cite[Section~IX.2]{ML98}. The canonical map $p^\gamma$ is automatically degreewise surjective as each map $p^\beta$, $\beta <\gamma$, is degreewise surjective. Also it follows that $f^{\alpha ,\gamma}$ is degreewise surjective for $\alpha <\gamma$.
+
+Now comes the real work. That is, we look at the case when $\gamma =\beta +1$ is a successor ordinal. If $D^{[\beta ]}(X/A)$ is non-singular, then we simply copy the $\beta$-th stage and give the copy the index $\beta +1$. The map to the latter from the $\beta$-th diagram then consists of identities. Otherwise, if $D^{[\beta ]}(X/A)$ is singular, then write $y=f^{0,\beta }(x^\beta )$. Assume that $y$ is of degree $n$. Note that we are about to make $y$ degenerate and that $\beta$ may be a limit ordinal. So the following text both finishes the limit ordinal case and takes care of the successor ordinal case of our iteration.
+
+We can take the base change of $\chi ^\beta \circ \bar{y}$ along $N\varepsilon _0$ and $N\varepsilon _1$, respectively, and get the diagram
+\begin{equation}
+\label{eq:diagram_proof_of_prop_desingularizing_after_collapsing_elysium_special}
+\begin{gathered}
+\xymatrix{
+\Delta [k] \ar[d] \ar@{-->}[r] \ar@/^1pc/[rr] & \Delta [0] \ar[d]_{i^\beta } \ar[r] & \Delta [0] \ar[d]^{N\varepsilon _0} \\
+\Delta [n] \ar[r]^(.4){\bar{y} } & D^{[\beta ]}(X/A) \ar[r]^(.6){\chi ^\beta } & \Delta [1] \\
+\Delta [n-k-1] \ar[u] \ar@/_1pc/[rr] \ar@{-->}[r] & V \ar[u]^{j^\beta } \ar[r] & \Delta [0] \ar[u]_{N\varepsilon _1}
+}
+\end{gathered}
+\end{equation}
+similar to (\ref{eq:diagram_proof_of_prop_desingularizing_after_collapsing_elysium}) with the conditions of (\ref{eq:conditions_proof_of_prop_desingularizing_after_collapsing_elysium}). Thus the vertices $y\varepsilon _0$, $\dots$, $y\varepsilon _k$ are in the image of $i^\beta$ and the vertices $y\varepsilon _{k+1}$, $\dots$, $y\varepsilon _n$ are in the image of $j^\beta$.
+
+Because the source of $i^\beta$ is $\Delta [0]$, we have
+\[y\varepsilon _0=\cdots =y\varepsilon _k.\]
+This means that the simplex $p^\beta (y)$ of $D(X/A)$ can be written $p^\beta (y)=w\rho$, where $\rho :[n]\to [n-k]$ is the degeneracy operator given by $0,\dots ,k\mapsto 0$. Therefore, to make $y$ degenerate by pushing out along $\rho$ is be a step towards desingularizing $D^{[\beta ]}(X/A)$. We will shortly argue that this step is non-trivial, meaning that $k>0$. In fact, the step is optimal.
+
+Note that the composite
+\[\Delta [n]\xrightarrow{\bar{y} } D^{[\beta ]}(X/A)\xrightarrow{\chi ^\beta } \Delta [1]\]
+is induced by the operator $[n]\to [1]$ given by
+\[0,\dots ,k\mapsto 0\]
+and
+\[k+1,\dots ,n\mapsto 1.\]
+This operator can be factored as $\sigma \circ \rho$ where $\sigma :[n-k]\to [1]$ is given by $0\mapsto 0$ and sending all elements greater than $0$ to $1$.
+
+The remarks of the two previous paragraphs give rise to the $(\beta +1)$-th stage. Consider the diagram
+\begin{displaymath}
+\xymatrix{
+\Delta [n] \ar[dd]_{\bar{y} } \ar[rr]^\rho && \Delta [n-k] \ar[ld] \ar[dd]^{\bar{z} } \ar@/^2pc/[ddddrr]^\sigma \\
+& D(X/A) \\
+D^{[\beta ]}(X/A) \ar[ur]^{p^\beta } \ar@/_2pc/[ddrrrr]_{\chi ^\beta } \ar[rr]_{f^{\beta ,\beta +1}} && D^{[\beta +1]}(X/A) \ar@{-->}[lu]_{p^{\beta +1}} \ar@{-->}[ddrr]^{\chi ^{\beta +1}} \\
+\\
+&&&& \Delta [1]
+}
+\end{displaymath}
+where we have formed a cobase change
+\[f^{\beta ,\beta +1}:D^{[\beta ]}(X/A)\to D^{[\beta +1]}(X/A)\]
+along $\rho$. Here, we have let $\Delta [n-k]\to D(X/A)$ be the map that sends the identity $[n-k]\to [n-k]$ to $p^\beta (y)\mu$, where $\mu :[n-k]\to [n]$ is the section of $\rho$ given by $0\mapsto 0$. The map $\Delta [n-k]\to D(X/A)$ sends $\rho :[n]\to [n-k]$ to
+\[(p^\beta (y)\mu )\rho =((w\rho )\mu )\rho =(w(\rho \mu ))\rho =w\rho =p^\beta (y).\]
+Thus the solid diagram above commutes and we obtain canonical dashed maps $\chi ^{\beta +1}$ and $p^{\beta +1}$ as indicated. The observation that $p^\beta \circ \bar{y}$ factors through $N\rho$ is essentially a special case of \cref{prop:role_of_enforcers}.
+
+The map $f^{\beta ,\beta +1}$ is degreewise surjective as it is a cobase change of the degreewise surjective map $N\rho$. By the choice of $\rho$, the map $f^{\beta ,\beta +1}$ is a bijection in degree $0$ as the effect of taking the pushout along $\rho$ is trivial in degree $0$. Furthermore, the map $p^{\beta +1}$ is degreewise surjective as $p^\beta$ is. This shows that the second and third of the three conditions associated with the $(\beta +1)$-th stage are satisfied. However, the first remains to be verified.
+
+Pushing out along $N\rho$ is not even useful unless $k>0$, for in that case the map $f^{\beta ,\beta +1}$ is an isomorphism. Moreover, we will, beginning with the next paragraph, argue that the vertices $y\varepsilon _{k+1}$, $\dots$, $y\varepsilon _n$ are pairwise distinct. As $y$ is non-embedded it will then follow that $k>0$. Notice that by the choice of $\rho$, the vertices of $z$ are pairwise distinct if the vertices $y\varepsilon _{k+1}$, $\dots$, $y\varepsilon _n$ are pairwise distinct. Thus it will follow that the simplex $z$ of $D^{[\beta +1]}(X/A)$ is embedded. In other words, to push out along $\rho$ is an optimal step in the desingularization process.
+
+We prove that the vertices $y\varepsilon _{k+1} ,\dots ,y\varepsilon _n$ are pairwise distinct. First, note that the left hand square in the diagram
+\begin{displaymath}
+\xymatrix{
+X \ar[rr]^(.4){f^{0,\beta } \circ \bar{f} } && D^{[\beta ]}(X/A) \ar[rr]^(.55){\chi ^\beta } && \Delta [1] \\
+V \ar[u]^j \ar[rr]_{id_V} && V \ar[u]^{j^\beta } \ar[rr] && \Delta [0] \ar[u]_{N\varepsilon _1}
+}
+\end{displaymath}
+is cartesian as both the outer and right hand squares are cartesian. As the map $f^{0,\beta } \circ \bar{f}$ is degreewise surjective, we can take the representing map $\Delta [n]\to X$ of some simplex $\tilde{y}$ of $X$ that $f^{0,\beta } \circ \bar{f}$ sends to $y$ and draw the diagram
+\begin{displaymath}
+\xymatrix{
+\Delta [n] \ar[rr] \ar@/^3pc/[rrrr]^{\bar{y} } && X \ar[rr]^(.4){f^{0,\beta } \circ \bar{f} } && D^{[\beta ]}(X/A) \\
+\Delta [n-k-1] \ar[u] \ar@{-->}[rr] \ar@/_2pc/[rrrr] && V \ar[u]^j \ar[rr]^{id_V} && V \ar[u]_{j^\beta }
+}
+\end{displaymath}
+\\ \\
+where we have pulled the representing map of $\tilde{y}$ back along $j$.
+
+Note that the simplex $\tilde{y}$ is non-degenerate as $y$ is. Because $X$ is non-singular, it follows that the representing map of $\tilde{y}$ is degreewise injective. Therefore, its base change $\Delta [n-k-1]\to V$ along $j$ is degreewise injective. The outer square is cartesian as the left hand and right hand squares are cartesian. Hence, the composite of the two degreewise injective maps $j^\beta$ and $\Delta [n-k-1]\to V$ represents the $k$-th back face of $y$. Recall that $j^\beta$ is degreewise injective as it by assumption embeds $V$ as an abyss in $D^{[\beta ]}(X/A)$. This concludes our argument that the vertices $y\varepsilon _{k+1} ,\dots ,y\varepsilon _n$ are pairwise distinct. Recall that this implies that the simplex $z$ is embedded.
+
+To form the diagram at the $(\beta +1)$-th stage of the sequence we define $i^{\beta +1}=f^{\beta ,\beta +1}\circ i^\beta$ and $j^{\beta +1}=f^{\beta ,\beta +1}\circ j^\beta$. This means that
+\[\tilde{i} =p^\beta \circ i^\beta =(p^{\beta +1}\circ f^{\beta ,\beta +1})\circ i^\beta =p^{\beta +1}\circ (f^{\beta ,\beta +1}\circ i^\beta )=p^{\beta +1}\circ i^{\beta +1}\]
+and that
+\[\tilde{j} =p^\beta \circ j^\beta =(p^{\beta +1}\circ f^{\beta ,\beta +1})\circ j^\beta =p^{\beta +1}\circ (f^{\beta ,\beta +1}\circ j^\beta )=p^{\beta +1}\circ j^{\beta +1},\]
+which shows that we get a diagram
+\begin{displaymath}
+\xymatrix{
+&& \Delta [0] \ar@/_/[lld]_{\tilde{i} } \ar[d]_{i^{\beta +1}} \ar[rr] && \Delta [0] \ar[d]^{N\varepsilon _0} \\
+D(X/A) && D^{[\beta +1]}(X/A) \ar[ll]_(.45){p^{\beta +1}} \ar[rr]^(.6){\chi ^{\beta +1}} && \Delta [1] \\
+&& V \ar@/^/[llu]^{\tilde{j} } \ar[u]^{j^{\beta +1}} \ar[rr] && \Delta [0] \ar[u]_{N\varepsilon _1}
+}
+\end{displaymath}
+together with a morphism from the $\beta$-th stage. It remains to argue that the two squares on the right are cartesian.
+
+We can form pullbacks $C$ and $V'$ to obtain the diagram
+\begin{displaymath}
+\xymatrix{
+\Delta [0] \ar[d]_{i^\beta } \ar@{-->}[rr] && C \ar[d] \ar[rr] && \Delta [0] \ar[d]^{N\varepsilon _0} \\
+D^{[\beta ]}(X/A) \ar[rr]^(.45){f^{\beta ,\beta +1}} && D^{[\beta +1]}(X/A) \ar[rr]^(.55){\chi ^{\beta +1}} && \Delta [1] \\
+V \ar[u]^{j^\beta } \ar@{-->}[rr] && V' \ar[u] \ar[rr] && \Delta [0] \ar[u]_{N\varepsilon _1}
+}
+\end{displaymath}
+in which we by \cref{Lemma_Pullbacks_close_to_twooutofthree_property} get that the second and third quadrant are cartesian. The category $sSet$ has the property that a base change of a degreewise surjective map is again degreewise surjective. Consequently, the base changes $\Delta [0]\to C$ and $V\to V'$ of $f^{\beta ,\beta +1}$ must be degreewise surjective. Then $\Delta [0]\to C$ is trivially an isomorphism. In other words, the map $i^{\beta +1}$ is the base change of $N\varepsilon _0$ along $\chi ^{\beta +1}$.
+
+It remains to argue that $V\to V'$ is degreewise injective. For this it suffices to argue that the composite
+\[V\xrightarrow{j^\beta } D^{[\beta ]}(X/A)\xrightarrow{f^{\beta ,\beta +1} } D^{[\beta +1]}(X/A)\]
+is degreewise injective. Take $m$-simplices $v$ and $w$ in $V$ and suppose
+\[f^{\beta ,\beta +1}\circ j^\beta (v) =f^{\beta ,\beta +1}\circ j^\beta (w) .\]
+We will prove that $v=w$. As $j^\beta$ is degreewise injective it is enough to prove that $j^\beta (v) =j^\beta (w)$. We can at least say that both of the simplices $j^\beta (v)$ and $j^\beta (w)$ are in the image of the representing map $\bar{y}$ or that $j^\beta (v)=j^\beta (w)$.
+
+If the simplices $j^\beta (v)$ and $j^\beta (w)$ are in the image of $\bar{y}$, then there are operators
+\[\alpha _v,\alpha _w:[m]\to [n]\]
+such that $y\alpha _v=j^\beta (v)$ and $y\alpha _w=j^\beta (w)$. By our hypothesis we then know that
+\begin{displaymath}
+\begin{array}{rcl}
+(\overline{z} \circ N\rho )\circ N\alpha _v & = & (f^{\beta ,\beta +1} \circ \overline{y} )\circ N\alpha _v \\
+& = & f^{\beta ,\beta +1} \circ (\overline{y} \circ N\alpha _v) \\
+& = & f^{\beta ,\beta +1} \circ (j^\beta \circ \bar{v} ) \\
+& = & f^{\beta ,\beta +1} \circ (j^\beta \circ \bar{w} ) \\
+& = & f^{\beta ,\beta +1} \circ (\overline{y} \circ N\alpha _w) \\
+& = & (f^{\beta ,\beta +1} \circ \overline{y} )\circ N\alpha _w \\
+& = & (\overline{z} \circ N\rho )\circ N\alpha _w.
+\end{array}
+\end{displaymath}
+Given the fact that $z$ is embedded, the equation above implies
+\[N\rho \circ N\alpha _v=N\rho \circ N\alpha _w\Rightarrow \rho \alpha _v=\rho \alpha _w.\]
+Recall that, by definition, the degeneracy operator $\rho$ is injective on the subset $\{ k+1,\dots ,n\}$ of its source.
+
+Because $y\alpha _v=j^\beta (v)$ is in the image of $j^\beta$, it follows that the image of $\alpha _v$ is contained in $\{ k+1,\dots ,n\}$. Recall the definition of $k$ from the diagram (\ref{eq:diagram_proof_of_prop_desingularizing_after_collapsing_elysium_special}). Similarly, because $y\alpha _w=j^\beta (w)$ is in the image of $j^\beta$, it follows that the image of $\alpha _w$ is contained in $\{ k+1,\dots ,n\}$. The fact that $\rho$ is injective on this subset combined with the equation $\rho \alpha _v=\rho \alpha _w$ yields $\alpha _v=\alpha _w$. This concludes the verification that $j^{\beta +1}$ is base change of $N\varepsilon _1$ along $\chi ^{\beta +1}$ and thus the construction of the $(\beta +1)$-th stage.
+
+It remains to argue that the iterative desingularization process eventually halts. We will use the indices $x^\beta$, $\beta \geq 0$, defined above.
+
+Let $\lambda$ be a cardinal that is strictly greater than the cardinality of $(X/A)^\sharp$. Define $S$ as the set consisting of those $x^\beta$ with $\beta \leq \lambda$. This is a subset of $(X/A)^\sharp$. Then we can consider the injective function $S\to \lambda +1$ defined by $x^\beta \mapsto \beta$. If $\alpha <\beta$, then $x^\alpha$ is defined if $x^\beta$ is. In other words, $\alpha$ is in the image of $S\to \lambda +1$ if $\beta$ is. By the choice of $\lambda$, there is no surjective extension
+\begin{displaymath}
+\xymatrix@=1em{
+S \ar[dd] \ar[dr] \\
+& \lambda +1 \\
+(X/A)^\sharp \ar@{-->}[ur]_\nexists
+}
+\end{displaymath}
+of $S\to \lambda +1$ to $(X/A)^\sharp$. In other words, $S\to \lambda +1$ cannot possibly be surjective. Hence, the element $\lambda$ is not in the image of the latter function. By the definition of $S$ it follows that $x^\lambda$ is not defined, so the set $S$ contains all simplices of $X/A$ with a designation $x^\beta$. This shows that $D^{[\lambda ]}(X/A)$ is non-singular, so the method we use in order to desingularize $X/A$ does indeed come to a halt.
+
+As a result we get that $p^\lambda :D^{[\lambda ]}(X/A)\xrightarrow{\cong } D(X/A)$ is an isomorphism. Now, the simplicial set $D^{[\lambda ]}(X/A)$ belongs to a diagram that displays $V$ embedded as an abyss in $D^{[\lambda ]}(X/A)$. By design, the composite
+\[V\xrightarrow{j^\lambda } D^{[\lambda ]}(X/A)\xrightarrow{p^\lambda } D(X/A)\]
+is a factorization of the canonical map $\tilde{\jmath } :V\to D(X/A)$, so this finishes our proof of \cref{prop:desingularizing_after_collapsing_elysium}.
+\end{proof}
+
+

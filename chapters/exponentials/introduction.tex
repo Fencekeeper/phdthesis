@@ -1,0 +1,27 @@
+\section{Introduction}
+\label{sec:intro_exp}
+
+There are times when one would like to know whether a category behaves similarly, in some sense, to the category of sets and functions. As an example, for homotopy-theoretical purpose the author would like to know whether the endofunctor $-\times \Delta [1]$ of non-singular simplicial sets preserves colimits. Here, $\Delta [1]$ denotes the standard $1$-simplex.
+
+Let $sSet$ denote the category of simplicial sets. The full subcategory $nsSet$ whose objects are the non-singular simplicial sets sits strictly between $sSet$ and the category of ordered simplicial complexes. Despite the fact that non-singular simplicial sets have a natural PL structure \cite[p.~126--127]{WJR13} they almost never appear in the literature, though they do play a role in the book Spaces of PL Manifolds and Categories of Simple Maps by Waldhausen, Jahren and Rognes \cite{WJR13}.
+
+The endofunctor $(-)^K:sSet\to sSet$ is designed so that the Yoneda lemma makes it right adjoint to $-\times K$. Our main result is the following.
+\begin{theorem}\label{thm:arbitrary_exponent}
+Let $K$ be some simplicial set. Then $X^K$ is non-singular whenever $X$ is.
+\end{theorem}
+\noindent Part of the author's interest in this result comes from the case when $K$ non-singular. Then the restriction of $(-)^K$ to $nsSet$ corestricts to an endofunctor of non-singular simplicial sets. Moreover, $(-)^K$ viewed as a functor $nsSet\to nsSet$ is right adjoint to the endofunctor $-\times K$ of $nsSet$. This means that we can derive the following consequence of \cref{thm:arbitrary_exponent}.
+\begin{corollary}\label{cor:take_product_cocontinous_endofunctor_non-singular}
+Taking the product $-\times K:nsSet\to nsSet$ with a non-singular simplicial set $K$ preserves colimits.
+\end{corollary}
+\noindent In particular, taking the product $-\times \Delta [1]$ with an interval is a cocontinous endofunctor of non-singular simplicial sets.
+
+The case of the interval is not only of practicle concern, but it is also the theoretical focus of this article as it is not hard to argue that \cref{thm:arbitrary_exponent} follows from the following result.
+\begin{proposition}\label{prop:standard_1_simplex_as_exponent}
+The simplicial set $X^{\Delta [1]}$ is non-singular whenever $X$ is.
+\end{proposition}
+\noindent The proof of the latter result is the subject of \cref{sec:prism}, whereas \cref{thm:arbitrary_exponent} is derived from \cref{prop:standard_1_simplex_as_exponent} in \cref{sec:arbexp}.
+
+In \cref{sec:app}, we will discuss applications of \cref{thm:arbitrary_exponent} beyond \cref{cor:take_product_cocontinous_endofunctor_non-singular}. We explain how \cref{thm:arbitrary_exponent} follows from \cref{prop:standard_1_simplex_as_exponent} in \cref{sec:arbexp}. Finally, the case of the interval is discussed \cref{sec:prism}.
+
+
+

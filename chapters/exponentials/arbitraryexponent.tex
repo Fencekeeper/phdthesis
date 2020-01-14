@@ -1,0 +1,53 @@
+
+
+\section{Arbitrary exponent}
+\label{sec:arbexp}
+
+In this section we will prove \cref{thm:arbitrary_exponent}, assuming that \cref{prop:standard_1_simplex_as_exponent} holds. First we will point out that the latter result can be generalized fairly easily from the interval to the standard $n$-simplex, for all $n\geq 0$.
+\begin{lemma}\label{lem:standard_n_simplex_as_exponent}
+Suppose $n\geq 0$. The simplicial set $X^{\Delta [n]}$ is non-singular if $X$ is.
+\end{lemma}
+\noindent To verify \cref{lem:standard_n_simplex_as_exponent} we note that \cref{prop:standard_1_simplex_as_exponent} implies that $X^{\Delta [1]^n}$ is non-singular if $X$ is. This is by induction on $n$, which is made possible by the exponential law $(X^K)^L\cong X^{L\times K}$, which holds because $sSet$ is cartesian closed.
+
+Let $[n]$ denote the totally ordered set $\{ 0<1<\cdots <n\}$. Following \cite[p.~132]{FP90}, we shall refer to an \textbf{operator} as a function $\alpha :[m]\to [n]$ such that $\alpha (i)\leq \alpha (j)$ if $i\leq j$. Observe that $\Delta [n]$ embeds in $\Delta [1]^n$ in such a way that $\Delta [1]^n$ retracts onto $\Delta [n]$. The embedding $i$ that we have in mind is induced by the operator
+\[[n]\to [1]^n\]
+given by
+\[j\mapsto 1\dots 10\dots 0\]
+where the string $1\dots 10\dots 0$ starts with $j$ $1$'s and the rest are $0$'s. One can make a retraction $r:\Delta [1]^n\to \Delta [n]$ by taking the string $k_1\dots k_n$ from $[1]^n$ and then finding the lowest index $j$ such that $k_j=0$. Then one defines an operator by the rule
+\[k_1\dots k_n\mapsto j-1,\]
+which induces the announced $r$. We get that the composite $ri$ is the identity as this is true on the level of operators.
+
+There are induced maps
+\[X^{\Delta [n]}\xleftarrow{X^i} X^{\Delta [1]^n}\xleftarrow{X^r} X^{\Delta [n]}\]
+such that the composite is equal to the identity. In other words, the simplicial set $X^{\Delta [n]}$ is identified with a simplicial subset of $X^{\Delta [1]^n}$, which is non-singular if $X$ is. Hence, the simplicial set $X^{\Delta [n]}$ is non-singular if $X$ is. This concludes our proof of \cref{lem:standard_n_simplex_as_exponent}, given that \cref{prop:standard_1_simplex_as_exponent} holds.
+
+By means of \cref{lem:standard_n_simplex_as_exponent}, we can derive our main result.
+\begin{proof}[Proof of \cref{thm:arbitrary_exponent}.]
+Suppose $K$ is some simplicial set and let $X$ be non-singular. Let $\Delta \downarrow K$ denote the \textbf{simplex category}, meaning the category whose objects are the pairs $(x,n)$, where $x$ is a simplex of $K$ whose degree is $n$, and whose morphisms $(y,m)\to (x,n)$ are the pairs $(x,\alpha )$ with $\alpha$ an operator such that $y=x\alpha$.
+
+The simplicial set $K$ can be viewed as the colimit of the diagram
+\[\Upsilon _K:\Delta \downarrow K\to sSet\]
+that sends a simplex of degree $n$ to the standard $n$-simplex $\Delta [n]$\\ \cite[Lem.~4.2.1]{FP90}. We explain that $X^K$ is the limit of the composite
+\[\Delta \downarrow K\xRightarrow{\Upsilon _K} sSet\xRightarrow{X^{(-)} } sSet,\]
+denoted $X^{\Upsilon _K}$, or in other words that the cone $\underline{X^K} \Rightarrow X^{\Upsilon _K}$ is universal.
+
+Assume that $\underline{Z} \Rightarrow X^{\Upsilon _K}$ is a cone. Recall that $sSet$ is cartesian closed. Via the natural bijection
+\[sSet(Z\times \Delta [n],X)\xrightarrow{\cong } sSet(Z,X^{\Delta [n]}),\]
+we can consider the cocone $Z\times X^{\Upsilon _K}\Rightarrow \underline{X}$ illustrated in the diagram
+\begin{displaymath}
+\xymatrix{
+Z\times \Delta [m] \ar[dd]_{id\times \alpha } \ar[dr]_{id\times \bar{y} } \ar@/^2pc/[drr] \\
+& Z\times K \ar@{-->}[r]^{\exists !} & X \\
+Z\times \Delta [n] \ar[ur]^{id\times \bar{x} } \ar@/_2pc/[urr]
+}
+\end{displaymath}
+instead. Because $Z\times -$ is a cocontinous endofunctor of simplicial sets, the simplicial set $Z\times K$ is the colimit of $Z\times \Upsilon _K$. Hence, there exists a (unique) map $Z\times K\to X$ that gives rise to a factorization of the cocone $Z\times X^{\Upsilon _K}\Rightarrow \underline{X}$. By adjointness, we obtain a map $Z\to X^K$ such that the given, arbitrary cone on $X^{\Upsilon _K}$ factors through $\underline{X^K} \Rightarrow X^{\Upsilon _K}$.
+
+On the other hand, any map $Z\to X^K$ that gives rise to such a factorization corresponds to a map $Z\times K\to X$ that factors the cocone $Z\times \Upsilon _K\Rightarrow \underline{X}$ through the universal cocone. However, there is only one map $Z\times K\to X$ of the latter type. By adjointness, the map $Z\to X^K$ is therefore unique.
+
+The diagram $X^{\Upsilon _K}$ is by \cref{lem:standard_n_simplex_as_exponent} a diagram whose objects are non-singular. Because $nsSet$ is a reflective subcategory of $sSet$, it follows that $X^K$ is non-singular \cite[p.~1306]{AR15}.
+\end{proof}
+\noindent In the proof of \cref{thm:arbitrary_exponent}, we used the non-trivial fact that a reflective subcategory inherits limits from its surrounding category, although we could have argued in more elementary terms.
+
+According to Adámek and Rosický \cite[p.~1306]{AR15}, the earliest proof that appears in the literature, of the inheritance of limits by reflective subcategories, is to be found in the works of H. Herrlich \cite{He68}.
+

@@ -1,0 +1,47 @@
+\chapter{Introduction}
+\label{ch:intro}
+
+\noindent Combinatorial structures on topological spaces can be a useful tool. Highly relevant to this day are simplicial complexes. They were invented by Poincaré in the late 19th century, though Alexandroff fully clarified the notion in 1925 \cite{Al25}. Although possible, it is in general not meaningful to form limits and colimits of diagrams of simplicial complexes. We mean this in the sense that neither limits nor colimits are preserved by geometric realization. The reason for this phenomenon is the high rigidity of the rules of the glueing of simplices.
+
+Relaxing the rules of glueing leads to the concept of simplicial set. This was introduced in 1950 by Eilenberg and Zilber \cite{EZ50} under the name of \emph{semi-simplicial complexes}. A common viewpoint is that simplicial sets $X$ are graded sets $X=\bigsqcup _{n\geq 0}X_n$ that come with face maps $d_i:X_n\to X_{n-1}$, $0\leq i\leq n$, and degeneracy maps $s_j:X_n\to X_{n+1}$, $0\leq j\leq n$, that specify the result of omitting the $i$-th vertex or repeating the $j$-th vertex, respectively.
+
+To make a connection between the older simplicial complexes $SiCo$ and the newer simplicial sets one can adjust the definition by demanding that the vertices of a simplex belonging to a simplicial complex is a totally ordered set. Then it makes sense to refer to the $i$-th vertex of a simplex, and to the $i$-th face, which is the simplex one gets by removing the $i$-th vertex.
+
+Let $OSiCo$ denote the category of these ordered simplicial complexes. Because of the numbering of vertices of each simplex $OSiCo$ embeds as a full subcategory of simplicial sets. There is also an interesting functor $SiCo\to OSiCo$ known as barycentric subdivision, which plays a role in this thesis.
+
+Consider the diagram of adjunctions in \cref{fig:Square_adjunctions}, in which there are three categories that often occur in the literature. Namely, we have $sSet$, which is the category of simplicial sets, we have $Cat$, which is the category of small categories and we have $PoSet$, which is the category of partially ordered sets (posets). One of the categories almost never occur in the literature, however. A simplicial set is \textbf{non-singular} if the representing map of each non-degenerate simplex is degreewise injective. We let $nsSet$ denote the full subcategory of $sSet$ whose objects are the non-singular simplicial sets. The category $nsSet$ is strictly between $sSet$ and $OSiCo$, as we explain in \cref{sec:intro_hty}.
+
+\begin{figure}
+\centering
+\begin{tikzcd}
+&& sSet \ar[ld,"Sd^2"',shift right=0.5ex] \\
+Cat \ar[d,"p"',shift right=0.5ex] \ar[r,"N"',shift right=0.5ex] & sSet \ar[l,"c"',shift right=0.5ex] \ar[d,"D"',shift right=0.5ex] \ar[ur,"Ex^2"',shift right=0.5ex] \\
+PoSet \ar[u,"U"',shift right =0.5ex] \ar[r,"N"',shift right=0.5ex] & nsSet \ar[l,"q"',shift right=0.5ex] \ar[u,"U"',shift right=0.5ex]
+\end{tikzcd}
+\caption{Diagram of adjunctions.}
+\label{fig:Square_adjunctions}
+\end{figure}
+
+Non-singular simplicial sets play a role in the book \cite{WJR13} by Waldhausen, Jahren and Rognes. The reason is that they have a natural piecewise linear (PL) structure \cite[§3.4]{WJR13}.
+
+In this thesis we consider two model structures on $sSet$. The first is the standard model structure on $sSet$ due to Quillen \cite{Qu67}. The second is a model structure introduced by J. F. Jardine \cite{Ja13}. One can use the Kan subdivision, denoted $Sd$, and its right adjoint, sometimes referred to as extension and denoted $Ex$, to shift the fibrations and cofibrations so that the fibrations become more abundant. This operation can be iterated. For example, the Kan subdivision performed twice becomes a left Quillen functor, of the Quillen equivalence $(Sd^2,Ex^2)$, whose source is $sSet$ equipped with Quillen's structure and whose target is $sSet$ equipped with Jardine's structure \cite[Thm.~1.1.,~p.~274]{Ja13}.
+
+Using ideas from regular neighborhood theory \cite[§II]{Hu69}, Thomason managed to lift Quillen's structure to $Cat$ along $Ex^2N$ \cite{Th80}, where $N:Cat\to sSet$ is the standard nerve functor \cite[§2]{Se68}. The result was that $Cat$ became a proper cofibrantly generated model category and that the adjunction $(cSd^2,Ex^2N)$ became a Quillen equivalence. As a consequence, the adjunction $(c,N)$ is a Quillen equivalence when $sSet$ has Jardine's $Sd^2$-model structure. Much later, Raptis restricted Thomason's model structure to posets \cite{Ra10}. The functors denoted $U$ in \cref{fig:Square_adjunctions} are inclusions and the subsquare of right adjoints commutes precisely.
+
+In this thesis, we adapt Thomason's method to the setting of non-singular simplicial sets and prove an analogous result, namely that $nsSet$ is a proper cofibrantly generated model category and that $(DSd^2,Ex^2U)$ is a Quillen equivalence. The functor $c$, often called categorification, has an elementary description, but the functor $D$ \cite[Rem.~2.2.12]{WJR13}, called desingularization, does not. Here lies a potential difficulty in trying to establish a model structure on $nsSet$ that is Quillen equivalent to $sSet$ equipped with Quillen's model structure. Thomason's auxiliary morphisms known as Dwyer maps are used as a source of inspiration in establishing $(DSd^2,Ex^2U)$ is a Quillen equivalence, which is stated as \cref{thm:main_homotopy_theory}. \cref{ch:htythy} is more or less devoted to this result.
+
+Using the chosen strategy to establish \cref{thm:main_homotopy_theory} made it necessary to understand how desingularization behaves when applied to certain sensibly formed quotients of non-singular simplicial sets and to certain finite products. Out of these tasks grew the work of \cref{ch:it_desing} and \cref{ch:exponentials}. Specifically, we use techniques from the work to establish \cref{thm:main_result_itdesing} and we use \cref{cor:take_product_cocontinous_endofunctor_non-singular} directly in the proof of \cref{thm:main_homotopy_theory}.
+
+For the reader that is familiar with homotopy theory, but not with the language of model categories, we try to mend this eventuality in \cref{ch:model}. The chapter also serves to fix notation and terminology.
+
+\cref{ch:technical} deals with some technical aspects of the category of non-singular simplicial sets. As one might expect, the inclusion $U:nsSet\to sSet$ preserves filtered colimits. We prove this in \cref{sec:smallness} --- a fact that is used several places in the dissertation. The final section of \cref{sec:formal} is devoted to the folklore that a non-singular simplicial set can be glued together over its non-degenerate simplices.
+
+Calculations done in \cref{sec:examples} suggests that the left Quillen functor $DSd^2$ might be naturally isomorphic to the improvement functor from \cite[Thm.~2.5.2]{WJR13}, which is also explicitly and implicitly the topic of most of the exercises in Section $4.6$ of \cite[pp.~219--220]{FP90}. The question was raised in \cite[Rem.~2.2.12]{WJR13}. We answer it in the affirmative by stating \cref{thm:main_opt_triang}. The result is derived from \cref{thm:barratt_nerve_rep_map_dcr_iso}, which is interesting in its own right as it seems to bring new knowledge concerning the reduced mapping cylinder from \cite[§2.4]{WJR13}.
+
+Having established \cref{thm:main_homotopy_theory} there are many questions that can be raised. For example, is every cofibrant non-singular simplicial set the nerve of some poset? The statement seems analogous to a result by Thomason \cite[Prop.~5.7]{Th80}. There are reasons to think that the answer is yes and we state the informed guess as \cref{conj:cofibrant_nonsing_simp_set}. \cref{ch:sixth} is largely devoted to justify this. Parts of \cref{ch:sixth} goes beyond a justification for \cref{conj:cofibrant_nonsing_simp_set}, however, and is instead speculative. In fact, the chapter becomes increasingly speculative towards the end. \cref{sec:simplexcat} consists of constructions and speculations. The only construction therein that is of value to the justification is the construction of $c$, which we make light use of in the proof of \cref{prop:categorification_of_DSd_vs_B}.
+
+
+
+
+
+

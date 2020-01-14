@@ -1,0 +1,251 @@
+\section{Zipping}
+\label{sec:zipping}
+
+The canonical map
+\[dcr:DT(N\varphi )\to M(N\varphi )\]
+from the desingularized topological mapping cylinder to the reduced one is not necessarily degreewise injective.
+\begin{example}\label{ex:Non-injective_dcylinder_reduction}
+Let $f:\Delta [1]\to \Delta [1]/\partial \Delta [1]$ be the canonical map whose source is the standard $1$-simplex and whose target is the simplicial set one gets by taking the standard $1$-simplex and then identifying the zeroth and the first vertex.
+
+The desingularized (backwards) topological mapping cylinder $DT(B(f))$ has two distinct non-degenerate $2$-simplices that are siblings. Thus
+\[dcr:DT(B(f))\to M(B(f))\]
+is not injective in degree $2$. In fact, $dcr$ fails to be injective even in degree $1$.
+\end{example}
+\noindent Note that $\Delta [1]/\partial \Delta [1]$ is not regular.
+
+Compare the following proposition with \cref{thm:barratt_nerve_rep_map_dcr_iso}.
+\begin{proposition}\label{prop:barratt_nerve_rep_map_dcr_inj}
+Let $X$ be a regular simplicial set and $r$ some simplex of $X$, say of degree $n$. The canonical map
+\[dcr:DT(B(\bar{r} ))\to M(B(\bar{r} ))\]
+is injective in each positive degree.
+\end{proposition}
+\noindent The use of the letter $r$ instead of the letter $y$ as in \cref{thm:barratt_nerve_rep_map_dcr_iso} is a shift in notation that is meant to contribute to readability in the argument below. To prove \cref{prop:barratt_nerve_rep_map_dcr_inj}, we will let $\varphi =(\bar{r} )^\sharp$ and apply \cref{prop:criterion_degreewise_injective_into_nerve_computation} to the diagram (\ref{eq:first_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}).
+
+As before, we write $P=\Delta [n]^\sharp$, $R=X^\sharp$ and $W=P\times [1]$. The reason we use the letter $W$ to denote $P\times [1]$ is that we at a later point will think of $P\times [1]$ as embedded in $Q=\Delta [n+1]^\sharp$ like in (\ref{eq:zeroth_diagram_proof_lem_second_reduction}) except that $n$ is replaced by $n+1$.
+
+We study pushouts in $sSet$ and $nsSet$ of the diagram
+\begin{equation}
+\label{eq:second_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}
+\begin{gathered}
+\xymatrix{
+NP \ar[d]_{k=Ni_0} \ar[r]^{f=N\varphi} & NR \\
+NW
+}
+\end{gathered}
+\end{equation}
+and we study the canonical map
+\[\eta :T(f)\to DT(f)\]
+between them. The letter $k$ is not needed in the same capacity as in (\ref{eq:diagram_def_dwyer_map}). Instead its meaning is explained by (\ref{eq:second_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}). The notation is thus close to the one in the triangle (\ref{eq:diagram_def_dwyer_map}), though not exactly the same.
+
+Notice that $i_0$ is a special Dwyer map. In particular, the category $P$ is a coreflective subcategory of $W$. Note that we use the language and notation of mapping cylinders mainly because it is common in the literature and because notation exists, although connection with mapping cylinders in \cite[§2.4]{WJR13} is interesting. Nevertheless, for the purpose of this argument, what matters is that $i_0$ is a sieve and has a retraction that is a right adjoint, which in this case is the projection $W\to P$ onto the first factor. Let $\bar{k} :NR\to T(f)$ denote the cobase change in $sSet$ of $k$ along $f$ and let $\bar{f}$ denote the cobase change in $sSet$ of $f$ along $k$. We will handle two cases.
+
+We consider pairs $(x',y')$ of embedded simplices $x'$ and $y'$ of $T(f)$ that are siblings and that are of a fixed degree $q>0$. Notice that the relation \emph{being a sibling of} is an equivalence relation on the set of $q$-simplices. In the following, posets are viewed interchangeably as small categories and as a sets with a binary relation $\leq $ that is reflexive, antisymmetric and transitive. At a given moment in the argument, we adopt whichever viewpoint has the most convenient terminology.
+
+The first case is when the common last vertex $x'\varepsilon _q=y'\varepsilon _q$ of the embedded siblings $x'$ and $y'$ is in the image of $\bar{k}$. In that case, $x'$ and $y'$ are in the image of $\bar{k}$ as it is an elysium. Two $q$-simplices of $NR$ whose images are $x'$ and $y'$, respectively, must be siblings. Any two siblings in the nerve of a poset are equal, so it follows that $x'=y'$ in this case. Thus $\eta (x')=\eta (y')$, trivially.
+
+The second case, namely when $x'\varepsilon _q=y'\varepsilon _q$ is not in the image of $\bar{k}$, is highly non-trivial. We will handle this situation by inductively replacing the pair of siblings with another pair of siblings that are closer in a sense that we now make precise. Our induction has the following \emph{hypothesis}.
+
+Suppose some integer $p<q$ is such that whenever two embedded siblings $x'$ and $y'$ of $T(f)$ whose common last vertex $x'\varepsilon _q=y'\varepsilon _q$ is not in the image of $\bar{k}$, then $x'$ has a sibling $z'$ and $y'$ has a sibling $w'$ with
+\begin{displaymath}
+\begin{array}{rcl}
+\eta (x') & = & \eta (z') \\
+\eta (y') & = & \eta (w')
+\end{array}
+\end{displaymath}
+such that the unique simplices $z$ and $w$ of $NW$ with
+\begin{displaymath}
+\begin{array}{rcl}
+z' & = & \bar{f} (z) \\
+w' & = & \bar{f} (w)
+\end{array}
+\end{displaymath}
+satisfy $z\varepsilon _j=w\varepsilon _j$ for each non-negative integer $j$ with $p<j\leq q$. The uniqueness of $z$ and $w$ comes from the fact that $\bar{f_q}$ is injective on the complement of $(NP)_q$ in $(NW)_q$. Note that $z'$ and $w'$ are siblings as $x'$ and $y'$ are.
+
+Consider the event that $p=-1$. Then the simplices $z$ and $w$ of $NW$ are siblings. Therefore $z=w$ as $NW$ is the nerve of a poset. Hence $z'=w'$.
+
+For the \emph{base step}, note that our induction hypothesis is satisfied for $p=q-1$. We will verify this in the next paragraph. Notice that the induction moves in the opposite direction, namely that the inductive step will verify that the hypothesis is true for $p-1$ whenever we know that it is true for $p$.
+
+Recall that a simplex of $T(f)$ of any degree is exclusively and uniquely the image of either a simplex of $NR$ or a simplex of $NW$ that is not in the image of $k$. If $x'$ and $y'$ are embedded siblings whose last vertex $x'\varepsilon _q=y'\varepsilon _q$ is not in the image of $\bar{k}$, then the unique $q$-simplices $x$ and $y$ with
+\begin{displaymath}
+\begin{array}{rcl}
+x' & = & \bar{f} (x) \\
+y' & = & \bar{f} (y)
+\end{array}
+\end{displaymath}
+are such that neither $x\varepsilon _q$ nor $y\varepsilon _q$ is in the image of $k$. These two $0$-simplices, in other words, reside in the back end of the cylinder $NW$, which is the image of $Ni_1$. We think of the back end as the nerve of the full subcategory $V$ of $W$ whose objects are those that are not in the image of $i_0$. In other words, the back end is the nerve of a cosieve, which is in this case the image of $i_1$.
+
+The composite
+\[NV\to NW\xrightarrow{\bar{f} } T(f)\to M(f)\]
+is degreewise injective as it is the nerve of an injective map, hence
+\[NV\to NW\xrightarrow{\bar{f} } T(f)\]
+is degreewise injective. It follows that $x\varepsilon _q=y\varepsilon _q$.
+
+Now we do the \emph{inductive step}. Take a pair $(x',y')$ of embedded $q$-simplices $x'$ and $y'$ of $T(f)$ that are siblings and whose common last vertex $x'\varepsilon _q=y'\varepsilon _q$ is not in the image of $\bar{k}$. Take a sibling $z''$ of $x'$ and a sibling $w''$ of $y'$ with
+\begin{displaymath}
+\begin{array}{rcl}
+\eta (x') & = & \eta (z'') \\
+\eta (y') & = & \eta (w'')
+\end{array}
+\end{displaymath}
+and such that the unique simplices $z_2$ and $w_2$ of $NW$ with
+\begin{displaymath}
+\begin{array}{rcl}
+z'' & = & \bar{f} (z_2) \\
+w'' & = & \bar{f} (w_2)
+\end{array}
+\end{displaymath}
+satisfy $z_2\varepsilon _j=w_2\varepsilon _j$ for each non-negative integer $j$ with $p<j\leq q$.
+
+In the case when
+\[z_2\varepsilon _p=w_2\varepsilon _p,\]
+then we simply define
+\begin{displaymath}
+\begin{array}{rcl}
+z' & = & z'' \\
+z & = & z_2 \\
+w' & = & w'' \\
+w & = & w_2,
+\end{array}
+\end{displaymath}
+and we are done.
+
+Else if
+\[z_2\varepsilon _p\neq w_2\varepsilon _p,\]
+then there is work to be done.
+
+Because the map $NV\to NW\xrightarrow{\bar{f} } T(f)$ is degreewise injective it follows that $z_2\varepsilon _p$ or $w_2\varepsilon _p$ resides in the front end of the cylinder $NW$, so $x''\varepsilon _p=y''\varepsilon _p$ is in the image of $\bar{k}$. The set $T(f)_0$ of $0$-simplices is the disjoint union of the image of $\bar{k} _0$ and the image under $\bar{f} _0$ of the complement of the image of $k_0$. In particular, both $z_2\varepsilon _p$ and $w_2\varepsilon _p$ reside in the front end of the cylinder, which is the image of $k$.
+
+For the next piece of argument, we shift focus somewhat and view $z_2$ and $w_2$ as functors $[q]\to W$. Notice that, say the $0$-simplex $z_2\varepsilon _j$ in $NW$ corresponds to the object $z_2(j)$ in $W$ for each $j$. Combine the two functors $z_2$ and $w_2$ to form the solid arrow diagram
+\begin{equation}
+\label{eq:third_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}
+\begin{gathered}
+\xymatrix{
+z_2(0) \ar[d] && w_2(0) \ar[d] \\
+\dots \ar[d] && \dots \ar[d] \\
+z_2(p-1) \ar[d] && w_2(p-1) \ar[d] \\
+z_2(p) \ar[dr] \ar@{-->}[r] & z_2(p)\vee w_2(p) \ar@{-->}[d] & w_2(p) \ar[ld] \ar@{-->}[l] \\
+& z_2(p+1)=w_2(p+1) \ar[d] \\
+& \dots \ar[d] \\
+& z_2(q)=w_2(q)
+}
+\end{gathered}
+\end{equation}
+in the category $W$. The diagram (\ref{eq:third_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}) looks like a \emph{zipper}. To realize this also reveals the idea behind the proof of \cref{prop:barratt_nerve_rep_map_dcr_inj}, which is to show that $\eta (x')$ and $\eta (y')$ are equal by performing a zipping in the category $W$.
+
+Think of $W$ as embedded in $Q=\Delta [n+1]^\sharp$ as in (\ref{eq:zeroth_diagram_proof_lem_second_reduction}) except that $n$ is replaced by $n+1$. The category $Q$ has the property that whenever there is a cocone on a diagram
+\begin{displaymath}
+\xymatrix{%
+q \ar@(ld,lu)^{id} \\
+q' \ar@(ld,lu)^{id}
+}
+\end{displaymath}
+in $Q$, then there is a universal such, or in other words a coproduct of $q$ and $q'$. The coproduct in a poset of two objects is often referred to as the join of the two objects. Frequently, the symbol $\vee$ denotes the join operation so that the join of $q$ and $q'$ is denoted $q\vee q'$.
+
+The category $W$ is obtained from $Q$ by just removing the object $\varepsilon _2:[0]\to [2]$ given by $0\mapsto 2$ and each morphism whose source is $\varepsilon _2$. It follows that the category $W$ inherits the property from $Q$ that was described in the previous paragraph, namely that the existence of a cocone implies the existence of a join. Because $P$ is a coreflective subcategory of $W$, the join in $W$ of $z_2(p)$ and $w_2(p)$ is an object of $P$.
+
+Notice that there are two obvious $(q+1)$-simplices in $NW$ that appear in (\ref{eq:third_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}), namely
+\[z_2(0)\to \dots \to z_2(p)\to z_2(p)\vee w_2(p)\to z_2(p+1)\to \dots \to z_2(q)\]
+denoted $\tilde{z}$ and
+\[w_2(0)\to \dots \to w_2(p)\to z_2(p)\vee w_2(p)\to w_2(p+1)\to \dots \to w_2(q)\]
+denoted $\tilde{w}$. We have an application in mind for them, which will become clear shortly if it has not already.
+
+Because $P$ is a sieve in $W$, the subdiagram
+\begin{displaymath}
+\xymatrix{
+z_2(0) \ar[d] && w_2(0) \ar[d] \\
+\dots \ar[d] && \dots \ar[d] \\
+z_2(p-1) \ar[d] \ar[dr] && w_2(p-1) \ar[ld] \ar[d] \\
+z_2(p) \ar[r] & z_2(p)\vee w_2(p) & w_2(p) \ar[l] \\
+}
+\end{displaymath}
+in $W$ of the big diagram above is really a diagram in $P$, whereas the object $z_2(q)=w_2(q)$ is not an object of $P$.
+
+Notice that $\varphi (z_2(p))=\varphi (w_2(p))$ due to the fact that $z''$ and $w''$ are siblings, which in particular implies that $z''\varepsilon _p=w''\varepsilon _p$. This is because $\varphi$ is defined as $\varphi =(\bar{r} )^\sharp$ where $r$ is from \cref{prop:barratt_nerve_rep_map_dcr_inj}. If we can prove that
+\begin{equation}\label{equation_dsd^2=bsd}
+\varphi (z_2(p)\vee w_2(p))=\varphi (z_2(p)),
+\end{equation}
+which we can, then the two simplices $\tilde{z}$ and $\tilde{w}$ give rise to simplices in $T(f)$ that become degenerate under desingularization (in a specific way).
+
+Let $z$ denote the simplex
+\[z_2(0)\to \dots \to z_2(p-1)\to z_2(p)\vee w_2(p)\to z_2(p+1)\to \dots \to z_2(q)\]
+in $NW$ and $z'$ its image under $\bar{f}$. When we verify (\ref{equation_dsd^2=bsd}) it will follow that $z'$ and $z''$ are siblings. By assumption, the simplex $z''$ is a sibling of $x'$. It will thus follow that $x'$ is a sibling of $z'$ as \emph{being a sibling of} is an equivalence relation. Moreover, the image $\bar{f} (\tilde{z} )$ has the property that
+\[\bar{f} (\tilde{z} )\varepsilon _p=\bar{f} (\tilde{z} )\varepsilon _{p+1}.\]
+This means that $\bar{f} (\tilde{z} )$ becomes degenerate under desingularization. More precisely, we get that $\eta \bar{f} (\tilde{z} )$ splits off the degeneracy operator $\sigma _p$. In other words, the simplices $x'$ and $z'$ become identified under desingularization, meaning $\eta (x')=\eta (z')$.
+
+Similarly, let $w$ denote the simplex
+\[w_2(0)\to \dots \to w_2(p-1)\to z_2(p)\vee w_2(p)\to w_2(p+1)\to \dots \to w_2(q)\]
+in $NW$ and $w'$ its image under $\bar{f}$. Then $w'$ and $w''$ are siblings if (\ref{equation_dsd^2=bsd}) holds. By assumption, the simplex $w''$ is a sibling of $y'$. It will thus follow that $y'$ is a sibling of $w'$. We get that $\eta (y')=\eta (w')$ as $\eta \bar{f} (\tilde{w} )$ splits off the elementary degeneracy operator $\sigma _p$.
+
+Note that the equations
+\begin{displaymath}
+\begin{array}{rcl}
+z(p) & = & w(p) \\
+& \dots \\
+z(q) & = & w(q)
+\end{array}
+\end{displaymath}
+hold by definition of $z$ and $w$. This means that verifying (\ref{equation_dsd^2=bsd}) finishes the induction step in the case when $z_2\varepsilon _p\neq w_2\varepsilon _p$.
+
+We go on to verify (\ref{equation_dsd^2=bsd}). It could be that $w_2(p)$ is a face of $z_2(p)$, meaning $z_2(p)\vee w_2(p)=z_2(p)$. Similarly, it could be that $z_2(p)$ is a face of $w_2(p)$, meaning $z_2(p)\vee w_2(p)=w_2(p)$. In both cases, we trivially obtain (\ref{equation_dsd^2=bsd}). Let us consider the non-trivial case when neither one is a face of the other.
+
+Notice that if $q$ and $q'$ are objects of $Q=\Delta [n+1]^\sharp$ whose join $q\vee q'$ exists, then the face operator $q\vee q'$ is the one whose image is the union of the images of $q$ and $q'$. This operation is inherited by the subcategory $W$ of $Q$ as was pointed out earlier. There are unique face operators $\mu$ and $\nu$ such that
+\begin{displaymath}
+\begin{array}{rcl}
+z_2(p) & = & (z_2(p)\vee w_2(p))\mu \\
+w_2(p) & = & (z_2(p)\vee w_2(p))\nu .
+\end{array}
+\end{displaymath}
+The union of the images of $\mu$ and $\nu$ is equal to their common target. Also, neither image is contained in the other because we now consider the non-trivial case when neither of the simplices $z_2(p)$ and $w_2(p)$ is a face of the other.
+
+Consider applying \cref{prop:deflation_theorem} in the case when $y=\bar{r} (z_2(p)\vee w_2(p) )$. Recall that $\varphi =(\bar{r} )^\sharp$. We get that
+\[\varphi (z_2(p)\vee w_2(p))=y^\sharp \]
+by definition of $\varphi$ and we can let $\mu$ and $\nu$ denote the face operators that applied to $z_2(p)\vee w_2(p)$ yield $z_2(p)$ and $w_2(p)$, respectively.
+
+Furthermore,
+\begin{equation}
+\label{eq:motivating_lemma_property_of_regular_simplicial_set}
+\begin{gathered}
+\begin{array}{rcl}
+\varphi (z_2(p)) & = & \varphi ((z_2(p)\vee w_2(p))\mu ) \\
+& = & (\bar{r} )^\sharp ((z_2(p)\vee w_2(p))\mu ) \\
+& = & (\bar{r} ((z_2(p)\vee w_2(p))\mu ))^\sharp \\
+& = & (\bar{r} ((z_2(p)\vee w_2(p)))\mu )^\sharp \\
+& = & (y\mu )^\sharp
+\end{array}
+\end{gathered}
+\end{equation}
+and similarly $\varphi (w_2(p))=(y\nu )^\sharp$. The equation (\ref{equation_dsd^2=bsd}) follows from \cref{prop:deflation_theorem}.
+
+From the verification of (\ref{equation_dsd^2=bsd}), it follows that the sibling $z'$ of $x'$ and the sibling $w'$ of $y'$ are such that
+\begin{displaymath}
+\begin{array}{rcl}
+\eta (x') & = & \eta (z') \\
+\eta (y') & = & \eta (w')
+\end{array}
+\end{displaymath}
+and such that the pair $(z,w)$ of simplices $z$ and $w$ of $NW$ with
+\begin{displaymath}
+\begin{array}{rcl}
+z' & = & \bar{f} (z) \\
+w' & = & \bar{f} (w)
+\end{array}
+\end{displaymath}
+has the property that $z\varepsilon _j=w\varepsilon _j$ for each non-negative integer $j$ with $p-1<j\leq q$. This means that having verified (\ref{equation_dsd^2=bsd}) finishes the induction step in the case when $z_2\varepsilon _p\neq w_2\varepsilon _p$. Thus the map $\eta _{T(f)}$ takes each pair of embedded siblings of degree $q$ to the same simplex.
+
+As the integer $q>0$ was arbitrary, the conclusion holds for each positive integer. Namely that $\eta _{T(f)}$ takes each pair of embedded siblings to the same simplex. Recall that $f=B(\bar{r} )$. We are ready to prove \cref{prop:barratt_nerve_rep_map_dcr_inj}.
+\begin{proof}[Proof of \cref{prop:barratt_nerve_rep_map_dcr_inj}.]
+We have just proven by induction on what we may call the \emph{proximity of a pair of siblings} that $\eta _{T(B(\bar{r} ))}$ takes each pair of embedded siblings of degree $q$ to the same simplex, for each $q>0$. This is trivially true for $q=0$ as well, though irrelevant.
+
+The simplicial set $DT(B(\bar{r} ))$ is non-singular, the simplicial set $M(B(\bar{r} ))$ is the nerve of a poset and $\eta _{T(B(\bar{r} ))}$ is degreewise surjective. Furthermore, the map
+\[cr:T(B(\bar{r} )\to M(\bar{r} )\]
+is injective in degree $0$ by \cref{ex:pushout_poset_along_dwyer}. Thus \cref{prop:criterion_degreewise_injective_into_nerve_computation} is applicable to (\ref{eq:first_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}).
+
+By \cref{prop:criterion_degreewise_injective_into_nerve_computation}, the map
+\[dcr:DT(B(\bar{r} )\to M(\bar{r} ))\]
+is injective in each positive degree.
+\end{proof}
+
+
+
+
+

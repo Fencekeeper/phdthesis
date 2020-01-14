@@ -1,0 +1,101 @@
+
+\section{Preexisting model structures}
+\label{sec:pre_exist}
+
+
+We will explain the aspects of the diagram (\ref{eq:diagram_of_adjunctions}) that were not explained in \cref{sec:intro_hty}.
+
+If the inclusion of a full subcategory has a left adjoint, then we will refer to the subcategory as a \textbf{reflective} subcategory. Note that the terminology is not standard. Although the fullness assumption seems more common today than before, Mac Lane's notion \cite{ML98}, for example, does not include fullness as an assumption in his definition. Nor do Adámek and Rosický \cite{AR15} include fullness as an assumption in their notion.
+
+
+\subsection{Simplicial sets}
+
+We view a \textbf{simplicial set} as a functor $\Delta ^{op}\to Set$ where $\Delta$ is the category of finite ordinals and $\Delta ^{op}$ its opposite. The objects of $\Delta$ are the totally ordered sets
+\[[n]=\{ 0<1<\cdots <n\} ,\]
+$n\geq 0$, and its morphisms are the order-preserving functions $\alpha :[m]\to [n]$, meaning $\alpha (i)\leq \alpha (j)$ whenever $i\leq j$. We refer to the morphisms as \textbf{operators}. This is because they operate (to the right) on the simplices of a simplicial set. We will write $X_n=X([n])$ for brevity whenever $X$ is a simplicial set. The symbol $sSet$ denotes the category of simplicial sets and natural transformations. To a large extent we follow the notation from Chapter 4 of Fritsch and Piccinini's book ``Cellular Structures in Topology'' \cite{FP90} on the topic of simplicial sets.
+
+Throughout this paper, we will use the following symbols.
+\begin{notation}\label{not:prototypes_cofibr_trivial_cofibr_standard_pre_exist}
+The elements of the set
+\[I=\{\partial \Delta [n]\to \Delta [n]\mid n\geq 0\}\]
+of inclusions of boundaries into the standard simplices are prototypes of the cofibrations in $sSet$ equipped with the standard model structure. Similarly, the elements of the set
+\[J=\{\Lambda ^k[n]\to \Delta [n]\mid 0\leq k\leq n>0\}\]
+of inclusions of horns into the standard simplices are prototypes of the trivial cofibrations.
+\end{notation}
+
+\subsection{Passage between simplicial sets and non-singular simplicial sets}
+
+Notice that a product of non-singular simplicial sets is again non-singular, and that a simplicial subset of a non-singular simplicial set is again non-singular \cite[Rem.~2.2.12]{WJR13}. These facts give rise rise to the construction of desingularization.
+\begin{definition}{Remark 2.2.12. in \cite[p.~39]{WJR13} }
+\label{def:desing}
+Let $X$ be a simplicial set. The \textbf{desingularization} of $X$, denoted $DX$, is the image of the map
+\[X\rightarrow \prod _{f:X\rightarrow Y}Y\]
+given by $x\mapsto (f(x))_f$, where the product is indexed over the quotient maps $f:X\rightarrow Y$ with non-singular target $Y$.
+\end{definition}
+\noindent The construction $DX$ is functorial and the degreewise surjective map that comes with it is seen to be a natural map $\eta _X:X\to UDX$ \cite[Rem.~2.2.12]{WJR13}.
+
+From the construction in \cref{def:desing}, it follows that any map $X\xrightarrow{f} Y$ whose target $Y$ is non-singular factors through $X\to DX$ \cite[Rem.~2.2.12]{WJR13}. This is because any degreewise surjective map whose source is $X$ and whose target is non-singular can be canonically identified with a quotient map. On the other hand, the factorization is unique because the degreewise surjective maps are precisely the epics of $sSet$. In fact, the natural map $\eta _X$ is the unit of a unit-counit pair $(\eta _X,\epsilon _A)$ \cite[Rem.~2.2.12]{WJR13}. This is also stated as \cref{lem:non-singular_reflective_subcategory}.
+
+In the language suggested above, the category of non-singular simplicial sets is a reflective subcategory of the category of simplicial sets. Hirschhorn takes as an assumption on his notion of model category that the underlying category is bicomplete \cite[Def.~7.1.3, p.~109]{Hi03}, so we do too. We say that a category is \textbf{bicomplete} if it is complete and cocomplete. A consequence of the fact that $nsSet$ is a reflective subcategory of $sSet$ is that $nsSet$ is bicomplete. An explanation of this fact is provided by \cref{cor:nsSet_bicomplete}.
+
+\subsection{Thomason's model structure}
+
+The symbol $N$ denotes the nerve functor \cite[p.~106]{Se68}. It takes a small category $\mathscr{C}$ to the simplicial set whose set of $n$-simplices, for each $n\geq 0$, is the set of functors $[n]\to \mathscr{C}$. According to G. Segal \cite[p.~105]{Se68}, the nerve construction appears at least implicitly in the work of Grothendieck. It is well known that $N$ is fully faithful and that it has a left adjoint $c:sSet\to Cat$, called categorification. The fact can be extracted from \cite{GZ67}, according to R. Fritsch and D. M. Latch \cite[p.~147]{FL81}.
+
+Due to Thomason, we can give equip $Cat$ with a right-induced cofibrantly generated model category such that $(cSd^2,Ex^2N)$ is a Quillen equivalence \cite{Th80} whose source is $sSet$ with the standard model structure due to Quillen. Cisinski have made a correction to Thomason's erroneous argument that $Cat$ is proper \cite{Ci99} so that there is one more adjective that one can use.
+
+
+\subsection{Raptis' model structure}
+
+A \textbf{poset} is a small category such that each hom set consists of at most one element and such that there are no isomorphisms but the identities. Notice that a set equipped with a reflexive, antisymmetric and transitive binary relation $\leq$ can intuitively be viewed as a poset by letting there be a morphism $x\to y$ if and only if $x\leq y$.
+
+We let $U:PoSet\to Cat$ be the inclusion and $p$ its right adjoint. The easiest way to obtain $p$ is probably to consider the category of preorders, which is strictly between $Cat$ and $PoSet$. A small category $\mathscr{C}$ is a \textbf{preorder} if each hom set $\mathscr{C} (c,c')$ has at most one element. Let $PreOrd$ denote the full subcategory of $Cat$ whose objects are the preorders. It is not hard to see that each of the inclusions of the composite
+\[PoSet\to PreOrd\to Cat\]
+has a left adjoint. In other words, the category of posets is a reflective subcategory of $Cat$. 
+
+Raptis has restricted Thomason's model structure to the category of posets so that $(p,U)$ is a Quillen equivalence \cite{Ra10}.
+
+
+\subsection{Passage between non-singular simplicial sets and posets}
+
+Overload the symbol $N$ so that it also refers to the corestriction to $nsSet$ of the restriction of $N:Cat\to sSet$ to the subcategory $PoSet$. By this we simply mean the following. If $G:\mathscr{B} \to \mathscr{A}$ is a functor between categories, then the \textbf{image of $F$}, denoted $\textrm{Im} \, F$, is the smallest subcategory of the target $\mathscr{B}$ that contains any object and any morphism that is hit by $G$. If $\mathscr{C}$ is a subcategory of $\mathscr{A}$ that contains $\textrm{Im} \, F$, then we say that the induced functor $\mathscr{B} \to \mathscr{C}$ is the \textbf{corestriction of $G$ to $\mathscr{C}$}.
+
+Define $q=pcU$. As $U:nsSet\to sSet$ is a full inclusion it follows that $q$ is left adjoint to $N:PoSet\to nsSet$. To verify the latter statement, let $G$ in \cref{lem:corestriction_of_rightadjoint_to_full_subcategory} be the composite
+\[PoSet\xrightarrow{U} Cat\xrightarrow{N} sSet\]
+and let $\mathscr{C} =nsSet$.
+\begin{lemma}\label{lem:corestriction_of_rightadjoint_to_full_subcategory}
+Any corestriction $\bar{G}$ of a right adjoint $G:\mathscr{B} \to \mathscr{A}$ to a full subcategory $\mathscr{C}$ of its target $\mathscr{A}$ admits a left adjoint. Moreover, a restriction to $\mathscr{C}$ of a choice $F$ of a left adjoint to $G$ is left adjoint to $\bar{G}$.
+\end{lemma}
+\begin{proof}
+Let $U$ denote the inclusion $\mathscr{C} \to \mathscr{A}$. The counit $\epsilon _b:FG(b)\to b$ of the adjunction
+\[F:\mathscr{A} \rightleftarrows \mathscr{B} :G\]
+is already a natural map $(FU)\bar{G} (b)\to b$ as $FG=F(U\bar{G} )=(FU)\bar{G}$. We let $\bar{\epsilon } _b$ denote this map. If $c$ is an object of $\mathscr{C}$, then we have the unit $\eta _{U(c)}:U(c)\to GF(U(c))$. As $GF(U(c))=(U\bar{G} )F(U(c))=U(\bar{G} FU(c))$ there is a unique map $\bar{\eta } _c:c\to \bar{G} FU(c)$ such that $\eta _{U(c)}=U(\bar{\eta } _c)$. It is straight forward to check that the natural maps $\bar{\eta } _c$ and $\bar{\epsilon } _b$ satisfy the compatibility criteria of a unit and a counit.
+\end{proof}
+\noindent By design, then, the square of right adjoints in (\ref{eq:diagram_of_adjunctions}) commutes precisely, meaning $N\circ U=U\circ N$.
+
+
+\subsection{Jardine's subdivision model structures}
+
+J. F. Jardine \cite{Ja13} has established a model structure on $sSet$ that he calls the $Sd^2$-model structure. It is defined in such a manner that $(Sd^2,Ex^2)$ is a Quillen equivalence \cite[Thm.~1.1.,~p.~274]{Ja13} and that $(c,N)$ is a Quillen equivalence \cite[Thm.~3.1.,~p.~286]{Ja13}. The weak equivalences of the $Sd^2$-model structure are the same as the standard ones.
+
+The fibrations and cofibrations of the $Sd^2$-model structure are defined thus. A map $p$ of $sSet$ is an \textbf{$Ex^2$-fibration} if $Ex^2(p)$ is a Kan fibration. To define the cofibrations, we might as well introduce the following standard terminology at this point.
+\begin{definition}
+Given a solid arrow commutative square
+\begin{displaymath}
+\xymatrix{
+A \ar[d]_i \ar[r] & X \ar[d]^p \\
+B \ar[r] \ar@{-->}[ur] & Y
+}
+\end{displaymath}
+in some category, we say that a dashed map $B\to X$ is a \textbf{lifting} if it makes the whole diagram commute. In this case we say that $(i,p)$ is a \textbf{lifting-extension pair}, that $i$ has the \textbf{left lifting property (LLP)} with respect to $p$ and that $p$ has the \textbf{right lifting property (RLP)} with respect to $i$.
+\end{definition}
+\noindent A map $i$ of $sSet$ is a \textbf{$Sd^2$-cofibration} if $(i,p)$ is a lifting-extension pair for each $Ex^2$-fibration $p$. Because $Ex$ preserves Kan fibrations \cite[Lem.~4.6.15, p.~213]{FP90}, the $Sd^2$-model structure is shifted in the sense that the weak equivalences are the same and that there are more fibrations and less cofibrations.
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,88 @@
+
+
+\section{Comparison of mapping cylinders}
+\label{sec:comparison}
+
+
+Recall from \cref{thm:barratt_nerve_rep_map_dcr_iso} that we consider a regular simplicial set $X$ and an arbitrary simplex $y$ of $X$, say of degree $n$. The theorem makes the claim that
+\[dcr:DT(B(\bar{y} ))\xrightarrow{\cong } M(B(\bar{y} ))\]
+is an isomorphism, which we will now prove.
+\begin{proof}[Proof of \cref{thm:barratt_nerve_rep_map_dcr_iso}.]
+First, we argue that $dcr$ is bijective in degree $0$. Consider \cref{ex:pushout_poset_along_dwyer} in the case when the map $\varphi :P\to R$ is the map
+\[(\bar{y} )^\sharp :\Delta [n]^\sharp \to X^\sharp\]
+and when $P\to Q$ is the map
+\[i_0:\Delta [n]^\sharp \to \Delta [n]^\sharp \times [1].\]
+Then it follows directly from \cref{ex:pushout_poset_along_dwyer} that the cylinder reduction map
+\[T(B(\bar{y} ))=NQ\sqcup _{NP}NR\xrightarrow{cr} N(Q\sqcup _PR)=M(B(\bar{y} ))\]
+is bijective in degree $0$. As
+\[\eta _{T(B(\bar{y} ))}:T(B(\bar{y} ))\to DT(B(\bar{y} ))\]
+is degreewise surjective it follows that
+\[dcr:DT(B(\bar{y} ))\to M(B(\bar{y} ))\]
+is bijective in degree $0$. Recall that these three maps fit into the commutative triangle (\ref{eq:first_diagram_proof_prop_barratt_nerve_rep_map_dcr_inj}).
+
+Next, we argue that $dcr$ is degreewise surjective. Let $Y$ denote the image of $\bar{y} :\Delta [n]\to X$. Then $BY$ is the image of $B(\bar{y} )$ \cite[Lem.~2.4.20]{WJR13}. Consider the diagram
+\begin{equation}
+\label{eq:first_diagram_proof_thm_barratt_nerve_rep_map_dcr_iso}
+\begin{gathered}
+\xymatrix{
+B(\Delta [n]) \ar[d] \ar[r] & BY \ar[d] \ar[r] & BX \ar[d] \\
+B(\Delta [n])\times \Delta [1] \ar[d] \ar[r] & DT \ar[d]^{dcr} \ar[r] & DT(B(\bar{y} )) \ar[d]^{dcr} \\
+B(\Delta [n])\times \Delta [1] \ar[r] & M \ar[r] & M(B(\bar{y} ))
+}
+\end{gathered}
+\end{equation}
+where $T$ denotes the topological mapping cylinder of the corestriction of $B(\bar{y} )$ to its image $BY$ and where $M$ denotes the reduced mapping cylinder of the same map.
+
+It follows from \cref{prop:map_between_regular_reduction_map_simple} that $dcr:DT\to M$ is degreewise surjective. This is because both $\Delta [n]$ and $Y$ are finite regular simplicial sets. We will explain that
+\[dcr:DT(B(\bar{y} ))\to M(B(\bar{y} ))\]
+is the cobase change in $sSet$ of $DT\to M$ along $BY\to BX$. Thus we obtain the desired result.
+
+Note that
+\[B(\Delta [n])\times \Delta [1]\to DT\]
+is the cobase change in $nsSet$ of $B(\Delta [n])\to BY$ along
+\[B(\Delta [n])\to B(\Delta [n])\times \Delta [1].\]
+Furthermore, the map
+\[B(\Delta [n])\times \Delta [1]\to DT(B(\bar{y} ))\]
+is the cobase change in $nsSet$ of $B(\Delta [n])\to BX$ along
+\[B(\Delta [n])\to B(\Delta [n])\times \Delta [1].\]
+Consequently, the map
+\[DT\to DT(B(\bar{y} ))\]
+is the cobase change in $nsSet$ of $BY\to BX$ along $BY\to DT$.
+
+The map $BY\to M$ is degreewise injective, hence $BY\to DT$ is degreewise injective. As $nsSet$ is a reflective subcategory of $sSet$, it follows that the map
+\[DT\to DT(B(\bar{y} ))\]
+is even the cobase change in $sSet$ of $BY\to BX$ along $BY\to DT$.
+
+Next, consider the diagram
+\begin{equation}
+\label{eq:second_diagram_proof_thm_barratt_nerve_rep_map_dcr_iso}
+\begin{gathered}
+\xymatrix{
+\Delta [n]^\sharp \ar[d] \ar[r] & Y^\sharp \ar[d] \ar[r] & X^\sharp \ar[d] \\
+\Delta [n]^\sharp \times [1] \ar[r] & \Delta [n]^\sharp \times [1]\sqcup _{\Delta [n]^\sharp }Y^\sharp \ar[r] & \Delta [n]^\sharp \times [1]\sqcup _{\Delta [n]^\sharp }X^\sharp
+}
+\end{gathered}
+\end{equation}
+in $PoSet$. Remember that $B=NU(-)^\sharp$. The cocontinous functor
+\[(-)^\sharp :sSet\to PoSet\]
+turns degreewise injective maps into sieves. A cobase change in $PoSet$ of a sieve is again a sieve, so $Y^\sharp \to \Delta [n]^\sharp \times [1]\sqcup _{\Delta [n]^\sharp }Y^\sharp$ is a sieve. The right hand square of (\ref{eq:second_diagram_proof_thm_barratt_nerve_rep_map_dcr_iso}) is a cocartesian square that is preserved under $U:PoSet\to Cat$. This is because both legs are sieves, which means that the pushout in $Cat$ is a poset and because $PoSet$ is a reflective subcategory of $Cat$.
+
+It is even true that $M\to M(B(\bar{y} ))$ is the cobase change in $sSet$ of $BY\to BX$ along $BY\to M$ as $N:Cat\to sSet$ preserves a cocartesian square in $Cat$ whenever both legs are sieves.
+
+As a result of the considerations above, we see from (\ref{eq:first_diagram_proof_thm_barratt_nerve_rep_map_dcr_iso}) that
+\[dcr:DT(B(\bar{y} ))\to M(B(\bar{y} ))\]
+is the cobase change in $sSet$ of $DT\to M$ along $BY\to BX$, which is the desired result.
+
+Finally, the map
+\[dcr:DT(B(\bar{y} ))\to M(B(\bar{y} ))\]
+is degreewise injective in degrees above $0$, for this is precisely what \cref{prop:barratt_nerve_rep_map_dcr_inj} says.
+
+The map $dcr$ is thus seen to be bijective in degree $0$, it is degreewise surjective and it is injective in degrees above $0$. This concludes the proof that $dcr$ is an isomorphism.
+\end{proof}
+\noindent The proof of \cref{thm:barratt_nerve_rep_map_dcr_iso} was the last piece of the proof of our main result, which is \cref{thm:main_opt_triang}.
+
+
+
+
+
+

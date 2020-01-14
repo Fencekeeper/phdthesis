@@ -1,0 +1,113 @@
+
+
+\section{Evidence}
+\label{sec:evidence}
+
+In this section, we will explain how \cref{thm:main_opt_triang} is evidence for \cref{conj:cofibrant_nonsing_simp_set}.
+
+Recall from \cref{sec:intro_hty} that $q:nsSet\to PoSet$ is defined as $q=pcU$ and that it is left adjoint to the nerve functor $N:PoSet\to nsSet$. See (\ref{eq:diagram_of_adjunctions}) for introduction of the functors that are involved in the definition of $q$. From \cref{sec:examples} we recall the natural map $t_X:DSd\, X\to BX$ between functors $sSet\to nsSet$. It arises from the natural degreewise surjective map $b_X:Sd\, X\to BX$, which is an isomorphism if and only if $X$ is a non-singular simplicial set. See \cref{lem:properties_of_b_X}.
+
+As a first attack on the problem of characterizing the cofibrant non-singular simplicial sets, we will towards the end of this section prove \cref{cor:consequence_cofibrant_non-singular_sset_are_nerves_of_posets}, which says that $t_{Sd\, X}$ is an isomorphism if \cref{conj:cofibrant_nonsing_simp_set} holds.
+
+Notice that the map $c(b_Y)$ gives rise to the functor
+\begin{equation}
+\label{eq:diagram_proof_of_prop_categorification_of_DSd_vs_B}
+\begin{gathered}
+\xymatrix{
+cSd\, Y \ar[r]^{c(b_Y)} & cUBY \ar[r]^(.45){id} & cUN(Y^\sharp ) \ar[r]^{id} & cNU(Y^\sharp ) \ar[r]^(.6){\epsilon _{UY^\sharp }} & UY^\sharp
+}
+\end{gathered}
+\end{equation}
+that sends the object corresponding to $[y,(\iota )]$ to the object $y$. The $0$-simplex of $Sd\, Y$ is here thought of as uniquely represented by a minimal pair $(y,\iota )$ where $y$ is a non-degenerate simplex of $Y$ and where $\iota$ is the identity $[n_y]\to [n_y]$ where $n_y$ is the degree of the simplex $y$. The natural map $b_Y:Sd\, Y\to UBY$ sends the $0$-simplex represented by $(y,(\iota ))$ to the functor $[0]\to Y^\sharp$ with $0\mapsto y$. The functor $cSd\, Y\to UY^\sharp$ is full and bijective on objects.
+
+In the case when $Y=Sd\, X$ for some simplicial set $X$, it follows that the composite (\ref{eq:diagram_proof_of_prop_categorification_of_DSd_vs_B}) is an isomorphism as $cSd^2\, X$ is a poset for any simplicial set $X$. In turn, this is because any cofibrant small category is a poset \cite[Proposition~5.7, p.~323]{Th80} and because any simplicial set is cofibrant in the standard model structure due to Quillen. In effect, we have calculated the poset $cSd^2\, X$.
+\begin{lemma}
+Let $X$ be a simplicial set. Then $cSd^2\, X\cong Sd(X)^\sharp$.
+\end{lemma}
+\noindent This calculation of the poset $cSd^2\, X$ is not explicitly mentioned by Thomason \cite{Th80}.
+\begin{proposition}\label{prop:categorification_of_DSd_vs_B}
+For any $X$, the map
+\[q(t_X):qDSd\, X\xrightarrow{\cong } qBX\]
+is an isomorphism.
+\end{proposition}
+\begin{proof}
+Consider the commutative diagram
+\begin{equation}
+\label{eq:second_diagram_proof_of_prop_categorification_of_DSd_vs_B}
+\begin{gathered}
+\xymatrix@=1.2em{
+cSd\, X \ar[dddddr] \ar[drr]_{c(b_X)} \ar[rrr]^{c(\eta _{Sd\, X})} &&& cUDSd\, X \ar[ld]^{cU(t_X)} \\
+&& cUBX \ar[d]^{id} \\
+&& cUN(X^\sharp ) \ar[d]^{id} \\
+&& cNU(X^\sharp ) \ar[ldd]_\cong ^{\epsilon _{U(X^\sharp )}} \\
+\\
+& U(X^\sharp )
+}
+\end{gathered}
+\end{equation}
+in which the map $cU(t_X)$ occurs. By applying $p$ to this map, we obtain $q(t_X)$. The diagram (\ref{eq:second_diagram_proof_of_prop_categorification_of_DSd_vs_B}) can be considered as a diagram of various simplex categories of the simplicial set $X$. From it, we can conclude that $q(t_X)$ is an isomorphism.
+
+The map $b_X$ is bijective in degree $0$, which implies that $c(b_X)$ is bijective on objects. As $\eta _{Sd\, X}$ is surjective in degree $0$, it follows that $c(\eta _{Sd\, X})$ is surjective on objects. Thus $cU(t_X)$ is bijective on objects. See \cref{sec:simplexcat} for the construction of $c$ and $cSd$.
+
+The functor $cSd\, X\to U(X^\sharp )$ is full and $c(b_X)$ is surjective on objects. Therefore $c(b_X)$ is full. Because $c(b_X)$ is full and because $c(\eta _{Sd\, X})$ is surjective on objects, it follows that $cU(t_X)$ is full. As $p$ is a reflector, we can thus conclude that
+\[pcUDSd\, X\xrightarrow{pcU(t_X)} pcUBX\]
+is an isomorphism of posets. This finishes our proof of \cref{prop:categorification_of_DSd_vs_B}.
+\end{proof}
+\noindent The reason for this strategy is the following testable consequence of \cref{conj:cofibrant_nonsing_simp_set}.
+\begin{corollary}\label{cor:consequence_cofibrant_non-singular_sset_are_nerves_of_posets}
+If \cref{conj:cofibrant_nonsing_simp_set} holds, then
+\[t_{Sd\, X}:DSd^2\, X\to BSd\, X\]
+is an isomorphism.
+\end{corollary}
+\begin{proof}[Proof of \cref{cor:consequence_cofibrant_non-singular_sset_are_nerves_of_posets}.]
+We consider the commutative square
+\begin{equation}
+\label{eq:diagram_proof_of_cor_consequence_cofibrant_non-singular_sset_are_nerves_of_posets}
+\begin{gathered}
+\xymatrix{
+NqDSd^2\, X \ar[rr]^{Nq(t_{Sd\, X})}_\cong && NqBSd\, X \\
+DSd^2\, X \ar[u]^{\eta _{DSd^2\, X}} \ar[rr]_{t_{Sd\, X}} && BSd\, X \ar[u]_{\eta _{BSd\, X}}^\cong
+}
+\end{gathered}
+\end{equation}
+as we want to argue that $t_{Sd\, X}$ is an isomorphism given that \cref{conj:cofibrant_nonsing_simp_set} holds.
+
+According to \cref{prop:categorification_of_DSd_vs_B}, the map $Nq(t_{Sd\, X})$ is the nerve of an isomorphism. Furthermore, the map $\eta _{BSd\, X}$ is an isomorphism as $BSd\, X$ is the nerve of a poset, by definition of the Barratt nerve.
+
+If \cref{conj:cofibrant_nonsing_simp_set} holds, then there is a poset $FX$ such that
+\[N(FX)=DSd^2\, X.\]
+This is because $DSd^2$, by \cref{thm:main_homotopy_theory}, is a left Quillen functor and thus preserves cofibrant objects. Any object is cofibrant in the standard model structure on $sSet$. Hence, the map $\eta _{DSd^2\, X}$ is an isomorphism for the same reason that $\eta _{BSd\, X}$ is an isomorphism.
+
+The commutative triangle
+\begin{displaymath}
+\xymatrix{
+& NqN(FX) \ar[r]^{id} & N(qN(FX)) \ar[dr]^{N(\epsilon _{FX})}_\cong \\
+N(FX) \ar[ur]^{\eta _{N(FX)}} \ar[rrr]_{id} &&& N(FX)
+}
+\end{displaymath}
+immediately shows that $\eta _{DSd^2\, X}=\eta _{N(FX)}$ is degreewise injective. The counit $\epsilon _{FX}$ is an isomorphism by the general result that says the following. Any component of the counit of an adjunction is an isomorphism if the right adjoint is fully faithful. Thus we see that $\eta _{DSd^2\, X}$ is also degreewise surjective, hence an isomorphism. From (\ref{eq:diagram_proof_of_cor_consequence_cofibrant_non-singular_sset_are_nerves_of_posets}) we get that $t_{Sd\, X}$ is an isomorphism.
+\end{proof}
+\noindent According to \cref{cor:consequence_cofibrant_non-singular_sset_are_nerves_of_posets}, it is possible to test \cref{conj:cofibrant_nonsing_simp_set} by testing whether $t_{Sd\, X}$ is an isomorphism for (reasonable) choices of simplicial sets $X$.
+
+Because $b_X:Sd\, X\to BX$ is an isomorphism whenever $X$ is non-singular and because $BX$ is the nerve of the poset $X^\sharp$, it follows that $Sd\, X$ is non-singular whenever $X$ is non-singular. It also follows that $b_{Sd\, X}$ is an isomorphism whenever $X$ is a simplicial set with the property that $Sd\, X$ is non-singular. Moreover, we know from \cref{prop:double_subdivision_sphere_low_dimension} that $t_{Sd\, X}$ is an isomorphism in the non-trivial case when $X=\Delta [n]/\partial \Delta [n]$, for $0\leq n\leq 2$.
+
+The result that $t_{Sd(\Delta [n]/\partial \Delta [n])}$ is an isomorphism for $0\leq n\leq 2$ could be expanded to any non-negative integer $n$ by using the non-original content of \cref{ch:optriang}, or more specifically \cref{prop:cones_vs_mapping_cylinders}. Anyhow, \cref{prop:double_subdivision_sphere_low_dimension} is already noteworthy evidence for \cref{conj:cofibrant_nonsing_simp_set}.
+
+\cref{thm:main_opt_triang} makes the stronger claim that $t_X$ is an isomorphism whenever $X$ is a regular simplicial set. The simplicial set $Sd\, X$ is regular for every simplicial set $X$ \cite[Prop.~4.6.10]{FP90}. Thus \cref{thm:main_opt_triang} is stronger evidence for \cref{conj:cofibrant_nonsing_simp_set} than \cref{prop:double_subdivision_sphere_low_dimension}.
+
+There is a final remark that can be made.
+\begin{remark}
+Note that, in the proof of \cref{prop:categorification_of_DSd_vs_B}, we concluded that the functor $cSd\, X\to U(X^\sharp )$ is full just by having superficial understanding of $c$. Moreover, it is enough to know that $cSd\, X$ is a quotient of the (directed) graph whose objects are the $0$-simplices of $Sd\, X$ and whose arrows are the $1$-simplices. To understand the identifications is not necessary. However, see \cref{lem:comparison_categorification_of_subdivision_vs_non-degenerate_simplices_poset} for an alternative explanation.
+
+Although intimate knowledge of simplex categories such as $cSd\, X$ is not strictly necessary to prove \cref{prop:categorification_of_DSd_vs_B}, the structure of the simplex categories have a relevance. This could mean that a study of $cSd\, X$ and other simplex categories that are related to $cSd\, X$ (and necessarily $U(X^\sharp )$), for that matter, is relevant to the problem of characterizing the cofibrant non-singular simplicial sets. This is why we discussed the diagram (\ref{eq:comparison_diagram_simplex_categories}).
+
+The proof of \cref{prop:categorification_of_DSd_vs_B} does not refer to the construction of $p:Cat\to PoSet$ as it was enough to know that $PoSet$ is a reflective subcategory of $Cat$. However, the proof could perhaps be varied slightly by knowing basic properties of $p$. Such a variation could also lead to something useful in the work to characterize the cofibrant non-singular simplicial sets.
+
+A class of epics in $Cat$ are those functors whose image is equal to the target. These could perhaps play the role of degreewise surjective maps in the formation of desingularization from \cref{def:desingularization}. Thus we could perhaps get a description of $p$ that is analogous to the one for $D$. Such a description ought to be useful because $q=pcU$ and because there must be a close relationship between the cofibrant objects in $PoSet$ and those in $nsSet$.
+\end{remark}
+
+
+
+
+
+

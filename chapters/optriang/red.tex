@@ -1,0 +1,185 @@
+
+
+\section{Reduction}
+\label{sec:red}
+
+
+This section is devoted to the proof of \cref{lem:second_reduction}. In the following proof we consider pushouts in four categories, namely the four objects in the commutative square
+\begin{displaymath}
+\xymatrix{
+Cat \ar[r]^N & sSet \\
+PoSet \ar[u]^U \ar[r]_N & nsSet \ar[u]_U
+}
+\end{displaymath}
+of categories and functors.
+\begin{proof}[Proof of \cref{lem:second_reduction} Part $1$.]
+To factor the map $t_X$ in a useful way one can first factor $b_X:Sd\, X\to BX$ by means of the diagram
+\begin{equation}
+\label{eq:diagram_proof_lem_second_reduction}
+\begin{gathered}
+\xymatrix{
+& Sd(\Delta [n]) \ar@{-}[d] \ar[dr] && Sd(\Delta [n-1]) \ar[ll]_{Sd(N\delta _n)} \ar@{-}[d] \ar[dr] \\
+& \ar[d]_(.3)\cong ^(.3)b & Sd\, X \ar@/_6.3pc/[lldddd]_b \ar[dd]_(.65)f & \ar[d]_(.3)\cong ^(.3)b & Sd\, Y \ar[ll] \ar[dd] ^b \\
+& B(\Delta [n]) \ar@/_/[lddd] \ar@/_/[dd] \ar[dr] & \ar[l] & B(\Delta [n-1]) \ar@{-}[l]_(.7){B(N\delta _n)} \ar[dr] \\
+&& X' \ar[ld] && BY \ar@/^/[llld] \ar[ll] \ar@/^1pc/[lllldd] \\
+& N(Q\sqcup _PY^\sharp ) \ar[ld] \\
+BX
+}
+\end{gathered}
+\end{equation}
+where we have written the pushout $X'=NQ\sqcup _{NP}N(Y^\sharp )$ in $sSet$ of the lower square in the cube in (\ref{eq:diagram_proof_lem_second_reduction}) for brevity. The pushout $Q\sqcup _PY^\sharp$ is in $Cat$.
+
+The functor $(-)^\sharp :sSet\to PoSet$ is cocontinous by \cref{lem:sharp_functor_preserves_colimits}. The pushout $Q\sqcup _PY^\sharp$ in $Cat$ is a poset \cite[Lem.~5.6.4]{Th80} as $P\to Q$ is a Dwyer map. Because $PoSet$ is a reflective subcategory of $Cat$ it then follows that the canonical map
+\[Q\sqcup _PY^\sharp \xrightarrow{\cong } X^\sharp\]
+is an isomorphism.
+
+Naturality of $d_{Sd\, X}$ yields the diagram
+\begin{displaymath}
+\xymatrix{
+Sd\, X \ar[d]_f \ar[r]^(.42)d & DSd(X) \ar[d]^{D(f)} \\
+X' \ar[d]_{k} \ar[r]^(.47)d & DX' \ar@{-->}[ld]_(.53)l \ar[d]^{D(k)} \\
+BX \ar[r]_(.45)d^(.45)\cong & DB(X)
+}
+\end{displaymath}
+in which the diagonal map $l$ of the lower square arises due to the universal property of desingularization. It makes the upper left triangle of the lower square commute. Then the lower right triangle of the lower square commutes, also. This means we have a factorization of
+\[b_X=k\circ f=l\circ d_{X'}\circ f=l\circ D(f)\circ d_{Sd\, X}\]
+through $d_X$. The map $t_X$ is unique, so it follows that we get the useful factorization
+\[t_X=l\circ D(f)\]
+of the map $t_X$. The map $l$ is what we get when precomposing the canonical map
+\[DX'\to N(Q \sqcup _PY^\sharp )\]
+with the nerve of the canonical isomorphism
+\[Q\sqcup _PY^\sharp \xrightarrow{\cong } X^\sharp .\]
+Thus we see that $l$ is an isomorphism if $DX'\to N(Q \sqcup _PY^\sharp )$ is. We will see that $D(f)$ is an isomorphism, for formal reasons.
+
+The map $D(f)$ is the canonical map between pushouts of $nsSet$ as $f$ is, by the universal property. It can be factored by applying the cocontinous functor $D$ to the diagram
+\begin{displaymath}
+\xymatrix@=1em{
+Sd(\Delta [n-1]) \ar@/_5pc/[dddd]^b_\cong \ar[dd]_\cong ^d \ar[dr] \ar[rr] && Sd\, Y \ar@{-}[d] \ar[dr] \\
+& Sd(\Delta [n]) \ar[dd]_(.6)\cong ^(.6)d \ar[rr] & \ar[d]^(.3)d & Sd\, X \ar[dd]_g \ar@/^2pc/[dddd]^f \\
+DSd(\Delta [n-1]) \ar[dd]_\cong ^t \ar[dr] \ar@{-}[r] & \ar[r] & DSd\, Y \ar@{-}[d] \ar[dr] \\
+& DSd(\Delta [n]) \ar[dd]_(.6)\cong ^(.6)t \ar[rr] & \ar[d]^(.3)t _(.3)\cong & X'' \ar[dd]_h \\
+B(\Delta [n-1]) \ar[dr] \ar@{-}[r] & \ar[r] & BY \ar[dr] \\
+& B(\Delta [n]) \ar[rr] && X'
+}
+\end{displaymath}
+in $sSet$. The map $D(g)$ is an isomorphism because it is the canonical map between pushouts in $nsSet$ and because its source $DSd\, X$ and target $DX''$ are the most obvious ways of forming the pushout of the same diagram.
+
+Recall from the formulation of the lemma that the map $t_Y$ is assumed to be an isomorphism. It follows that $D(h)$ is an isomorphism, hence $D(f)$ is an isomorphism. Hence, $t_X$ will be an isomorphism if $DX'\to N(Q\sqcup _PY^\sharp )$ is.
+\end{proof}
+\noindent We will conclude this section with the proof of Part $2$ of \cref{lem:second_reduction}.
+
+The factorization $P\xrightarrow{i_0} W\xrightarrow{\psi } Q$ is through a cylinder $W=P\times [1]$. This coincidence means that we are dealing with mapping cylinders, although they play no explicit part in the rest of this section. What is relevant here, in the proof of Part $2$ of \cref{lem:second_reduction}, is the somewhat more general phenomenon of taking pushouts along the nerve of a Dwyer map.
+
+As mapping cylinders are important technical tools it is an interesting problem in its own right to find interesting conditions under which the desingularized topological mapping cylinder is the reduced one. The work of \cref{sec:zipping} is a contribution to this end. When dealing with mapping cylinders of the nerve of a map between posets, Dwyer maps are always lurking in the background.
+
+We are ready to prove Part $2$ of \cref{lem:second_reduction}, and thus completing the proof.
+\begin{proof}[Proof of \cref{lem:second_reduction} Part $2$.]
+The result follows immediately from \cref{prop:pushout_along_Dwyer} when we let
+\begin{displaymath}
+\begin{array}{rcl}
+j\circ i & = & (N\delta _n)^\sharp \\
+\varphi & = & (\bar{y} )^\sharp .
+\end{array}
+\end{displaymath}
+In particular, $R=Y^\sharp$.
+\end{proof}
+\noindent Note that \cref{prop:pushout_along_Dwyer} slightly generalizes Part $2$ of \cref{lem:second_reduction}, but keeps the notation.
+
+The next proposition is proven, essentially by using a technique by Thomason \cite[p.~316]{Th80} in his proof of Proposition 4.3 \cref{prop:pushout_along_Dwyer}.
+\begin{proposition}\label{prop:pushout_along_Dwyer}
+Let
+\begin{displaymath}
+\xymatrix{
+NP \ar[d] \ar[r] & NR \ar[d] \\
+NQ \ar[r] & NQ\sqcup _{NP}NR
+}
+\end{displaymath}
+be a cocartesian square in $sSet$ where $P$, $Q$ and $R$ are posets and where $P\to Q$ is a Dwyer map with factorization $P\to W\to Q$. Then the map
+\[D(NQ\sqcup _{NP}NR)\to N(Q\sqcup _PR)\]
+is an isomorphism if
+\[D(NW\sqcup _{NP}NR)\to N(W\sqcup _PR)\]
+is an isomorphism.
+\end{proposition}
+\noindent By stating \cref{prop:pushout_along_Dwyer}, we have freed ourselves of the specific objects involved in \cref{lem:second_reduction}.
+
+To tie together the studies of the two maps of \cref{prop:pushout_along_Dwyer} we consider the diagram
+\begin{equation}
+\label{eq:diagram_proof_prop_pushout_along_Dwyer}
+\begin{gathered}
+\xymatrix@C=0.5em@R=0.8em{
+NP \ar[dd]^{Ni} \ar[dr] \ar[rr]^{N\varphi } && NR \ar@{-}[d] \ar[dr] \\
+& NR \ar[dd] & \ar[d] & NR \ar[ll] \ar[dd] \\
+NW \ar[dd]^{Nj} \ar[dr] \ar@{-}[r] & \ar[r] & NW\sqcup _{NP}NR \ar@{-}[d] \ar[dr]^\eta \\
+& N(W\sqcup _PR) \ar[dd] & \ar[d] & D(NW\sqcup _{NP}NR) \ar[ll]_\zeta \ar[dd] \ar@/^6.5pc/[dddd] \\
+NQ \ar[dr] \ar@{-}[r] & \ar[r] & NQ\sqcup _{NP}NR \ar@{-}@/_/[d] \ar[dr]^{\bar{\eta } } \\
+& N(Q\sqcup _PR) & \ar@/_1pc/[ddr]^\eta & NQ\sqcup _{NW}D(NW\sqcup _{NP}NR) \ar[ll]_{\bar{\zeta }} \ar@{-->}[dd]_\xi \\
+\\
+&&& D(NQ\sqcup _{NP}NR) \ar@/^1pc/[lluu]^{\hat{\zeta } }
+}
+\end{gathered}
+\end{equation}
+in $sSet$. We take (\ref{eq:diagram_proof_prop_pushout_along_Dwyer}) as a naming scheme for the maps that play a role in the argument. Note that $\zeta$ is the map
+\[dcr:DT(N\varphi )\to M(N\varphi )\]
+in the case when $W=P\times [1]$ and when the map $i:P\to W$ is the map $p\mapsto (p,0)$.
+\begin{proof}[Proof of \cref{prop:pushout_along_Dwyer}.]
+By \cref{lem:proof_of_second_reduction}, the map $\hat{\zeta }$ is a cobase change in $sSet$ of $\zeta$. This means that $\hat{\zeta }$ is epic if $\zeta$ is. The epics of $sSet$ are precisely the degreewise surjective maps. Furthermore, a cobase change in $sSet$ of a degreewise injective map is again degreewise injective. This way we get that $\hat{\zeta }$ is an isomorphism if $\zeta$ is.
+\end{proof}
+\noindent Notice that \cref{prop:pushout_along_Dwyer} relies upon the following.
+\begin{lemma}\label{lem:proof_of_second_reduction}
+The map $\hat{\zeta }$ is a cobase change in $sSet$ of $\zeta$.
+\end{lemma}
+\begin{proof}
+We will prove that $\hat{\zeta }$ is the cobase change in $sSet$ of $\zeta$ along
+\[D(NW\sqcup _{NP}NR)\to D(NQ\sqcup _{NP}NR).\]
+It suffices to prove that
+\begin{equation}
+\label{eq:first_diagram_lem_proof_of_second_reduction}
+\begin{gathered}
+\xymatrix{
+NW \ar[d]_{Nj} \ar[r] & N(W\sqcup _PR) \ar[d] \\
+NQ \ar[r] & N(Q\sqcup _PR)
+}
+\end{gathered}
+\end{equation}
+is cocartesian in $sSet$ and that $\xi$ is an isomorphism.
+
+Let $V$ be the full subposet of $Q$ whose objects are those that are not in $P$. Then $V$ is a cosieve in $Q$ as $P$ is sieve. The square (\ref{eq:first_diagram_lem_proof_of_second_reduction}) fits into the bigger diagram
+\begin{equation}
+\label{eq:second_diagram_lem_proof_of_second_reduction}
+\begin{gathered}
+\xymatrix{
+& NW \ar@{-}[d] \ar[dr] \\
+NV\cap NW=N(V\cap W) \ar[dd] \ar[ur] \ar[rr] & \ar[d]^(.35){Nj} & N(W\sqcup _PR) \ar[dd] \\
+& NQ \ar[dr] \\
+NV \ar[rr] \ar[ur] && N(Q\sqcup _PR)
+}
+\end{gathered}
+\end{equation}
+where the cosieve $V$ in $Q$ makes an appearance.
+
+The maps $V\cap W\to V$ and $V\cap W\to W$ are cosieves, so it follows that $Q$ can be decomposed as a pushout
+\[Q\cong V\sqcup _{V\cap W}W\]
+in $Cat$. Observe that $V\cap W\to W\sqcup _PR$ is also a cosieve. It follows that $N:Cat\to sSet$ preserves the pushouts $Q$ and
+\[Q\sqcup _PR\cong V\sqcup _{V\cap W}(W\sqcup _PR).\]
+From the diagram (\ref{eq:second_diagram_lem_proof_of_second_reduction}) we now see that (\ref{eq:first_diagram_lem_proof_of_second_reduction}) is cocartesian. From (\ref{eq:diagram_proof_prop_pushout_along_Dwyer}) we verify that $\bar{\zeta }$ is the cobase change in $sSet$ of $\zeta$ along
+\[D(NW\sqcup _{NP}NR)\to NQ\sqcup _{NW}D(NW\sqcup _{NP}NR).\]
+It remains to argue that $\xi$ is an isomorphism.
+
+The nerve of the cosieve
+\[V\cap W\to W\sqcup _PR\]
+factors through
+\[NV\cap NW\to D(NW\sqcup _{NP}NR),\]
+so the latter is degreewise injective. Therefore
+\[NQ\sqcup _{NW}D(NW\sqcup _{NP}NR)\cong NV\sqcup _{NV\cap NW}D(NW\sqcup _{NP}NR)\]
+is non-singular.
+
+The map
+\[\eta :NQ\sqcup _{NP}NR\to D(NQ\sqcup _{NP}NR)\]
+is degreewise surjective, therefore $\xi$ is. As the source of $\xi$ is non-singular, the map is an isomorphism.
+\end{proof}
+
+
+
+
+
+

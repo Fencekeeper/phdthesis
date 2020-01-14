@@ -1,0 +1,118 @@
+
+
+\documentclass[final]{phduio} % Bruk [colophon] for å lage cover-print. Use [final] for printing. Den står i motsetning til [draft], som tilsynelatende er standard i klassen phduio.
+
+\usepackage{phdstyle}   % Custom style
+\usepackage{kantlipsum} % Dummy text
+
+\author{Rune Vegard Skullerud Fjellbo}
+\title{Non-singular simplicial sets}
+\department{Department of Mathematics}
+\faculty{The Faculty of Mathematics and Natural Sciences}
+
+\affiliation
+{
+    University of Oslo
+    % \and
+    % Optional Further Specification
+}
+\ISSN{1234-5678}
+\dissertationseries{1234}
+
+
+
+\includeonly
+{
+    chapters/abstract,
+    chapters/dedication,
+    % chapters/declaration,
+    chapters/acknowledgements,
+    chapters/reader,
+    chapters/introduction,
+    chapters/itdesing,
+    chapters/exponentials,
+    chapters/model,
+    chapters/technical,
+    chapters/htythy,
+    chapters/optriang,
+    chapters/cofibrantobj,
+    % chapters/appendixA,
+    % chapters/appendixB,
+}
+
+\begin{document}
+
+    \frontmatter        % Folios in Roman numerals, unnumbered chapters.
+    
+    \uiotitle
+    
+
+    % \include{chapters/abstract}
+    \include{chapters/dedication}
+    % \include{chapters/declaration}
+    \include{chapters/acknowledgements}
+    \include{chapters/reader}
+
+    \cleartorecto
+    \tableofcontents    % Or \tableofcontents*
+    \cleartorecto
+    \listoffigures
+    \cleartorecto
+    \listoftables
+    
+
+    \mainmatter         % Folios in Arabic numerals, numbered chapters.
+    
+    % How should I organize the thesis? There is publishable and non-publishable
+    % material. Moreover, it would be convenient if each publishable result is
+    % a chapter in this project
+    % with an abstract, introduction and so on, as usual. This chapter should be
+    % the main chapter of a part. Then it is possible to supplement the chapter with
+    % extra details, formal reasoning, examples and non-examples, etc. However,
+    % the chapters that are articles will be long, probably longer than most.
+    % Thus they should probably be subdivided into sections. I should test how this
+    % can be done, technically. The problem is that I do not yet know which chapters
+    % will be the articles. This is maybe a good reason to give the chapters
+    % descriptive names for myself, but the chapters should still have numbers
+    % that are not related to the subdivision into parts.
+
+    \include{chapters/introduction}
+
+	% Behavior of desingularization in the presence of various colimits, properties
+	% of the category of non-singular simplicial sets, including the construction
+	% of simplicial mappings sets. Formalities regarding reflective subcategories,
+	% locally presentable categories, etc.
+    \part{Desingularization}
+
+    \include{chapters/itdesing}
+    \include{chapters/exponentials}
+
+    % 'Finding' a homotopy inverse of the inclusion of non-singular simplicial
+    % sets into simplicial sets. The unit is a weak homotopy equivalence, and
+    % verification of the model structure.
+    \part{A Thomason model structure on non-singular simplicial sets}
+    
+    \include{chapters/model}
+    \include{chapters/technical}
+    \include{chapters/htythy}
+    
+    % Cofibrant objects? How this question leads to an optimal triangulation
+    % of regular simplicial sets.
+    \part{Making simplicial sets non-singular} % Alternative title: The improvement functor is not an ad hoc construction.
+    
+    \include{chapters/optriang}
+    
+    \include{chapters/cofibrantobj}
+    
+    
+    % \appendix           % "Chapter" is renamed "Appendix"
+    % \appendixpage       % Short for \part*{Appendices}
+
+    % \include{chapters/appendixA}
+    % \include{chapters/appendixB}
+
+    \backmatter         % Folios in Arabic numerals, unnumbered chapters.
+
+    \printbibliography
+
+\end{document}

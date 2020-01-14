@@ -1,0 +1,38 @@
+
+
+\section{Relating the model categories}
+\label{sec:relations}
+
+In this section, we complete the diagram (\ref{eq:diagram_of_adjunctions}) of adjunctions in the sense explained in the introduction. Namely, we promised that the diagram would consist exclusively of model categories and Quillen equivalences.
+
+Verifing that $(D,U)$ is a Quillen equivalence when $sSet$ has the $Sd^2$-model structure of Jardine, is not hard. We state this result as \cref{cor:sd2_structure_d_u_Quillen}. Similarly, we can verify that $(q,N)$ is a Quillen equivalence when $PoSet$ has the model structure of Raptis. This we state as \cref{cor:square_of_quillen_equivalences}.
+
+First, we establish the relationship with posets.
+\begin{lemma}\label{cor:square_of_quillen_equivalences}
+If $PoSet$ has Raptis' model structure \cite{Ra10} and $nsSet$ has the model structure suggested in \cref{thm:main_homotopy_theory}, then $(q,N)$ is a Quillen equivalence.
+\end{lemma}
+\begin{proof}
+A set of generating cofibrations in Thomason's model category $Cat$ is $cSd^2(I)$ and a set of generating trivial cofibrations is $cSd^2(J)$, as Raptis points out in his overview and slight modernization of Thomason's work \cite[Thm.~2.2, p.~215]{Ra10}.
+
+Raptis' cofibrantly generated model structure on $PoSet$ is restricted from $Cat$ in the sense that the weak equivalences of $PoSet$ are the weak equivalences of $Cat$ whose source and target are both posets, and similarly for the cofibrations and the fibrations \cite[Thm.~2.6 ,p.~217]{Ra10}. The sets $pcSd^2(I)$ and $pcSd^2(J)$ can be taken to be a set of generating cofibrations and a set of generating trivial cofibrations in $PoSet$ as well, respectively \cite[Thm.~2.6, p.~217]{Ra10}.
+
+Consider applying the functor
+\[q:nsSet\to PoSet\]
+to the class $DSd^2(I)-cof$ of cofibrations in $nsSet$. The functor $q$ is in \cref{sec:intro_hty} defined as $q=pcU$. Due to the equality $N\circ U=U\circ N$ of the two composites of right adjoints and by the uniqueness of the left adjoint, we get a natural isomorphism $pc\, X\xrightarrow{\cong } qD\, X$. Thus we get the equality in the expression
+\[q(DSd^2(I)-cof)\subseteq qDSd^2(I)-cof=pcSd^2(I)-cof\]
+where the inclusion comes from a general rule stated as Lemma 2.1.8 in \cite[p.~30]{Ho99}. Hence, the left adjoint $q$ preserves cofibrations. Similarly, by replacing $I$ by $J$, we see that $q$ preserves the trivial cofibrations. This finishes our verification that $q$ is a left Quillen functor and hence that $(q,N)$ is a Quillen pair.
+
+The composite of $(p,U)$ and $(cSd^2,Ex^2N)$ is a Quillen equivalence. Furthermore, the composite of $(q,N)$ and $(DSd^2,Ex^2U)$ is a Quillen pair. By Corollary 1.3.14 in \cite[p.~20]{Ho99}, the latter composite is a Quillen equivalence if and only if the former is. Now, consider the two Quillen pairs $(q,N)$, $(DSd^2,Ex^2U)$ together with their composite. By \cref{thm:main_homotopy_theory} we know that two of these three Quillen pairs are Quillen equivalences. Hence, the third is a Quillen equivalence by Corollary 1.3.15. in Hovey's book \cite[p.~21]{Ho99}.
+\end{proof}
+\noindent Finally, we establish the relationship with Jardine's $Sd^2$-model structure on simplicial sets.
+\begin{lemma}\label{cor:sd2_structure_d_u_Quillen}
+Let the category $sSet$ have J. F. Jardine's $Sd^2$-structure from \cite[p.~274]{Ja13}. Then $(D,U)$ is a Quillen equivalence.
+\end{lemma}
+\begin{proof}
+As in the proof of \cref{cor:square_of_quillen_equivalences}, we need only prove that $(D,U)$ is a Quillen pair. Then, by the two out of three-property for Quillen equivalences, it will follow that $(D,U)$ is a Quillen equivalences as $(Sd^2,Ex^2)$ is a Quillen equivalence according to J. F. Jardine \cite[Thm.~1.1.,~p.~274]{Ja13} and as $(DSd^2,Ex^2U)$ is a Quillen equivalence according to \cref{thm:main_homotopy_theory}.
+
+We verify that $U$ is a right Quillen functor by verifying that it preserves fibrations and trivial fibrations. Then $(D,U)$ will be a Quillen pair. First, if $f$ is a fibration in $nsSet$, then $Ex^2Uf$ is a Kan fibration, by definition. Thus $Uf$ is an $Ex^2$-fibration by definition.
+
+Second, if $f$ is a trivial fibration in $nsSet$, then $f$ is by definition both a weak equivalence in $nsSet$ and a fibration in $nsSet$. Thus $Uf$ is an $Ex^2$-fibration by the previous paragraph. Furthermore, the map $Ex^2Uf$ is a weak equivalence by definition. As $Ex$ preserves and reflects weak equivalences, it follows that $Uf$ is a weak equivalence. Recall that the weak equivalences in the standard model structure and the $Sd^2$-model structure are the same. Hence, $Uf$ is a trivial $Ex^2$-fibration. This concludes our verification that $U$ is a right Quillen functor.
+\end{proof}
+

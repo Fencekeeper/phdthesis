@@ -1,0 +1,186 @@
+
+\section{Lifting conditions}
+\label{sec:lifting}
+
+
+In this section, we finally verify the lifting conditions stated in \cref{thm:lifting_across_adjunction}, in the case when
+\[(F,G)=(DSd^2,Ex^2U)\]
+and when $sSet$ has the standard model structure. For this and the remaining part of this paper we need some more notation and terminology.
+
+First, the following standard notation is convenient.
+\begin{notation}\label{not:injectives_projectives_cofibrations_relations}
+If $K$ is a class of maps in some category, then $K-inj$ denotes the class of maps $p$ such that $(i,p)$ is a lifting-extension pair for all members $i$ of $K$. Similarly, we let $K-proj$ denote the class of maps $i$ such that $(i,p)$ is a lifting extension pair for all members $p$ of $K$. Let
+\[K-cof=(K-inj)-proj.\]
+Expressed another way, the $K$-cofibrations are the maps that have the LLP with respect to the maps that have the RLP with respect to the members of $K$.
+\end{notation}
+\noindent Whenever one uses Hirschhorn's or Hovey's notion of cofibrantly generated model category, $K$-cof is the class of cofibrations if $K$ is a set of generating cofibrations. Similarly, $K$-cof is the class of trivial cofibrations if $K$ is a set of generating trivial cofibrations.
+
+Suppose $X$ a $\lambda$-sequence for some $\lambda$. If $\mathscr{D}$ is a class of maps in $\mathscr{C}$ and if $X^{[\beta ]}\to X^{[\beta +1]}$ is a member of $\mathscr{D}$ whenever $\beta +1<\lambda$, then we say that $X$ is a \textbf{$\lambda$-sequence of maps in $\mathscr{D}$}. In such a case, consider a choice $f$ of a composition of $X$. We say that $X$ is a \textbf{presentation of $f$ (as a composition of maps in $\mathscr{D}$)} or that $X$ \textbf{presents $f$ (as a composition of maps in $\mathscr{D}$)}.
+\begin{definition}\label{def:relative_cell_complex}
+Let $K$ be a set of maps in a cocomplete category $\mathscr{C}$. A \textbf{relative $K$-cell complex} is a map that can be presented as a composition of maps in the class of cobase changes of maps taken from the set $K$. The class of relative $K$-cell complexes is denoted $K$-cell.
+\end{definition}
+\noindent The class of relative $K$-cell complexes, denoted $K$-cell, is a subcategory of $\mathscr{C}$, but it is in fact far more flexible than that, as we now explain.
+
+Any given composition of cobase changes of coproducts of maps from $K$ is a relative $K$-cell complex \cite[Prop.~10.2.14]{Hi03}. Furthermore, any given composition of relative $K$-cell complexes is again a relative $K$-cell complex \cite[Prop.~10.2.15]{Hi03}.
+
+The members of $K$-cof are called \textbf{$K$-cofibrations}. Note that
+\[K-cell\subseteq K-cof\]
+according to the general theory \cite[Prop.~10.5.10]{Hi03}. The relative $K$-cell complexes, typically, have more in common with the members of $K$ than the $K$-cofibrations have in common with memebers of $K$. This is because the flexibility of $K$-cell tends to make properties of members of $K$ carry over to relative $K$-cell complexes, whereas the same properties can fail to carry over from relative $K$-cell complexes to $K$-cofibrations. If, however, $K$ is a set of generating (resp. trivial) cofibrations for a model category, then the class $K$-cof of (resp. trivial) cofibrations equals the class of retracts of relative $K$-cell complexes \cite[Prop.~11.2.1, p.~211]{Hi03}. The set $K$ is generally thought of as prototypes of the (resp. trivial) cofibrations.
+
+The following terminology will be convenient in the verification of the first condition of \cref{thm:lifting_across_adjunction}.
+\begin{definition}\label{def:def_comp_of_strom_maps}
+A composition in $nsSet$ of maps in the class of Str\o m maps is referred to as a \textbf{composition of Str\o m maps}.
+\end{definition}
+\noindent Note that if the members of a certain class have a common name, then we might use that name along the lines of \cref{def:def_comp_of_strom_maps}.
+
+Recall \cref{not:prototypes_cofibr_trivial_cofibr_standard_pre_exist}. The symbol $J-inj$ refers to the class of fibrations in $sSet$ equipped with the standard model structure. Similarly, $I-inj$ is the class of trivial fibrations in $sSet$. Furthermore, $I-cof$ is the class of cofibrations and $J-cof$ is the class of trivial cofibrations in $sSet$. The examples above are immediate from Proposition 11.2.1 in Hirschhorn's book \cite[p.~211]{Hi03}.
+\begin{lemma}\label{lem:relative_cell_complexes_degreewise_injective}
+Each relative $DSd^2(I)$-cell complex or relative $DSd^2(J)$-cell complex is a composition of Str\o m maps. In particular, every member of each of these classes of relative cell complexes is degreewise injective when viewed as a map in $sSet$.
+\end{lemma}
+\begin{proof}
+The members of $DSd^2(I)$ and $DSd^2(J)$ are Str\o m maps by \cref{cor:two-fold_subdivision_strom}. The class of Str\o m maps is closed under taking cobase change by \cref{prop:Strom-maps_closed_under_cobasechange}. Therefore, any relative $DSd^2(I)$-cell complex or relative $DSd^2(J)$-cell complex is a composition of Str\o m maps.
+
+Let $j$ be a composition of Str\o m maps. Then $U(j)$ is a composition in $sSet$ of degreewise injective maps, as $U:nsSet\to sSet$ preserves filtered colimits. Hence $U(j)$ is itself degreewise injective.
+\end{proof}
+\noindent With \cref{lem:relative_cell_complexes_degreewise_injective} and the terminology we have so far, we are ready to verify the second condition stated in \cref{thm:lifting_across_adjunction}.
+
+The proof of \cref{prop:second_condition_lifting_criterion} is built on a technique taken from Thomason \cite{Th80}, although more people deserve credit for the ideas that are involved, such as A. Str\o m who worked with characterizations of cofibrations in model structures on topological spaces, and also people developing the theory of neighborhood deformation retracts.
+\begin{proposition}\label{prop:second_condition_lifting_criterion}
+Let $f$ be a relative $DSd^2(J)$-cell complex. Then $U(f)$ is a weak equivalence.
+\end{proposition}
+\begin{proof}
+Suppose
+\begin{equation}
+\label{eq:first_diagram_proof_prop_second_condition_lifting_criterion}
+\begin{gathered}
+\xymatrix@=0.9em{
+A=A^{[0]} \ar@/_/[dr]_(.3)f \ar[r] & A^{[1]} \ar[d] \ar[r] & \dots \ar[r] & A^{[\beta ]}\ar@/^/[lld] \ar[r] & \dots \\
+& B=colim_{\beta <\lambda }A^{[\beta ]}
+}
+\end{gathered}
+\end{equation}
+a presentation of $f$. By \cref{lem:relative_cell_complexes_degreewise_injective}, the map $f$ is a composition of Str\o m maps. The functor $U$ preserves filtered colimits by \cref{lem:filtered_colimits_preservation}, so the $\lambda$-sequence $U\circ A$ is a presentation of $Uf$ as a composition of inclusions of Str\o m maps.
+
+Suppose the diagram
+\begin{displaymath}
+\xymatrix{
+U\Lambda \ar[d]^\sim \ar[r] & UA^{[\beta ]}\ar[d] \ar@/^1pc/[ddr] \\
+U\Lambda ' \ar[r] \ar@/_1pc/[drr] & \Lambda '' \ar[dr]^\sim \\
+&& UA^{[\beta +1]}
+}
+\end{displaymath}
+in $sSet$ displays $A^{[\beta ]}\to A^{[\beta +1]}$ the way it arises as a cobase change in $nsSet$ of some element $\Lambda \to \Lambda '$ of the set $DSd^2(J)$. Here, the simplicial set $\Lambda ''$ denotes the pushout in $sSet$, $A^{[\beta +1]}$ denotes the pushout in $nsSet$ and the map $\Lambda ''\xrightarrow{\sim } UA^{[\beta +1]}$ is the canonical map, which is a weak equivalence due to \cref{lem:Pushout_along_strom_homotopically_wellbehaved}.
+
+The cobase change $UA^{[\beta ]}\to \Lambda ''$ in $sSet$ is a trivial cofibration as $U\Lambda \to U\Lambda '$ is a trivial cofibration. Consequently, the inclusion $UA^{[\beta ]}\xrightarrow{\sim } UA^{[\beta +1]}$ of the cobase change in $nsSet$ of $\Lambda \to \Lambda '$ is a composite of two weak equivalences and therefore itself a weak equivalence. Moreover, the map $UA^{[\beta ]}\xrightarrow{\sim } UA^{[\beta +1]}$ is degreewise injective as it is the result of applying $U$ to a Str\o m map. Thus we see that it is a trivial cofibration in the model category $sSet$, or in other words that it belongs to $J$-cof. The class $J$-cof is closed under taking compositions \cite[Lem.~10.3.1]{Hi03}. Therefore $U(f)$ is in $J$-cof and is in particular a weak equivalence.
+\end{proof}
+\noindent \cref{prop:second_condition_lifting_criterion} essentially takes care of the second condition stated in \cref{thm:lifting_across_adjunction}, which leaves the first condition.
+
+Before we verify the first lifting condition, we introduce a bit more terminology.
+\begin{definition}\label{def:regular_cardinal}
+A cardinal $\kappa$ is said to be \textbf{regular} if, whenever $A$ is a set whose cardinal is less than $\kappa$ and for every $a\in A$ there is a set $S_a$ whose cardinal is less than $\kappa$, then the cardinal of $\bigcup _{a\in A}S_a$ is less than $\kappa$.
+\end{definition}
+\noindent For example, the countable cardinal $\aleph _0$ is regular \cite[Ex.~10.1.12]{Hi03}. Infinite successor cardinals are regular \cite[Prop.~10.1.14]{Hi03}.
+\begin{definition}\label{def:smallness}
+Assume that $\mathscr{C}$ is a cocomplete category, $\mathscr{D}$ a subcategory, $A$ an object and $\kappa$ a cardinal. We say that $A$ is \textbf{$\kappa$-small relative to $\mathscr{D}$} if we, for any given regular cardinal $\lambda \geq \kappa$, have that the covariant hom functor $\mathscr{C} (A,-):\mathscr{C} \to Set$ preserves the colimit of any given $\lambda$-sequence
+\[X^{[0]}\to \dots \to X^{[\beta ]}\to \dots\]
+in $\mathscr{C}$ such that $X^{[\beta ]}\to X^{[\beta +1]}$ is a map of $\mathscr{D}$ whenever $\beta +1<\lambda$. We say that $A$ is \textbf{small relative to $\mathscr{D}$} if it is $\kappa$-small relative to $\mathscr{D}$ for some $\kappa$.
+\end{definition}
+\noindent We state the following example concerning the category $sSet$.
+\begin{example}\label{ex:ssets_small}
+If $X$ is a simplicial set and $\kappa$ is the first infinite cardinal that is greater than the cardinal of the set $X^\sharp$ of non-degenerate simplices, then $X$ is $\kappa$-small relative to the subcategory of degreewise injective maps.
+\end{example}
+\noindent A reference for the fact presented in \cref{ex:ssets_small} is Ex.~10.4.4 from \cite[pp.~194]{Hi03}.
+
+The following remark may be in order.
+\begin{remark}
+No argument for Hirschhorn's smallness result \cite[Ex.~10.4.4]{Hi03} is presented in his book. A similar statement can be formulated by combining Lemmas $3.1.1$ and $3.1.2$ in Hovey's book \cite[pp.~74]{Ho99}, or rather be extracted from the (sketches of) proofs of those lemmas. However, note that there is a slight difference in how Hirschhorn and Hovey defines smallness.
+
+For comparison of Hovey's and Hirschhorn's notions of smallness, see Def.~2.1.3 in Hovey's book \cite[p.~29]{Ho99} and Def.~10.4.1 in Hirschhorn's book \cite[p.~194]{Hi03}.
+
+The smallness result as stated by Hirschhorn appears weaker than Hovey's. Hirschhorn only claims that simplicial sets are small relative to the subcategory of degreewise injective maps. Hovey sketches a proof of the stronger statement that simplicial sets are small (relative to the category $sSet$ itself). It seems likely that Hovey's sketch can be adapted to Hirschhorn's notion of smallness.
+\end{remark}
+\noindent As explained, we follow Hirschhorn's treatment of the subject of model categories, including his notion of smallness.
+
+As a consequence of \cref{ex:ssets_small}, we get the following result in our setting.
+\begin{lemma}\label{lem:nssets_small}
+If $A$ is a non-singular simplicial set and $\kappa$ is the first infinite cardinal that is greater than the cardinal of the set $A^\sharp$ of non-degenerate simplices, then $A$ is $\kappa$-small relative to the subcategory of maps $f$ such that $U(f)$ is degreewise injective.
+\end{lemma}
+\begin{proof}
+Suppose $\lambda \geq \kappa$ regular. Let $X:\lambda \to nsSet$ be a $\lambda$-sequence of maps whose inclusions are degreewise injective. Consider the universal cocone
+\begin{equation}
+\label{eq:diagram_cocone_on_X_proof_of_lem_nssets_small}
+\begin{gathered}
+\xymatrix{
+X^{[0]} \ar@/_/[dr] \ar[r] & X^{[1]} \ar[d] \ar[r] & \dots \ar[r] & X^{[\beta ]} \ar@/^/[lld] \ar[r] & \dots \\
+& colim_{\beta <\lambda }X^{[\beta ]}
+}
+\end{gathered}
+\end{equation}
+on $X$. The cocone
+\begin{displaymath}
+\xymatrix{
+UX^{[0]} \ar@/_/[dr] \ar[r] & UX^{[1]} \ar[d] \ar[r] & \dots \ar[r] & UX^{[\beta ]} \ar@/^/[lld] \ar[r] & \dots \\
+& U(colim_{\beta <\lambda }X^{[\beta ]} )
+}
+\end{displaymath}
+on $U\circ X$ is universal as the inclusion $U:nsSet\to sSet$, according to \cref{lem:filtered_colimits_preservation}, preserves filtered colimits. We get the diagram
+\begin{equation}
+\label{eq:diagram_proof_of_lem_nssets_small}
+\begin{gathered}
+\xymatrix@=0.8em{
+sSet(UA,UX^{[0]}) \ar@/_1pc/[dddr] \ar@/_/[dr] \ar[r] & \dots \ar[r] & sSet(UA,UX^{[\beta ]}) \ar@/^/[ld] \ar@/^1pc/[lddd] \ar[r] & \dots \\
+& colim _{\beta <\lambda }sSet(UA,UX^{[\beta ]}) \ar@{-->}[dd]^\cong \\
+\\
+& sSet(UA,U(colim_{\beta <\lambda }X^{[\beta ]}))
+}
+\end{gathered}
+\end{equation}
+in the category of sets, where the canonical function is a bijection because $UA$ is $\kappa$-small relative to the subcategory of degreewise injective maps.
+
+We have the equalities
+\[sSet(UA,UX^{[\beta ]})=nsSet(A,X^{[\beta ]}),\]
+for each $\beta$ with $0\leq \beta <\lambda$, and
+\[sSet(UA,U(colim_{\beta <\lambda }X^{[\beta ]}))=nsSet(A,colim_{\beta <\lambda }X^{[\beta ]}),\]
+as $U$ is a full inclusion. The diagram (\ref{eq:diagram_proof_of_lem_nssets_small}) is with these replacements a diagram in the category of sets that arises from the diagram (\ref{eq:diagram_cocone_on_X_proof_of_lem_nssets_small}) in $nsSet$, so the non-singular simplicial set $A$ must be $\kappa$-small relative to the subcategory of maps whose inclusions are degreewise injective.
+\end{proof}
+\noindent \cref{lem:nssets_small} is more or less what we will use to verify the second condition stated in \cref{thm:lifting_across_adjunction} whose language is as follows.
+\begin{definition}\label{def:permits_small_object_argument}
+If $K$ is a set of maps in some cocomplete category, then $K$ \textbf{permits the small object argument} if the sources of the elements of $K$ are small relative to $K$-cell.
+\end{definition}
+\noindent The terminology presented in \cref{def:permits_small_object_argument} is part of Hirschhorn's notion of \emph{cofibrantly generated} \cite[Def.~11.1.2]{Hi03}, which is a property of model categories.
+
+Note that Hirschhorn's notion may differ from Hovey's \cite[Def.~2.1.17]{Ho99} as the two authors' notions of \emph{smallness} differ slightly. Compare Hovey's definition \cite[Def.~2.1.3]{Ho99} with Hirschhorn's \cite[Def.~10.4.1]{Hi03}.
+
+We say that a simplicial set is \textbf{finite} if it is generated by finitely many simplices. A simplicial set is finite if and only if it has finitely many non-degenerate simplices.
+\begin{lemma}\label{lem:first_condition_lifting_criterion}
+Each finite non-singular simplicial set is $\aleph _0$-small relative to the subcategory of maps $f$ such that $U(f)$ is degreewise injective.
+\end{lemma}
+\begin{proof}
+Let $A$ be a finite non-singular simplicial set. Then $\aleph _0$ is the first infinite cardinal greater than the cardinality of the set $A^\sharp$ of non-degenerate simplices. Due to \cref{lem:nssets_small}, the simplicial set $A$ is thus $\aleph _0$-small relative to the subcategory of maps $f$ such that $U(f)$ is degreewise injective.
+\end{proof}
+\begin{lemma}\label{lem:doubly_subdivided_inclusions_of_boundaries_and_horns_permit_small_object}
+Each of the sets $DSd^2(I)$ and $DSd^2(J)$ permits the small object argument.
+\end{lemma}
+\begin{proof}
+Recall the natural map $b_X:Sd\, X\to BX$ from \cref{lem:properties_of_b_X}. For each $n\geq 0$, the simplicial set
+\[BSd(\partial \Delta [n])\cong Sd^2(\partial \Delta [n])\cong DSd^2(\partial \Delta [n])\]
+is the nerve of the poset $Sd(\partial \Delta [n])^\sharp$ of non-degenerate simplices of $Sd(\partial \Delta [n])$. This poset is finite, so its nerve has finitely many non-degenerate simplices. Similarly, for each expression $0\leq k\leq n>0$, the simplicial set
+\[BSd(\Lambda ^k[n])\cong Sd^2(\Lambda ^k[n])\cong DSd^2(\Lambda ^k[n])\]
+is the nerve of the poset $Sd(\Lambda ^k[n])^\sharp$ of non-degenerate simplices of $Sd(\Lambda ^k[n])$. This poset is finite, so its nerve has finitely many non-degenerate simplices.
+
+By \cref{lem:first_condition_lifting_criterion}, the non-singular simplicial set $DSd^2(\partial \Delta [n])$ is $\aleph _0$-small relative to the subcategory of maps $f$ such that $U(f)$ is degreewise injective. For every relative $DSd^2(I)$-cell complex $f$, the map $U(f)$ is degreewise injective, by \cref{lem:relative_cell_complexes_degreewise_injective}. Similarly, the non-singular simplicial set $DSd^2(\Lambda ^k[n])$ is $\aleph _0$-small relative to $DSd^2(J)$-cell.
+\end{proof}
+\noindent Finally, \cref{lem:doubly_subdivided_inclusions_of_boundaries_and_horns_permit_small_object} confirms the first condition stated in the lifting theorem.
+
+The work done so far yields the announced right-induced model structure on $nsSet$.
+\begin{proposition}\label{prop:main_homotopy_theory}
+Equip $sSet$ with the standard model structure. There is a cofibrantly generated model structure on $nsSet$ with $DSd^2(I)$ (resp. $DSd^2(J)$) serving as a set of generating (resp. trivial) cofibrations. When $nsSet$ is equipped with this model structure, the adjunction $(DSd^2,Ex^2U)$ is a Quillen pair.
+\end{proposition}
+\begin{proof}
+We will apply \cref{thm:lifting_across_adjunction} to $(F,G)=(DSd^2,Ex^2U)$. First, note that $nsSet$ is bicomplete, by \cref{cor:nsSet_bicomplete}. Now, consider the two conditions stated in the theorem.
+
+The first condition holds by \cref{lem:doubly_subdivided_inclusions_of_boundaries_and_horns_permit_small_object}. As $Ex$ preserves and reflects weak equivalences, it follows from \cref{prop:second_condition_lifting_criterion} that the second condition also holds.
+\end{proof}
+
+
+

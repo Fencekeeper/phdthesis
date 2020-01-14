@@ -1,0 +1,321 @@
+
+\section{Language of model categories}
+\label{sec:language}
+
+\subsection{Preliminaries}
+
+We begin with a few definitions that make the definition of model category transparent and elegant.
+\begin{definition}
+Let $\mathscr{C}$ be a category. We say that $\mathscr{C}$ is \textbf{(co)complete} if each functor from a small category to $\mathscr{C}$ has a (co)limit. If $\mathscr{C}$ is complete and cocomplete, we say that it is \textbf{bicomplete}.
+\end{definition}
+\begin{definition}
+Let $\mathscr{C}$ be a small category. Let $Map\, \mathscr{C}$ be the category of morphisms of $\mathscr{C}$, namely the one whose objects are the morphisms of $\mathscr{C}$ and whose morphisms $u\to v$ are the commutative squares
+\begin{displaymath}
+\xymatrix{
+su \ar[d]_u \ar[r]^f & sv \ar[d]^v \\
+tu \ar[r]_g & tv
+}
+\end{displaymath}
+in which $su$ is the source of $u$ and $tu$ its target and similarly for the object $v$ of $Map\, \mathscr{C}$. Let $(f,g)$ denote the morphism $u\to v$ above.
+
+Expand the meaning of the symbol $s$ so that it denotes the source functor $Map\, \mathscr{C} \to \mathscr{C}$, which is given by $s((f,g))=f$. Similarly, interpret $t$ as the target functor given by $t((f,g))=g$.
+\end{definition}
+\begin{definition}
+Let $a$ and $b$ be objects of some category $\mathscr{C}$. We say that $a$ is a \textbf{retract} of $b$ if there are morphisms $a\to b$ and $b\to a$ such that the composite $a\to b\to a$ is the identity. If $f$ and $g$ are morphisms of a small category $\mathscr{C}$, then we say that $f$ is a \textbf{retract} of $g$ if $f$ is a retract of $g$ as objects of $Map\, \mathscr{C}$.
+\end{definition}
+\begin{definition}\label{def:functorial_factorization}
+Let $\mathscr{C}$ be a small category. A \textbf{functorial factorization} is an ordered pair $(\alpha ,\beta )$ of functors $Map\, \mathscr{C} \to Map\, \mathscr{C}$ such that
+\begin{displaymath}
+\begin{array}{rcl}
+s\circ \alpha & = & s \\
+t\circ \alpha & = & s\circ \beta \\
+t\circ \beta & = & t
+\end{array}
+\end{displaymath}
+and such that $f=\beta (f)\circ \alpha (f)$.
+\end{definition}
+\noindent Notice how a functorial factorization $(\alpha ,\beta )$ factors a morphism $(f,g):u\to v$ in $Map\, \mathscr{C}$.
+
+To obtain a factorization of the commutative square
+\begin{displaymath}
+\xymatrix{
+A \ar[d]_u \ar[r]^f & C \ar[d]^v \\
+B \ar[r]_g & D
+}
+\end{displaymath}
+thought of as a morphism $(f,g):u\to v$ of $\mathscr{C}$, then instead think of it as a morphism $(u,v):f\to g$ and apply both $\alpha$ and $\beta$ to it. Then we get the two squares
+\begin{displaymath}
+\xymatrix{
+s\circ \alpha (f) \ar[d]_{\alpha (f)} \ar[rr]^{s\circ \alpha ((u,v))} && s\circ \alpha (g) \ar[d]^{\alpha (g)} & s\circ \beta (f) \ar[d]_{\beta (f)} \ar[rr]^{s\circ \beta ((u,v))} && s\circ \beta (g) \ar[d]^{\beta (g)} \\
+t\circ \alpha (f) \ar[rr]_{t\circ \alpha ((u,v))} && t\circ \beta (g) & t\circ \alpha (f) \ar[rr]_{t\circ \beta ((u,v))} && t\circ \beta (g)
+}
+\end{displaymath}
+of morphisms of $Map\, \mathscr{C}$. Because of the three equations
+\begin{displaymath}
+\begin{array}{lcccl}
+s\circ \alpha ((u,v)) & = & s((u,v)) & = u \\
+t\circ \alpha ((u,v)) & = & s\circ \beta ((u,v)) \\
+t\circ \beta ((u,v)) & = & t((u,v)) & = & v
+\end{array}
+\end{displaymath}
+we can put the two squares next to each other, and thus obtain the diagram
+\begin{displaymath}
+\xymatrix{
+A \ar[d]_u \ar[r]^(.35){\alpha (f)} & (t\circ \alpha )(f) \ar[d]^{t\circ \alpha ((u,v))} \ar[r]^(.65){\beta (f)} & C \ar[d]^v \\
+B \ar[r]_(.35){\alpha (g)} & (t\circ \alpha )(g) \ar[r]_(.65){\beta (g)} & D
+}
+\end{displaymath}
+which factors $(f,g)$.
+
+Liftings in certain commutative squares are essential pieces of data in a model category.
+\begin{definition}
+Given a solid arrow commutative square
+\begin{displaymath}
+\xymatrix{
+A \ar[d]_i \ar[r] & X \ar[d]^p \\
+B \ar[r] \ar@{-->}[ur] & Y
+}
+\end{displaymath}
+we say that a dashed map $B\to X$ is a \textbf{lifting} if it makes the whole diagram commute. In this case we say that $(i,p)$ is a \textbf{lifting-extension pair}, that $i$ has the \textbf{left lifting property (LLP)} with respect to $p$ and that $p$ has the \textbf{right lifting property (RLP)} with respect to $i$.
+\end{definition}
+
+
+
+\subsection{Model structures}
+
+We are ready to make the central definition of this chapter and the next.
+\begin{definition}\label{def:model_category}
+Let $\mathscr{M}$ be a category. Assume that there are three classes of maps in $\mathscr{M}$ called \textbf{weak equivalences}, \textbf{fibrations} and \textbf{cofibrations}. A map that is both a weak equivalence and a (co)fibration is called a \textbf{trivial (co)fibration}. We say that $\mathscr{M}$ together with the three classes of maps is a \textbf{model category} if the the following five axioms are satisfied.
+\begin{enumerate}
+\item{(Limit axiom) The category $\mathscr{M}$ is bicomplete.}
+\item{(Two-out-of-three axiom) If $f$ and $g$ are maps such that $g\circ f$ is defined and two of the three maps $f$, $g$ and $g\circ f$ are weak equivalences, then so is the third.}
+\item{(Retract axiom) If $f$ is a retract of another map $g$ and $g$ is a weak equivalence, a cofibration or a fibration, then $f$ has the same property.}
+\item{(Lifting axiom) A pair $(i,p)$ of maps of $\mathscr{M}$ is a lifting-extension pair whenever\dots
+\begin{enumerate}
+\item{\dots $i$ is a cofibration and $p$ is a trivial fibration, or\dots}
+\item{\dots $i$ is a trivial cofibration and $p$ is a fibration.}
+\end{enumerate}
+}
+\item{(Factorization axiom) There are functorial factorizations $(\alpha ,\beta )$ and $(\gamma ,\delta )$ such that for any map $f$ in $\mathscr{M}$, we have that\dots
+\begin{enumerate}
+\item{\dots $\alpha (f)$ is a cofibration and $\beta (f)$ is a trivial fibration, and\dots}
+\item{\dots $\gamma (f)$ is a trivial cofibration and $\delta (f)$ is a fibration.}
+\end{enumerate}
+}
+\end{enumerate}
+\end{definition}
+\noindent In addition, we will say that an object of a model category $\mathscr{M}$ is \textbf{cofibrant} if the map to it from the initial object $\emptyset$ is a cofibration. We will say that an object is \textbf{fibrant} if the map from it to the terminal object $*$ is a fibration.
+
+It is immediate from the axioms that the class of weak equivalences in a model category is a subcategory. Furthermore, it follows from the axioms that the class of cofibrations is a subcategory and that the class of fibrations is also a subcategory \cite[Prop.~7.2.4, p.~111]{Hi03}. Thus it follows that Hovey's \cite[Def.~1.1.4, p.~3]{Ho99} and Hirschhorn's \cite[Def.~7.1.3, p.109]{Hi03} notions of model category are the same with the exception of the choices of functorial factorizations. In this regard, the reader should be aware of Hovey's online erratum to his definition of the notion of functorial factorization \cite[Def.~1.1.1, p.~2]{Ho99}.
+
+We will take advantage of the following very useful result in \cref{sec:behavior}.
+\begin{lemma}[Ken Brown's lemma]
+Suppose $\mathscr{M}$ a model category and $\mathscr{D}$ a category with a subcategory of weak equivalences that satisfy the two out of three-axiom. Suppose $F:\mathscr{M} \to \mathscr{D}$ a functor that takes trivial cofibrations between cofibrant objects to weak equivalences. Then $F$ takes all weak equivalences between cofibrant objects to weak equivalences.
+\end{lemma}
+\noindent In particular, a left Quillen functor, as introduced in \cref{def:quillen_pair}, preserves weak equivalences between cofibrant objects.
+
+This is a minimal introduction, but we need to mention simplicial sets as an example. Chapter 3 in Hovey's book is a good reference \cite[pp.~73-100]{Ho99}.
+\begin{example}\label{ex:simplicial_sets_standard_model_str}
+As a $Set$-valued functor category, the category $sSet$ is bicomplete. Simplicial sets is a model category due to Quillen \cite{Qu67}, where the weak equivalences are the maps whose geometric realizations are weak homotopy equivalences, the cofibrations are the degreewise injective maps and the fibrations are the Kan fibrations. Recall that a map is a Kan fibration if and only if it has the RLP with respect to all inclusions $\Lambda ^k[n]\to \Delta [n]$ of horns.
+\end{example}
+\noindent The model category $sSet$ has particularly nice properties, some of which carry over to $nsSet$. We will discuss these properties in \cref{ch:htythy}.
+
+Note that the fact that the weak equivalences, cofibrations and fibrations are subcategories has nothing to do with the limit axiom. Therefore, in hindsight and for simplicity one could include in the \cref{def:model_category} the assumption that they are subcategories, as Hovey does \cite[Def.~1.1.3, p.~3]{Ho99}. More importantly, it is often useful to be able to refer to the structure of a model category.
+\begin{definition}\label{def:model_structure}
+A \textbf{model structure} on a category $\mathscr{C}$ is a collection of three subcategories of $\mathscr{C}$ named weak equivalences, fibrations and cofibrations such that the two-out-of-three axiom, the retract axiom, the lifting axiom and the factorization axiom are all satisfied.
+\end{definition}
+\noindent Thus a model category is a bicomplete category equipped with a model structure.
+
+The axioms of \cref{def:model_structure} are quite strong --- so strong that the subcategories of weak equivalences and fibrations determine the subcategory of cofibrations \cite[Prop.~7.2.3~(1), p.~111]{Hi03} and that the weak equivalences and cofibrations determine the fibrations \cite[Prop.~7.2.3~(3), p.~111]{Hi03}. In fact, any two of the three classes of weak equivalences, fibrations and cofibrations determine the third \cite[Prop.~7.2.7, p.~112]{Hi03}.
+
+The model structure on $sSet$ described in \cref{ex:simplicial_sets_standard_model_str} is the \textbf{standard model structure} on simplicial sets. The desire to be able to refer to the structure of a model category does in this monograph primarily come from the desire to lift the standard model structure on $sSet$, which we will do in \cref{ch:htythy}. Moreover, a bicomplete category may be a model category in strictly more than one way.
+\begin{example}\label{ex:sd^n_model_structures}
+Let $n\geq 0$. A map $f$ of $sSet$ is a \textbf{weak equivalence} if it is a weak equivalence in the standard model structure. Let $Sd^n$ denote the $n$-fold iteration of the Kan subdivision $Sd:sSet\to sSet$ and $Ex^n$ the $n$-fold iteration of the its adjoint $Ex$, sometimes referred to as Extension. A map $p$ of $sSet$ is an \textbf{$Ex^n$-fibration} if $Ex^n(p)$ is a Kan fibration. A map $i$ is a \textbf{$Sd^n$-cofibration} if $(i,p)$ is a lifting-extension pair for every $Ex^n$-fibration $p$. These choices of weak equivalences, fibrations and cofibrations form a model structure on the category $sSet$ \cite[Thm.~1.1~(1), p.~274]{Ja13}. It is referred to as the \textbf{$Sd^n$-model structure}.
+\end{example}
+\noindent We will refer to the $Sd^2$-model structure on $sSet$ in \cref{ch:htythy}. The main result in that chapter does not depend on the $Sd^2$-model structure, however the $Sd^2$-model structure is part of the story that we tell.
+
+
+
+\subsection{Quillen pairs}
+
+There is a notion of morphism between model categories. To introduce it, recall the precise definition of adjoint functors.
+\begin{definition}\label{def:adjoint_functors}
+Let $F:\mathscr{C}\to \mathscr{D}$ be a functor. A functor $U:\mathscr{D} \to \mathscr{C}$ is said to be \textbf{right adjoint to $F$} if there is a natural bijection
+\[\varphi :\mathscr{D} (Fc,d)\xrightarrow{\cong } \mathscr{C} (c,Ud).\]
+Then we also say that $F$ is \textbf{left adjoint to $U$} and that
+\[F:\mathscr{C} \rightleftarrows \mathscr{D} :U\]
+is an \textbf{adjunction}. We always display the arrow of the left adjoint above or on the left hand side of the arrow of the right adjoint.
+
+The \textbf{unit} of the adjunction is the natural map $\eta _c=\varphi (id_{Fc})$ to which $\varphi$ takes the identity $id_{Fc}:Fc\to Fc$. Similarly, the \textbf{counit} of the adjunction is the natural map $\epsilon _d=\varphi ^{-1}(id_{Ud})$ to which $\varphi$ takes the identity $id_{Ud}$.
+\end{definition}
+\noindent Note that the unit and counit are such that the triangles
+\begin{displaymath}
+\xymatrix{
+& UF(Ud)=U(FUd) \ar[dr]^{U(\epsilon _d)} \\
+Ud \ar[ur]^{\eta _{Ud}} \ar[rr]_{id_{Ud}} && Ud
+}
+\end{displaymath}
+and
+\begin{displaymath}
+\xymatrix{
+& F(UFc)=FU(Fc) \ar[dr]^{\epsilon _{Fc}} \\
+Fc \ar[ur]^{F(\eta _{c})} \ar[rr]_{id_{Fc}} && Fc
+}
+\end{displaymath}
+commute. Conversely, a natural bijection $\varphi :\mathscr{D} (Fc,d)\to \mathscr{C} (c,Ud)$ can be recovered from a pair of natural maps $\eta _c:c\to UFc$ and $\epsilon _d:FUd\to d$ such that the two triangles above commute. We can let $(F,U)$ or $(F,U,\varphi )$ denote the adjunction depending on whether we will make use of the natural bijection $\varphi$.
+
+Two adjunctions
+\[F:\mathscr{C} \rightleftarrows \mathscr{D} :U\]
+and
+\[G:\mathscr{D} \rightleftarrows \mathscr{E} :V\]
+can be composed, with their unit-counit pairs giving rise to a unit and a counit of the composite adjunction $(GF,UV)$ in an intuitive way. Sometimes we think of an adjunction as a morphism going in the direction of the left adjoint. In that case, we only display one arrow.
+
+Adjunctions that respect the model structures in the following sense are considered morphisms of model categories, although the model categories do not themselves form a category.
+\begin{definition}\label{def:quillen_pair}
+Assume that $\mathscr{M}$ and $\mathscr{N}$ are model categories and that we have an adjunction
+\[F:\mathscr{M} \rightleftarrows \mathscr{N} :U.\]
+We say that the adjunction is a \textbf{Quillen pair} if $F$ preserves cofibrations and trivial cofibrations. In this case we say that $F$ is a \textbf{left Quillen functor} and that $U$ is a \textbf{right Quillen functor}.
+\end{definition}
+\noindent Note that $F$ preserves cofibrations and trivial cofibrations if and only if $U$ preserves fibrations and trivial fibrations \cite[Prop.~8.5.3, p.~153]{Hi03}. This explains why \cref{def:quillen_pair} is written the way it is. One can think of a Quillen pair as a morphism in the direction of the left adjoint so that we can let it be denoted $(F,U):\mathscr{M} \to \mathscr{N}$.
+
+As an example, for $n\geq 0$, the adjunction $(Sd^n,Ex^n):sSet\to sSet$ is a Quillen pair \cite[Thm.~1.1~(2), p.~274]{Ja13} when its source has the standard model structure and when its target has the $Sd^n$-model structure described in \cref{ex:sd^n_model_structures}. For $n=0$ the statement is just the trivial statement that the identity adjunction is a Quillen pair when the source and target are both equipped with the standard model structure. The Quillen pair $(Sd^n,Ex^n)$ is even a Quillen equivalence \cite[Thm.~1.1~(2), p.~274]{Ja13}. See \cref{def:quillen_equivalence} below.
+
+The relationship between the homotopy categories of the source and target of a Quillen pair is investigated by means of the following notion.
+\begin{definition}\label{def:quillen_equivalence}
+Suppose $(F,U,\varphi ):\mathscr{M} \to \mathscr{N}$ a Quillen pair. We say that the Quillen pair $(F,U,\varphi )$ is a \textbf{Quillen equivalence} if $f:FX\to Y$ is a weak equivalence in $\mathscr{N}$ if and only if $\varphi (f):X\to UY$ is a weak equivalence in $\mathscr{M}$ whenever $X$ is a cofibrant object of $\mathscr{M}$ and $Y$ is a fibrant object of $\mathscr{N}$.
+\end{definition}
+
+
+\subsection{The homotopy category}
+
+Homotopy theory predates model structures. Our intention here is mainly to give an outline of a procedure to establish the homotopy category using a model structure. We point out that a model structure guarantees that the homotopy category is a category in the usual sense, or in other words that the maps between two objects form a set when having formally inverted the subcategory of weak equivalences. Furthermore, it is indicated how a model structure from the outset yields some basic understanding of the maps of the localized category.
+
+This subsection is meant to be benefit any reader that knows homotopy theory, but that is unfamiliar with model categories. In order to establish $nsSet$ as a model category Quillen equivalent to $sSet$, which we do in\cref{ch:htythy}, we will not actually need to discuss the homotopy categories of $sSet$ and $nsSet$. Hence the low level of detail. However, we will use most of the language from this section and some of the basic results regarding model categories, including \cref{prop:quillen_equivalence_equivalent_criteria} below.
+
+Now we display an outline of the construction of the homotopy category such as it is defined in Hovey's book \cite[Sec.~1.2, pp.~7--13]{Ho99}. For this purpose we provide each model category $\mathscr{M}$ with a choice of two functorial factorizations $(\alpha ,\beta )$ and $(\gamma ,\delta )$ as described by the factorization axiom. In effect, we adopt Hovey's notion of model category \cite[Def.~1.1.4]{Ho99} for the remainder of this section. Our reason for doing this is that it becomes simpler to introduce the homotopy category and total derived functors when there are canonical fibrant and cofibrant replacements.
+
+Objects of a model category can be suitably replaced by cofibrant and/or fibrant objects.
+\begin{definition}\label{def:categories_of_cofibrant_fibrant_objects}
+Suppose $\mathscr{M}$ a model category. Let $\mathscr{M} _f$ (resp. $\mathscr{M} _c$, $\mathscr{M} _{cf}$) denote the full subcategory of $\mathscr{M}$ whose objects are the fibrant (resp. cofibrant, fibrant and cofibrant) objects.
+
+For each object $X$ of $\mathscr{M}$, let $q_X=\beta (\emptyset \to X)$ be the trivial fibration from the \textbf{cofibrant replacement} $QX=s(q_X)$ of $X$ to the original object $X$. We say that $Q:\mathscr{M} \to \mathscr{M} _c$ is a \textbf{cofibrant replacement functor}. Similarly, we can let $r_X=\gamma (X\to *)$ be the trivial cofibration from the original object $X$ to the \textbf{fibrant replacement} $RX=t(r_X)$. We say that $R:\mathscr{M} \to \mathscr{M} _f$ is a \textbf{fibrant replacement functor}.
+\end{definition}
+\noindent Note that the maps $q_X$ and $r_X$ are natural.
+
+For the construction of the homotopy category, suppose $\mathscr{C}$ a category with a subcategory of weak equivalences $\mathscr{W}$. Form the free category $F(\mathscr{C} ,\mathscr{W} ^{-1})$ on the arrows of $\mathscr{C}$ and the reversals of the arrows of $\mathscr{W}$.
+
+An object of $F(\mathscr{C} ,\mathscr{W} ^{-1})$ is an object of $\mathscr{C}$ and a morphism of $F(\mathscr{C} ,\mathscr{W} ^{-1})$ is a finite string $(f_1,\dots ,f_n)$ of composable arrows where $f_i$ is either an arrow of $\mathscr{C}$ or the reversal $w^{-1}$ of an arrow $w$ of $\mathscr{W}$. The empty string at a particular object is the identity and composition is concatenation of strings. Let $Ho\, \mathscr{C}$ be the quotient of $F(\mathscr{C} ,\mathscr{W} ^{-1})$ by the relations $id_c=(id_c)$ for all objects $c$ of $\mathscr{C}$, $(f,g)=(g\circ f)$ for composable arrows $f$ and $g$ from $\mathscr{C}$ and $id_{s(w)}=(w,w^{-1})$ and $id_{t(w)}=(w^{-1},w)$ for morphisms $w$ from $\mathscr{W}$.
+
+The construction $Ho\, \mathscr{C}$ is not necessarily a category, for $Ho\, \mathscr{C} (c,c')$ may not be a set. However, one can prove that $Ho(\mathscr{M} _{cf})$ is a category when $\mathscr{M}$ is a model category and hence that $Ho\, \mathscr{M}$ is a category. This follows from a standard alternative construction, which we outline below. See \cite[Sec.~1.2, pp.~7--13]{Ho99} for more details.
+
+Mimic the notion of homotopy of two parallel maps between spaces in the following way.
+\begin{definition}
+Assume that $\mathscr{M}$ is a model category. Take two maps $B\to X$ in $\mathscr{M}$, denoted $f$ and $g$.
+\begin{enumerate}
+\item{A \textbf{cylinder object} for $B$ is a factorization of the fold map $B\sqcup B\xrightarrow{\nabla } B$ into a cofibration $B\sqcup B\xrightarrow{i_0+i_1} B'$ followed by a weak equivalence $B'\xrightarrow{s} B$.}
+\item{A factorization of the diagonal map $X\xrightarrow{\triangle } X\times X$ into a weak equivalence $X\xrightarrow{r} X'$ followed by a fibration $X'\xrightarrow{(p_0,p_1)} X\times X$ is a \textbf{path object} for $X$.}
+\item{A \textbf{left homotopy} from $f$ to $g$ is a map $H:B'\to X$ for some cylinder object $B'$ for $B$ such that $Hi_0=f$ and $Hi_1=g$. We say that $f$ and $g$ are \textbf{left homotopic}, written $f\sim _lg$, if there is a left homotopy from $f$ to $g$.}
+\item{A \textbf{right homotopy} from $f$ to $g$ is a map $K:B\to X'$ for some path object $X'$ such that $p_0K=f$ and $p_1K=g$. We say that $f$ and $g$ are \textbf{right homotopic}, written $f\sim _rg$, if there is a right homotopy from $f$ to $g$.}
+\item{We say that $f$ and $g$ are \textbf{homotopic}, written $f\sim g$, if they are both left and right homotopic.}
+\item{The map $f$ is a \textbf{homotopy equivalence} if there is a map $h:X\to B$ such that $hf\sim id_B$ and $fh\sim id_X$.}
+\end{enumerate}
+\end{definition}
+\noindent Consider the behavior of the relations $\sim _l$ and $\sim _r$ when the the source or target is not arbitrary.
+\begin{proposition}\label{prop:list_of_properties_left_right_homotopy_rel}
+Suppose $\mathscr{M}$ a model category. Consider two maps $B\to X$ of $\mathscr{M}$, denoted $f$ and $g$.
+\begin{enumerate}
+\item{If $f\sim _lg$ and $h:X\to Y$, then $hf\sim _lhg$.}
+\item{If $X$ is fibrant, $f\sim _lg$ and $h:A\to B$, then $fh\sim _lgh$.}
+\item{If $B$ is cofibrant, then left homotopy is an equivalence relation on $\mathscr{M} (B,X)$.}
+\item{If $B$ is cofibrant and $h:X\to Y$ is a trivial fibration or a weak equivalence of fibrant objects, then $h$ induces an isomorphism
+\[\mathscr{M} (B,X)/\sim _l\xrightarrow{\cong } \mathscr{M} (B,Y)/\sim _l.\]
+}
+\item{If $B$ is cofibrant, then $f\sim _lg$ implies $f\sim _rg$. Furthermore, if $X'$ is a path object for $X$, then there is a right homotopy $K:B\to X'$ from $f$ to $g$.}
+\end{enumerate}
+\end{proposition}
+\noindent Any statement regarding model categories have dual statement. The results of \cref{prop:list_of_properties_left_right_homotopy_rel} are no exceptions.
+
+The reason that a statement regarding model categories have a dual statement is that the axioms of \cref{def:model_structure} are self dual \cite[Rem.~1.1.7, p.~4]{Ho99}, as we now briefly explain. Note that the limit axiom is self dual. For if a category $\mathscr{C}$ is complete, then the opposite category $\mathscr{C} ^{op}$ is cocomplete and if $\mathscr{C}$ is cocomplete, then $\mathscr{C} ^{op}$ is complete. Thus $\mathscr{C} ^{op}$ is bicomplete if $\mathscr{C}$ is.
+
+Similarly, the other four axioms of \cref{def:model_category} are self dual, meaning that if there is a model structure on some category $\mathscr{C}$, then $\mathscr{C} ^{op}$ has a model structure in which $f^{op}$ is a weak equivalence (resp. fibration, cofibration) if and only if $f$ is a weak equivalence (resp. cofibration, fibration). If $\mathscr{M}$ is a model category, then we let $D\mathscr{M}$ denote the opposite category with the model structure described above. Note that $D^2\mathscr{M} =\mathscr{M}$. Thus a statement regarding model categories can be applied to $D\mathscr{M}$ and then yields a dual statement in $\mathscr{M}$.
+
+The following are two consequences of \cref{prop:list_of_properties_left_right_homotopy_rel}.
+\begin{corollary}
+Suppose $\mathscr{M}$ a model category, $B$ a cofibrant object of $\mathscr{M}$ and $X$ a fibrant object of $\mathscr{M}$. Then the left homotopy relation and the right homotopy relation coincide and are equivalence relations on $\mathscr{M} (B,X)$. Furthermore, if $f\sim g$ for maps $B\to X$, denoted $f$ and $g$, then there is a left homotopy $H:B'\to X$ from $f$ to $g$ using any cylinder object $B'$ for $B$.
+\end{corollary}
+\begin{corollary}\label{cor:standard_homotopy_category_construction}
+Suppose $\mathscr{M}$ a model category. The homotopy relation on the morphisms of $\mathscr{M} _{cf}$ is an equivalence relation and is compatible with composition.
+\end{corollary}
+\noindent \cref{cor:standard_homotopy_category_construction} says that $\mathscr{M} _{cf}/\sim$ is a category.
+
+The canonical functor $\mathscr{M} _{cf} \to \mathscr{M} _{cf}/\sim$ inverts the homotopy equivalences in $\mathscr{M} _{cf}$. In fact, the canonical functor $\mathscr{M} _{cf} \to \mathscr{M} _{cf}/\sim$ inverts the weak equivalences as the next result shows.
+\begin{proposition}\label{prop:weak_eq_coincide_homotopy_eq_cf}
+Suppose $\mathscr{M}$ a model category. Then a map of $\mathscr{M} _{cf}$ is a weak equivalence if and only if it is a homotopy equivalence.
+\end{proposition}
+\noindent This result concludes our outline of the standard construction of $\mathscr{M} _{cf}/\sim$.
+
+Next, we explain that $\mathscr{M} _{cf}/\sim$ is merely an alternative construction of $Ho(\mathscr{M} _{cf})$. The construction $Ho(\mathscr{M} _{cf})$ has the universal property that if a functor $F:\mathscr{M} _{cf}\to \mathscr{D}$ takes weak equivalences to isomorphisms, then it factors uniquely through $\mathscr{M} _{cf}\to Ho(\mathscr{M} _{cf})$. Thus when one factors the canonical functor $\mathscr{M} _{cf} \to Ho(\mathscr{M} _{cf})$ through a unique map
+\[\mathscr{M} _{cf}/\sim \to Ho(\mathscr{M} _{cf}),\]
+one can argue that the unique map is in fact an isomorphism. Essentially, this is the proof that $Ho(\mathscr{M} _{cf})$ is a category.
+
+The construction $Ho(\mathscr{M} _{cf})$ can be compared with the homotopy category $Ho\, \mathscr{M}$. The commutative diagram 
+\begin{displaymath}
+\xymatrix{
+&&& Ho(\mathscr{M} _c) \ar[dr] \\
+\mathscr{M} _{cf} \ar[dr] \ar[rr] && Ho(\mathscr{M} _{cf}) \ar[ur] \ar[dr] && Ho\, \mathscr{M} \\
+& \mathscr{M} _{cf}/\sim \ar[ur]_\cong && Ho(\mathscr{M} _f) \ar[ur]
+}
+\end{displaymath}
+displays the isomorphism between the two alternative constructions of $Ho(\mathscr{M} _{cf})$ and furthermore the functors that are induced by the inclusions of the full subcategories whose objects are the cofibrant, fibrant and cofibrant and fibrant objects of $\mathscr{M}$. The fibrant and cofibrant replacement functors yield inverse equivalences to these functors.
+
+The following statement is the fundamental theorem regarding model categories.
+\begin{theorem}
+Suppose $\mathscr{M}$ a model category. The inclusion $\mathscr{M} _{cf}\to \mathscr{M}$ induces an equivalence
+\[\mathscr{M} _{cf}/\sim \xrightarrow{\cong } Ho(\mathscr{M} _{cf})\to Ho\, \mathscr{M}\]
+of categories. The functor $\mathscr{M} \to Ho\, \mathscr{M}$ identifies two maps whenever they are left or right homotopic. Each map sent to an isomorphism by the latter functor is a weak equivalence of $\mathscr{M}$.
+\end{theorem}
+\noindent Note that the theorem is stated with more details in Hovey's book \cite[Thm.~1.2.10, p.~13]{Ho99}.
+
+
+
+
+\subsection{Total derived functors}
+
+A Quillen pair $(F,U):\mathscr{M} \to \mathscr{N}$ gives rise to an adjunction \cite[Sec.~1.3, pp.~16--19]{Ho99} of the homotopy categories \cite[Sec.~1.2, pp.~7--13]{Ho99}. The \textbf{total left derived functor} $LF:Ho\, \mathscr{M} \to Ho\, \mathscr{N}$ is the composite
+\[Ho\, \mathscr{M} \xrightarrow{Ho\, Q} Ho(\mathscr{M} _c)\xrightarrow{Ho\, F} Ho\, \mathscr{N}\]
+and the \textbf{total right derived functor} $RU:Ho\, \mathscr{N} \to Ho\, \mathscr{M}$ is the composite
+\[Ho\, \mathscr{N} \xrightarrow{Ho\, R} Ho(\mathscr{N} _f)\xrightarrow{Ho\, F} Ho\, \mathscr{M} .\]
+Here, the symbols $Q$ and $R$ denote the cofibrant and fibrant replacement functors introduced earlier. In fact, a Quillen pair $(F,U)$ is a Quillen equivalence if and only if $(LF,RU)$ is an adjoint equivalence of categories \cite[Prop.~1.3.13, p.~19]{Ho99}. Note that it is the choice of functorial factorizations for each model category that simplifies the theory compared with Hirschhorn's treatment.
+
+Historically, much of the interest in simplicial sets come from the possibility to model spaces. 
+\begin{example}\label{ex:quillen_equivalence_top_sset}
+Geometric realization is the left Quillen functor of a Quillen equivalence with topological spaces, where the weak equivalences of topological spaces are the weak homotopy equivalences and the fibrations are the Serre fibrations. Recall that the singular functor is right adjoint to geometric realization. If $X$ is a space, then the set of $n$-simplices is the set of maps $\Delta ^n\to X$ from the standard $n$-simplex, which is the subspace of $\mathbb{R} ^{n+1}$ consisting of the points $(t_0,\dots t_n)$ with $t_i\geq 0$, $0\leq i\leq n$, and $\sum \limits _{i=0}^nt_i=1$.
+\end{example}
+\noindent Chapter 3 in Hovey's book is a reference for \cref{ex:quillen_equivalence_top_sset} \cite[pp.~73-100]{Ho99}.
+
+In \cref{sec:structure}, we shall make use of the following characterizations \cite[Cor.~1.3.16, p.~21]{Ho99} of Quillen equivalences.
+\begin{proposition}\label{prop:quillen_equivalence_equivalent_criteria}
+Suppose $(F,U):\mathscr{M} \to \mathscr{N}$ a Quillen pair. The following three statements are equivalent.
+\begin{enumerate}
+\item{The Quillen pair (F,U) is a Quillen equivalence.}
+\item{
+	\begin{enumerate}
+	\item{The left Quillen functor $F$ reflects weak equivalences between cofibrant objects of $\mathscr{M}$, meaning $f:X\to X'$ is a weak equivalence if $F(f)$ is a weak equivalence whenever $X$ and $X'$ are cofibrant, and}
+	\item{for every fibrant object $Y$ of $\mathscr{N}$, the composite
+	\[FQUY\xrightarrow{F(q_{UY})} FUY\xrightarrow{\epsilon _Y} Y\]
+	is a weak equivalence of $\mathscr{N}$.}
+	\end{enumerate}
+}
+\item{
+	\begin{enumerate}
+	\item{The right Quillen functor $U$ reflects weak equivalences between fibrant objects of $\mathscr{N}$, meaning $g:Y\to Y'$ is a weak equivalence if $U(g)$ is a weak equivalence whenever $Y$ and $Y'$ are fibrant, and}
+	\item{for every cofibrant object $X$ of $\mathscr{M}$, the map
+	\[X\xrightarrow{\eta _X} UFX\xrightarrow{U(r_{FX})} URFX\]
+	is a weak equivalence of $\mathscr{M}$.}
+	\end{enumerate}
+}
+\end{enumerate}
+\end{proposition}
+\noindent The characterizations above are by some considered the most useful tool to check whether a Quillen pair is a Quillen equivalence. We will use \cref{prop:quillen_equivalence_equivalent_criteria} in \cref{sec:inverse}.
+
+
